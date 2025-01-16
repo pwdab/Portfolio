@@ -87,21 +87,21 @@
 
 ## 주요 기능 및 구조도
 ### 1. 게임 Session 생성 및 참가   
-  ![기능 1 이미지](https://drive.google.com/file/d/1jVBa3dCJhJxv7CQeX3a4mquuJeI22EQH/view?usp=drive_link)
+  ![기능 1 이미지](features1.gif)
 - **설명**: Host가 Host Game 버튼을 눌러 게임 Session을 생성하고, 다른 유저는 Find Session 버튼을 눌러 생성된 게임 Session을 검색한다. 참가하고자 하는 Sesison에 Join Session 버튼을 눌러 참가할 수 있다.
 - **주요 기술**: UMG와 블루프린트를 이용한 MainMenu UI와 Session UI 제작
 - **구조도**:
   ![기능 1 구조도](features-structure1.png)
 
 ### 2. 캐릭터 시선 처리  
-  ![기능 2 이미지](https://drive.google.com/file/d/1H6ZNgdyCVtFkFr9rsBic2rTTVrz1o64d/view?usp=drive_link)
+  ![기능 2 이미지](features2.gif)
 - **설명**: 마우스로 캐릭터의 시선을 조종할 수 있다. 이때 일정 각도 이상으로 캐릭터의 고개가 회전하면 몸통이 따라 움직이게 된다. 또한 카메라와 캐릭터 사이의 거리가 일정 이하로 가까워지면 캐릭터의 투명도가 증가해 시야를 넓힌다.
 - **주요 기술**: RPC를 활용한 캐릭터의 Rotator 동기화
 - **구조도**:
   ![기능 2 구조도](features-structure2.png)
 
 ### 3. 게임 흐름 제어와 데이터 동기화   
-  ![기능 3 이미지]([features3.gif](https://drive.google.com/file/d/1e99pJy-rh62VXfrXppeuWaoZ70SQ2OvU/view?usp=drive_link))
+  ![기능 3 이미지](features3.gif)
 - **설명**: 한 유저가 단어를 선택하면 선택한 단어를 기억한다. 그리고 일정 시간 이후 다른 유저가 제시어를 유추하는데, 이때 선택한 단어와 유추한 단어가 일치하면 정답으로 판정하고 다음 스테이지를 진행한다. 일치하지 않으면 오답으로 판정하고 Life를 차감한다. 이 과정에서 유저 간 데이터가 동기화 되어야 한다.
 - **주요 기술**: GameMode를 통한 게임 흐름 제어, 변수 Replication을 통한 데이터 동기화
 - **구조도**:

@@ -62,21 +62,21 @@
 │   ├── PS_Words.h                          # DataTable의 Row를 커스텀으로 정의하기 위한 구조체
 ├── Content/
 │   ├── Blueprints/
-│       ├── Grabup/
-│           ├── BP_Grabup.uasset            # PS_BaseGrabUp을 상속 받는 Base 애셋
-│           ├── BP_Grabup_*.uasset          # BP_Grabup을 상속 받아 구현한 애셋들
-│       ├── Pickup/
-│           ├── BP_Pickup_Weapon.uasset     # (미사용) PS_BasePickup을 상속 받는 Base 애셋
-│           ├── BP_Pickup_*.uasset          # (미사용) BP_Pickup_Weapon을 상속 받아 구현한 애셋들
-│       ├── UI/
-│           ├── MainMenu/
-│               ├── WB_MainMenu_*.uasset    # 메인 메뉴에서 사용하는 UI들
-│           ├── Session/
-│               ├── WB_Session_*.uasset     # 세션 메뉴에서 사용하는 UI들
-│       ├── WB_*_HUD.uasset                 # 게임 내에서 사용하는 UI들
+│   │   ├── Grabup/
+│   │   │   ├── BP_Grabup.uasset            # PS_BaseGrabUp을 상속 받는 Base 애셋
+│   │   │   ├── BP_Grabup_*.uasset          # BP_Grabup을 상속 받아 구현한 애셋들
+│   │   ├── Pickup/
+│   │   │   ├── BP_Pickup_Weapon.uasset     # (미사용) PS_BasePickup을 상속 받는 Base 애셋
+│   │   │   ├── BP_Pickup_*.uasset          # (미사용) BP_Pickup_Weapon을 상속 받아 구현한 애셋들
+│   │   ├── UI/
+│   │   │   ├── MainMenu/
+│   │   │   │   ├── WB_MainMenu_*.uasset    # 메인 메뉴에서 사용하는 UI들
+│   │   │   ├── Session/
+│   │   │   │   ├── WB_Session_*.uasset     # 세션 메뉴에서 사용하는 UI들
+│   │   ├── WB_*_HUD.uasset                 # 게임 내에서 사용하는 UI들
 │   ├── Inputs/
-│       ├── IA_*.uasset                     # 각 Action에 대한 값과 트리거를 설정
-│       ├── IMC_Default.uasset              # InputAction과 키를 매핑
+│   │   ├── IA_*.uasset                     # 각 Action에 대한 값과 트리거를 설정
+│   │   ├── IMC_Default.uasset              # InputAction과 키를 매핑
 ```
                               
 <br>

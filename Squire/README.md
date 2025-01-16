@@ -71,6 +71,8 @@
 │       ├── UI/
 │           ├── MainMenu/
 │               ├── WB_MainMenu_*.uasset    # 메인 메뉴에서 사용하는 UI들
+│           ├── Session/
+│               ├── WB_Session_*.uasset     # 세션 메뉴에서 사용하는 UI들
 │       ├── WB_*_HUD.uasset                 # 게임 내에서 사용하는 UI들
 │   ├── Inputs/
 │       ├── IA_*.uasset                     # 각 Action에 대한 값과 트리거를 설정

@@ -88,22 +88,28 @@
 ## 주요 기능 및 구조도
 ### 1. 게임 Session 생성 및 참가   
   ![기능 1 이미지](features1.gif)
-- **설명**: Host가 Host Game 버튼을 눌러 게임 Session을 생성하고, 다른 유저는 Find Session 버튼을 눌러 생성된 게임 Session을 검색한다. 참가하고자 하는 Sesison에 Join Session 버튼을 눌러 참가할 수 있다.
-- **주요 기술**: UMG와 블루프린트를 이용한 MainMenu UI와 Session UI 제작
+- **설명**:   
+  Host가 Host Game 버튼을 눌러 게임 Session을 생성하고, 다른 유저는 Find Session 버튼을 눌러 생성된 게임 Session을 검색한다. 참가하고자 하는 Sesison에 Join Session 버튼을 눌러 참가할 수 있다.
+- **주요 기술**:   
+  UMG와 블루프린트를 이용한 MainMenu UI와 Session UI 제작
 - **구조도**:
   ![기능 1 구조도](features-structure1.png)
 
 ### 2. 캐릭터 시선 처리  
   ![기능 2 이미지](features2.gif)
-- **설명**: 마우스로 캐릭터의 시선을 조종할 수 있다. 이때 일정 각도 이상으로 캐릭터의 고개가 회전하면 몸통이 따라 움직이게 된다. 또한 카메라와 캐릭터 사이의 거리가 일정 이하로 가까워지면 캐릭터의 투명도가 증가해 시야를 넓힌다.
-- **주요 기술**: RPC를 활용한 캐릭터의 Rotator 동기화
+- **설명**:   
+  마우스로 캐릭터의 시선을 조종할 수 있다. 이때 일정 각도 이상으로 캐릭터의 고개가 회전하면 몸통이 따라 움직이게 된다. 또한 카메라와 캐릭터 사이의 거리가 일정 이하로 가까워지면 캐릭터의 투명도가 증가해 시야를 넓힌다.
+- **주요 기술**:   
+  RPC를 활용한 캐릭터의 Rotator 동기화
 - **구조도**:
   ![기능 2 구조도](features-structure2.png)
 
 ### 3. 게임 흐름 제어와 데이터 동기화   
   ![기능 3 이미지](features3.gif)
-- **설명**: 한 유저가 단어를 선택하면 선택한 단어를 기억한다. 그리고 일정 시간 이후 다른 유저가 제시어를 유추하는데, 이때 선택한 단어와 유추한 단어가 일치하면 정답으로 판정하고 다음 스테이지를 진행한다. 일치하지 않으면 오답으로 판정하고 Life를 차감한다. 이 과정에서 유저 간 데이터가 동기화 되어야 한다.
-- **주요 기술**: GameMode를 통한 게임 흐름 제어, 변수 Replication을 통한 데이터 동기화
+- **설명**:   
+  한 유저가 단어를 선택하면 선택한 단어를 기억한다. 그리고 일정 시간 이후 다른 유저가 제시어를 유추하는데, 이때 선택한 단어와 유추한 단어가 일치하면 정답으로 판정하고 다음 스테이지를 진행한다. 일치하지 않으면 오답으로 판정하고 Life를 차감한다. 이 과정에서 유저 간 데이터가 동기화 되어야 한다.
+- **주요 기술**:   
+  GameMode를 통한 게임 흐름 제어, 변수 Replication을 통한 데이터 동기화
 - **구조도**:
   ![기능 3 구조도](features-structure3.png)
 
@@ -114,35 +120,164 @@
 <br>
 
 ## 이슈 및 해결 과정
-### 1. 이슈 1   
-  ![이슈 1 이미지](issues1.png)
-- **문제**: 이슈 1 설명
-- **해결 과정**:
-  1. `file.cpp` 과정 1
-  2. `file.cpp` 과정 2
-     ```c++
-     // this is c++ code.
-     ```
+### 1. 캐릭터의 시선 처리   
+  ![이슈 1 이미지](issues1.gif)
+  (좌 : 서버, 우 : 클라이언트)
+- **문제**:   
+  마우스로 캐릭터의 시선을 움직이는 기능을 구현하고, 캐릭터의 몸통 또한 시선을 따라가는 기능을 구현하는 도중 클라이언트 측 플레이어의 화면에서 서버 플레이어의 회전이 비정상적으로 출력됐다.
+- **원인**:   
+  PS_Character.cpp의 코드에서 단순히 SetActorRotation 메서드를 사용한 것이 문제였다. 로컬 변수의 값이 변경되었을 때, 서버는 클라이언트에게 레플리케이션을 통해 값이 변경되었음을 알릴 수 있다. 하지만 클라이언트는 서버에게 RPC를 사용하지 않으면 값이 변경되었음을 알릴 수 없다. 따라서 클라이언트의 Rotation이 변경되었음에도 서버는 변경되지 않았다고 판단해 항상 원래의 값으로 돌아가 이러한 문제가 발생한 것이다.
+  ```c++
+  PS_Character.cpp
+  void APS_Character::Look(const FInputActionValue& Value)
+  {
+  ...
+    // delta_angle이 70도보다 커지면 캐릭터의 몸체도 같이 움직여 delta_angle이 70도보다 커지는 것을 방지
+    // 오른쪽으로 회전
+    if (delta_angle > 70)
+    {
+      ActorYaw += delta_angle - 70.0f;
+      FRotator new_rotator = GetActorRotation();
+      new_rotator.Yaw = ActorYaw;
+      SetActorRotation(new_rotator);
+    }
+    // 왼쪽으로 회전
+    else if (delta_angle < -70)
+    {
+      ActorYaw += delta_angle + 70.0f;
+      FRotator new_rotator = GetActorRotation();
+      new_rotator.Yaw = ActorYaw;
+      SetActorRotation(new_rotator);
+    }
+  ...
+  }
+  ```
+- **해결**:   
+  클라이언트 플레이어의 Rotation 값이 변경되면 변경된 Rotation 값을 인자로 RPC를 요청하도록 수정했다. 이때 서버는 접속한 모든 클라이언트에게 변경된 Rotation 값으로 SetActorRotation 메서드를 호출하도록 해 모든 플레이어의 회전이 정상적으로 출력된다.
+  ```c++
+  PS_Character.cpp
+  void APS_Character::Look(const FInputActionValue& Value)
+  {
+  ...
+    // delta_angle이 70도보다 커지면 캐릭터의 몸체도 같이 움직여 delta_angle이 70도보다 커지는 것을 방지
+    // 오른쪽으로 회전
+    if (delta_angle > 70)
+    {
+      ActorYaw += delta_angle - 70.0f;
+      FRotator new_rotator = GetActorRotation();
+      new_rotator.Yaw = ActorYaw;
+      RotateActor(new_rotator);
+      bIsTurning = true;
+    }
+    // 왼쪽으로 회전
+    else if (delta_angle < -70)
+    {
+      ActorYaw += delta_angle + 70.0f;
+      FRotator new_rotator = GetActorRotation();
+      new_rotator.Yaw = ActorYaw;
+      RotateActor(new_rotator);
+      bIsTurning = true;
+    }
+    // delta_angle이 70도보다 커지면 캐릭터의 몸체를 카메라 방향으로 천천히 돌린다
+    if (FMath::Abs(ControlYaw - ActorYaw) <= 10.0f)
+    {
+      bIsTurning = false;
+    }
+    else
+    {
+      RotateActor(FMath::RInterpTo(GetActorRotation(), FRotator(GetActorRotation().Pitch, Controller->GetControlRotation().Yaw, GetActorRotation().Roll), GetWorld()->GetDeltaSeconds(), 5.0f));
+    }
+  ...
+  }
+    
+  void APS_Character::RotateActor(FRotator NewRotator)
+  {
+     RotateActor_Server(NewRotator);
+  }
+  void APS_Character::RotateActor_Server_Implementation(FRotator NewRotator)
+  {
+     RotateActor_Client(NewRotator);
+  }
+  void APS_Character::RotateActor_Client_Implementation(FRotator NewRotator)
+  {
+     SetActorRotation(NewRotator);
+  }
+  ```
 
-### 2. 이슈 2
-  ![이슈 2 이미지](issues2.png)
-- **문제**: 이슈 2 설명
-- **해결 과정**:
-  1. `file.cpp` 과정 1
-  2. `file.cpp` 과정 2
-     ```c++
-     // this is c++ code.
-     ```
+### 2. 타이머의 남은 시간 동기화
+  ![이슈 2 이미지](issues2.gif)
+- **문제**:   
+  서버 플레이어는 타이머의 남은 시간이 정상적으로 출력되지만, 클라이언트 플레이어는 타이머의 남은 시간이 비정상적으로 출력됐다.
+- **원인**:   
+  타이머를 ms 단위까지 표시하기 위해 int32가 아닌 FTimerHandle을 사용한 것이 문제였다. 타이머 UI의 남은 시간을 새로 설정할 때마다 GameMode.cpp에서 GetWorldTimerManager().SetTimer 메서드를 이용해 FTimerHandle를 초기화했다. 그리고 초기화한 FTimerHandle을 PlayerController가 HUD에 전달해 모든 클라이언트에 타이머를 출력하고자 했다. 하지만 GameMode는 서버에만 존재하므로 클라이언트에서 접근할 수 없었고, 따라서 클라이언트의 FTimerHandle은 값이 항상 null이었다.
+  ```c++
+  PS_GameMode.cpp
+  void APS_GameMode::StartGameAfter5Seconds()
+  {
+      // 타이머 설정
+      GetWorldTimerManager().SetTimer(StartGameTimerHandle, this, &APS_GameMode::OnStartGameAfter5SecondsComplete, GameStartWaitTime, false);
+  
+      // 모든 Player의 Stage UI 수정
+      for (FConstPlayerControllerIterator It = GetWorld()->GetPlayerControllerIterator(); It; It++)
+      {
+          APS_PlayerController* PS_PlayerController = Cast<APS_PlayerController>(It->Get());
+          if (PS_PlayerController)
+          {
+              PS_PlayerController->ReadyStartGame(StartGameTimerHandle);
+          }
+      }
+  }
+  ```
 
-### 3. 이슈 3
-  ![이슈 3 이미지](issues3.png)
-- **문제**: 이슈 3 설명
-- **해결 과정**:
-  1. `file.cpp` 과정 1
-  2. `file.cpp` 과정 2
-     ```c++
-     // this is c++ code.
-     ```
+  ```c++
+  PS_PlayerController.cpp
+  void APS_PlayerController::ReadyStartGame_Implementation(FTimerHandle TimerHandle)
+  {
+      APS_HUD* PS_HUD = Cast<APS_HUD>(GetHUD());
+      if (PS_HUD)
+      {
+          PS_HUD->SetStageTimer(TimerHandle);
+          PS_HUD->ShowTimer();
+      }
+  }
+  ```
+
+- **해결**:   
+  GameMode에서 PlayerController에게 FTimerHandle를 전달하지 않고, 남은 시간을 계산한 float 값을 전달하도록 수정했다. GameMode는 서버에 존재하므로 모든 PlayerController에게 float 값을 복사해 전달할 수 있었다.
+  ```c++
+  PS_GameMode.cpp
+  void APS_GameMode::StartGameAfter5Seconds()
+  {
+      // 타이머 설정
+      GetWorldTimerManager().SetTimer(StartGameTimerHandle, this, &APS_GameMode::OnStartGameAfter5SecondsComplete, GameStartWaitTime, false);
+  
+      // 모든 Player의 Stage UI 수정
+      for (FConstPlayerControllerIterator It = GetWorld()->GetPlayerControllerIterator(); It; It++)
+      {
+          APS_PlayerController* PS_PlayerController = Cast<APS_PlayerController>(It->Get());
+          if (PS_PlayerController)
+          {
+              PS_PlayerController->ReadyStartGame(GetWorld()->GetTimerManager().GetTimerRemaining(StartGameTimerHandle));
+          }
+      }
+  }
+  ```
+
+  ```c++
+  PS_PlayerController.cpp
+  void APS_PlayerController::ReadyStartGame_Implementation(float RemainingTime)
+  {
+      APS_HUD* PS_HUD = Cast<APS_HUD>(GetHUD());
+      if (PS_HUD)
+      {
+          PS_HUD->SetStageTimer(RemainingTime);
+          PS_HUD->ShowTimer();
+      }
+  }
+  ```
+- **예상되는 문제**:   
+  위의 해결 방안은 레이턴시나 패킷 손실을 고려하지 않은 코드이다. 따라서 서버에서 출력되는 남은 시간과 클라이언트에서 출력되는 남은 시간이 서로 일치하지 않을 가능성이 여전히 남아 있다. 추후 예상되는 문제를 모두 해결한 코드로 수정해야 할 것이다.
+
 
 <br>
 

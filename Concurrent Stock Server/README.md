@@ -49,7 +49,7 @@
 <br>
 
 ## 주요 기능 및 구조도
-  ![기능 이미지](features.png)
+  ![기능 이미지](images/features.png)
 ### 1. Client의 서버 연결
 - **설명**:   
   Client가 Server에 연결하고 싶다는 의사를 표시하면, Server는 이를 연결하고 유지해야 한다.
@@ -303,9 +303,11 @@
 
 ## 데모
 - **스크린샷**:   
-  ![task_1 데모 스크린샷](demo-task_1.png)   
+  ![task_1 데모 스크린샷](images/demo-task_1.png)   
   (좌: Server, 우: Client)   
   4개의 Client가 Server에 접속하여 여러 요청을 처리하는 모습이다.   
-  ![task_2 데모 스크린샷](demo-task_2.png)   
+  ![task_2 데모 스크린샷](images/demo-task_2.png)   
   (좌: Server, 우: Client)   
   4개의 Client가 Server에 접속하여 여러 요청을 처리하는 모습이다.
+- **보고서**:
+  ![보고서](docs/보고서.docx)

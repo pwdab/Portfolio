@@ -87,48 +87,49 @@
 
 ## 주요 기능 및 구조도
 ### 1. 게임 Session 생성 및 참가   
-  ![기능 1 이미지](features1.gif)
+  ![기능 1 이미지](images/features1.gif)
 - **설명**:   
   Host가 Host Game 버튼을 눌러 게임 Session을 생성하고, 다른 유저는 Find Session 버튼을 눌러 생성된 게임 Session을 검색한다. 참가하고자 하는 Sesison에 Join Session 버튼을 눌러 참가할 수 있다.
 - **주요 기술**:   
   UMG와 블루프린트를 이용한 MainMenu UI와 Session UI 제작
 - **구조도**:   
-  ![기능 1 구조도 1](features1-flowchart1.png)
+  ![기능 1 구조도 1](images/features1-flowchart1.png)
   ① Host Game 버튼을 누르면 PlayerController는 LAN 상에서 Listen Server로 서버를 열고, 로비 맵으로 이동한다.   
   ② Join Game 버튼을 누르면 Find_Session_UI를 화면에 출력한다.   
   ③ Quit 버튼을 누르면 게임을 종료한다.   
-  ![기능 1 구조도 2](features1-flowchart2.png)   
+  ![기능 1 구조도 2](images/features1-flowchart2.png)   
   ④ Find Session 버튼을 누르면 Session Scroll Box의 모든 요소들을 지우고, LAN 상에서 Session을 최대 10개 검색해 화면에 출력한다.   
   ⑤ Back 버튼을 누르면 Main_Menu_UI를 화면에 출력한다.   
-  ![기능 1 구조도 3](features1-flowchart3.png)   
+  ![기능 1 구조도 3](images/features1-flowchart3.png)   
   ⑥ Join 버튼을 누르면 Session에 참가한다. 만약 참가에 실패하면, 기존의 Session을 지우고 다시 시도한다.   
 
 ### 2. 캐릭터 시선 처리  
-  ![기능 2 이미지](features2.gif)
+  ![기능 2 이미지](images/features2.gif)
 - **설명**:   
   마우스로 캐릭터의 시선을 조종할 수 있다. 이때 일정 각도 이상으로 캐릭터의 고개가 회전하면 몸통이 따라 움직이게 된다. 또한 카메라와 캐릭터 사이의 거리가 일정 이하로 가까워지면 캐릭터의 투명도가 증가해 시야를 넓힌다.
 - **주요 기술**:   
   RPC를 활용한 캐릭터의 Rotator 동기화
 - **구조도**:
-  ![기능 2 구조도 1](features2-flowchart1.png)
+  ![기능 2 구조도 1](images/features2-flowchart1.png)
   ① PS_Character.cpp의 Look() 메서드에서 ControlRotation를 이용해 HeadRotator 변수를 초기화한다. 이때 캐릭터의 머리가 과도하게 꺾이지 않도록 각도에 제한을 두었다.   
   ② PS_Character.cpp의 SetHeadRotator() 메서드에서 RPC을 통해 모든 클라이언트의 PS_AnimInstance에게 HeadRotator 변수의 값을 전달한다. RPC를 사용했기 때문에 모든 클라이언트에게 동일한 값이 전달된다.   
   ③ 모든 클라이언트의 PS_AnimInstance.cpp의 SetControlRotation() 메서드에서 전달받은 인자의 값을 이용해 Head 본의 Rotation을 바꾼다. 이를 통해 캐릭터의 고개가 항상 카메라가 바라보는 방향과 일치하게 된다.   
-  ![기능 2 구조도 2](features2-flowchart2.png)
+  ![기능 2 구조도 2](images/features2-flowchart2.png)
   ④ PS_Character.cpp의 Tick() 메서드에서 캐릭터의 몸통 Rotation(빨간색 화살표) 값과 캐릭터의 고개 Rotation(노란색 화살표) 값의 차이를 계산한다.   
   ⑤ 몸통 Rotation 값과 캐릭터의 고개 Rotation 값이 일정한 각도보다 커지게 되면 캐릭터의 몸통을 캐릭터의 고개가 바라보는 방향으로 회전시킨다.
-  ![기능 2 구조도 3](features2-flowchart3.png)
+  ![기능 2 구조도 3](images/features2-flowchart3.png)
   ⑦ BP_Character 블루프린트의 틱 이벤트 노드에서 카메라와 캐릭터 사이의 거리를 계산한다. 이때 거리가 일정 이하로 가까워지면 Local에서 컨트롤 되는 Character의 DitherAlpha 값을 카메라와 캐릭터 사이의 거리를 선형 변환한 값으로 바꾼다. 이때 DitherAlpha는 캐릭터의 Material에서 투명도를 조절하는 값이다.
 
 ### 3. 게임 흐름 제어와 데이터 동기화   
-  ![기능 3 이미지](features3.gif)
+  ![기능 3 이미지](images/features3.gif)
 - **설명**:   
   한 유저가 단어를 선택하면 선택한 단어를 기억한다. 그리고 일정 시간 이후 다른 유저가 제시어를 유추하는데, 이때 선택한 단어와 유추한 단어가 일치하면 정답으로 판정하고 다음 스테이지를 진행한다. 일치하지 않으면 오답으로 판정하고 Life를 차감한다. 이 과정에서 유저 간 데이터가 동기화 되어야 한다.
 - **주요 기술**:   
   GameMode를 통한 게임 흐름 제어, 변수 Replication을 통한 데이터 동기화
 - **구조도**:
-  ![기능 3 구조도](features-structure3.png)
-
+  ![기능 3 구조도](images/features3-flowchart1.png)
+  ① PS_GameMode.cpp에서 상황에 따라 각 PlayerController에 맞는 UI를 출력하도록 요청한다. 이때 RPC를 활용해 PlayerController에 UI를 정확히 출력하도록 했고, 타이머의 남은 시간이 정확하게 전달될 수 있도록 했다.   
+  ② 플레이어가 제시어를 선택하기 전, PS_GameMode.cpp에서 제시어를 저장하고 있는 변수인 SelectedWord를 초기화하도록 요청한다. 이때 RPC를 활용해 모든 클라이언트가 동일한 SelectedWord 변수에 대해 초기화를 진행하고 동기화하도록 했다.
 <br>
 
 ---
@@ -136,8 +137,13 @@
 <br>
 
 ## 이슈 및 해결 과정
+### 0. 기획 변경
+  ![최초 기획서](docs/24.09.01_최초_기획서.pdf)
+  - 최초에 작성 되었던 기획서를 바탕으로 개발을 한 지 한달 반 정도 지났을 무렵, 멘토로부터 해당 프로젝트의 기획을 변경했으면 좋겠다는 요청을 받았다. 이 프로젝트는 3개월의 개발 시간을 목표로 시작한 프로젝트였다. 하지만 최초 기획서에서 기획한 게임이 3개월 내에 개발할 볼륨의 게임이 아니라 1년 혹은 그 이상의 개발 기간을 필요로 할 것이라는 우려를 전달받았다.
+  ![수정한 기획서](docs/2차_기획서.pptx)
+  - 이후 팀원과 상의하여 지금까지 개발한 기능의 일부를 폐기하더라도 기획을 틀어 지금의 캐주얼 게임을 개발하게 되었다. 결국 1개월이라는 짧은 시간 안에 해당 게임을 개발했고, 시간이 더 많았더라면 더 많은 기능을 구현했을 것이라는 아쉬움이 남아 있다.
 ### 1. 캐릭터의 시선 처리   
-  ![이슈 1 이미지](issues1.gif)   
+  ![이슈 1 이미지](images/issues1.gif)   
   (좌 : 서버, 우 : 클라이언트)
 - **문제**:   
   마우스로 캐릭터의 시선을 움직이는 기능을 구현하고, 캐릭터의 몸통 또한 시선을 따라가는 기능을 구현하는 도중 클라이언트 측 플레이어의 화면에서 다른 플레이어의 회전이 비정상적으로 출력됐다.
@@ -221,7 +227,7 @@
   ```
 
 ### 2. 타이머의 남은 시간 동기화
-  ![이슈 2 이미지](issues2.gif)   
+  ![이슈 2 이미지](images/issues2.gif)   
   (좌 : 서버, 우 : 클라이언트)
 - **문제**:   
   서버 플레이어는 타이머의 남은 시간이 정상적으로 출력되지만, 클라이언트 플레이어는 타이머의 남은 시간이 비정상적으로 출력됐다.

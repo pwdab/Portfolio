@@ -8,7 +8,7 @@
 - **개발 환경**   
   Linux 4.4.0   
 - **프로젝트 목적**   
-  여러 클라이언트들의 동시 접속 및 서비스를 위한 Concurrent Stock Server를 Event-driven과 Thread-based 두 가지 방식으로 구축
+  서강대학교의 멀티코어프로그래밍 과목을 수강하며 학습한 내용을 바탕으로, 여러 클라이언트들의 동시 접속 및 서비스를 위한 Concurrent Stock Server를 Event-driven과 Thread-based 두 가지 방식으로 구축
 - **주요 기술 및 도구**   
   - Concurrent Programming (C)
 - **개발 내용**:

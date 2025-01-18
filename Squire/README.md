@@ -92,8 +92,16 @@
   Host가 Host Game 버튼을 눌러 게임 Session을 생성하고, 다른 유저는 Find Session 버튼을 눌러 생성된 게임 Session을 검색한다. 참가하고자 하는 Sesison에 Join Session 버튼을 눌러 참가할 수 있다.
 - **주요 기술**:   
   UMG와 블루프린트를 이용한 MainMenu UI와 Session UI 제작
-- **구조도**:
-  ![기능 1 구조도](features-structure1.png)
+- **구조도**:   
+  ![기능 1 구조도 1](features1-flowchart1.png)
+  ① Host Game 버튼을 누르면 PlayerController는 LAN 상에서 Listen Server로 서버를 열고, 로비 맵으로 이동한다.   
+  ② Join Game 버튼을 누르면 Find_Session_UI를 화면에 출력한다.   
+  ③ Quit 버튼을 누르면 게임을 종료한다.   
+  ![기능 1 구조도 2](features1-flowchart2.png)   
+  ④ Find Session 버튼을 누르면 Session Scroll Box의 모든 요소들을 지우고, LAN 상에서 Session을 최대 10개 검색해 화면에 출력한다.   
+  ⑤ Back 버튼을 누르면 Main_Menu_UI를 화면에 출력한다.   
+  ![기능 1 구조도 3](features1-flowchart3.png)   
+  ⑥ Join 버튼을 누르면 Session에 참가한다. 만약 참가에 실패하면, 기존의 Session을 지우고 다시 시도한다.   
 
 ### 2. 캐릭터 시선 처리  
   ![기능 2 이미지](features2.gif)
@@ -102,7 +110,15 @@
 - **주요 기술**:   
   RPC를 활용한 캐릭터의 Rotator 동기화
 - **구조도**:
-  ![기능 2 구조도](features-structure2.png)
+  ![기능 2 구조도 1](features2-flowchart1.png)
+  ① PS_Character.cpp의 Look() 메서드에서 ControlRotation를 이용해 HeadRotator 변수를 초기화한다. 이때 캐릭터의 머리가 과도하게 꺾이지 않도록 각도에 제한을 두었다.   
+  ② PS_Character.cpp의 SetHeadRotator() 메서드에서 RPC을 통해 모든 클라이언트의 PS_AnimInstance에게 HeadRotator 변수의 값을 전달한다. RPC를 사용했기 때문에 모든 클라이언트에게 동일한 값이 전달된다.   
+  ③ 모든 클라이언트의 PS_AnimInstance.cpp의 SetControlRotation() 메서드에서 전달받은 인자의 값을 이용해 Head 본의 Rotation을 바꾼다. 이를 통해 캐릭터의 고개가 항상 카메라가 바라보는 방향과 일치하게 된다.   
+  ![기능 2 구조도 2](features2-flowchart2.png)
+  ④ PS_Character.cpp의 Tick() 메서드에서 캐릭터의 몸통 Rotation(빨간색 화살표) 값과 캐릭터의 고개 Rotation(노란색 화살표) 값의 차이를 계산한다.   
+  ⑤ 몸통 Rotation 값과 캐릭터의 고개 Rotation 값이 일정한 각도보다 커지게 되면 캐릭터의 몸통을 캐릭터의 고개가 바라보는 방향으로 회전시킨다.
+  ![기능 2 구조도 3](features2-flowchart3.png)
+  ⑦ BP_Character 블루프린트의 틱 이벤트 노드에서 카메라와 캐릭터 사이의 거리를 계산한다. 이때 거리가 일정 이하로 가까워지면 Local에서 컨트롤 되는 Character의 DitherAlpha 값을 카메라와 캐릭터 사이의 거리를 선형 변환한 값으로 바꾼다. 이때 DitherAlpha는 캐릭터의 Material에서 투명도를 조절하는 값이다.
 
 ### 3. 게임 흐름 제어와 데이터 동기화   
   ![기능 3 이미지](features3.gif)

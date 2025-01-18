@@ -1,22 +1,21 @@
-# 프로젝트 이름
+# OpenGL 3D Viewing
 
 <br>
 
 ## 프로젝트 소개
 - **개발 기간**   
-  YYYY.MM.DD ~ YYYY.MM.DD
+  2023.05.15 ~ 2023.05.22   
 - **개발 환경**   
-  사용된 OS, IDE, 배포 환경 등을 명시
+  Visual Studio 2022   
+  OpenGL 4.6   
 - **프로젝트 목적**   
-  프로젝트의 목적을 간략히 설명
-- **주요 기술 및 도구**   
-  - **Frontend**: React
-  - **Backend**: Node.js, Express
-  - **Database**: MongoDB
-  - **Version Control**: Git, GitHub
-- **기여 내용**:
-  - 역할: 백엔드 API 설계 및 데이터베이스 모델링
-  - 기여율: 70%
+    서강대학교의 기초컴퓨터그래픽스 과목을 수강하며 학습한 내용을 바탕으로, OpenGL에서 3D Viewing을 진행해봄으로써 래스터화 기반의 실시간 랜더링 파이프라인에 관한 이해도를 높인다.
+- **주요 기술 및 도구**
+  - OpenGL 4.6
+  - BistroExterior Texture PS GLSL (3D 장면 데이터)
+- **개발 내용**   
+    CallBack.cpp, Camera.cpp, DrawScene.cpp 작성
+
 
 <br>
 
@@ -26,13 +25,27 @@
 
 ## 프로젝트 구조
 ```plaintext
-├── directory/
-│   ├── file        # UI 컴포넌트
-│   ├── file        # 주요 페이지
-│   ├── file        # 메인 애플리케이션 파일
-├── file            # 정적 파일 (HTML, 이미지 등)
-├── README.md       # 프로젝트 설명 파일
-├── file            # 의존성 관리 파일
+├── data/
+│   ├── dynamic_objects/    # 동적 3D 오브젝트들을 저장
+│   ├── static_objects/     # 정적 3D 오브젝트들을 저장
+│   ├── Data.h
+│   ├── Data.cpp            # 해당 objects를 읽어오는 read_geometry() 함수 정의
+├── geometry/               # BistroExterior Texture PS GLSL 3D 장면 데이터
+├── src/
+│   ├── CallBack.h
+│   ├── CallBack.cpp        # 콜백 함수 정의
+│   ├── Camera.h
+│   ├── Camera.cpp          # 카메라 이동 및 회전 관련 함수 정의
+│   ├── DrawScene.h
+│   ├── DrawScene.cpp       # OpenGL 초기화 관련 함수 정의
+│   ├── Geometry.h
+│   ├── Geometry.cpp        # Geometry 관련 행렬과 변수 선언
+│   ├── LoadScene.h
+│   ├── LoadScene.cpp       # Scene을 불러오거나 메모리를 해제
+│   ├── main.cpp            # LoadScene을 이용해 Scene을 불러옴
+│   ├── Shader.h
+│   ├── Shader.cpp          # 쉐이더 관련 함수 정의
+│   ├── ShadingInfo.h       # 빛과 머티리얼 관련 구조체 변수 선언
 ```
 
 <br>
@@ -42,15 +55,18 @@
 <br>
 
 ## 주요 기능 및 구조도
-### 1. 기능 1   
-  ![기능 1 이미지](features1.png)
+### 1. 물체의 배치 및 움직임   
+  ![기능 1 이미지](images/features1.png)
 - **설명**: 기능 1 설명
 - **주요 기술**: 기능 1 주요 기술
 - **구조도**:
   ![기능 1 구조도](features-structure1.png)
 
-### 2. 기능 2   
-  ![기능 2 이미지](features2.png)
+### 2. 가상 카메라의 배치 및 조절 기능   
+  ![기능 2 이미지1](images/features2-1.gif)
+  ![기능 2 이미지2](images/features2-2.gif)
+  ![기능 2 이미지3](images/features2-3.gif)
+  ![기능 2 이미지4](images/features2-4.gif)
 - **설명**: 기능 2 설명
 - **주요 기술**: 기능 2 주요 기술
 - **구조도**:

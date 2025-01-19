@@ -216,7 +216,7 @@
 - **주요 기술**: OpenGL의 세상 좌표계와 눈 좌표계를 이용해 가상 카메라의 좌표를 변화시킨다.
 - **구현 방법**:   
   - 가상 카메라 배치   
-    ![기능 2 구현 방법1](images/features2-flowchart1.gif)
+    ![기능 2 구현 방법1](images/features2-flowchart1.png)
     ``` C
     //bistro left view
     //CAMERA_U : Bistro Static Camera 1 (Original View)

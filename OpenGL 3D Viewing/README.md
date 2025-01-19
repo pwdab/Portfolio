@@ -216,7 +216,8 @@
 - **주요 기술**: OpenGL의 세상 좌표계와 눈 좌표계를 이용해 가상 카메라의 좌표를 변화시킨다.
 - **구현 방법**:   
   - 가상 카메라 배치   
-    ![기능 2 구현 방법1](images/features2-flowchart1.png)
+    ![기능 2 구현 방법1](images/features2-flowchart1.png)   
+    OpenGL에서 세상 좌표계는 w로 표현하고, 맵에 고정되어 있는 좌표계이다. 눈 좌표계(카메라)는 e로 표현하고, 카메라의 좌표계이다. 세상 좌표계와 눈 좌표계를 이용해 위의 기능들을 구현할 수 있다.
     ``` C
     //bistro left view
     //CAMERA_U : Bistro Static Camera 1 (Original View)

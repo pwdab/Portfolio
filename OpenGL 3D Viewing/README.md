@@ -329,6 +329,4 @@
 <br>
 
 ## 데모
-- **YouTube 링크**: [프로젝트 데모 보기](https://www.youtube.com/watch?v=video-id)
-- **스크린샷**:
-  ![데모 스크린샷](link-to-screenshot.png)
+- **YouTube 링크**: [프로젝트 데모 보기](https://www.youtube.com/watch?v=TaTx-juZHFY)

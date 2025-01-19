@@ -329,4 +329,5 @@
 <br>
 
 ## 데모
-- **YouTube 링크**: [프로젝트 데모 보기](https://www.youtube.com/watch?v=TaTx-juZHFY)
+- **YouTube 링크**:   
+[![프로젝트 데모 보기](https://img.youtube.com/vi/TaTx-juZHFY/0.jpg)](https://www.youtube.com/watch?v=TaTx-juZHFY)

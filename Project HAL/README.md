@@ -234,54 +234,293 @@
 
 ### 2. 상호작용   
   ![기능 2 이미지](images/features2.gif)
-- **설명**: 기능 2 설명
-- **주요 기술**: 기능 2 주요 기술
-- **구조도**:
-  ![기능 2 구조도](images/features-flowchart2.png)
+- **설명**:   
+  Entity는 맵에 배치되어 있는 다른 Entity들과 데미지를 주거나 받고, 객체를 파괴할 수 있는 등 여러 상호작용을 할 수 있다.
+- **주요 기술**:   
+  <p align="center">
+    <img src="images/features2-flowchart1.png" alt="기능 1 구현 방법 이미지1" width="24%">
+    <img src="images/features2-flowchart2.png" alt="기능 1 구현 방법 이미지2" width="24%">
+    <img src="images/features2-flowchart3.png" alt="기능 1 구현 방법 이미지3" width="24%">
+    <img src="images/features2-flowchart4.png" alt="기능 1 구현 방법 이미지4" width="24%">
+  </p>
+  
+  Entity에 부착되어 있는 Collider2D 컴포넌트를 활용한 상호작용
+- **구현 방법**:   
+  ``` C#
+  private void OnTriggerEnter2D(Collider2D collision)
+  {
+      if (is_alive && collision.gameObject.CompareTag(pickable_objects))
+      {
+          PickableObjects hitObject = collision.gameObject.GetComponent<PickableObjects>();
+  
+          if (hitObject != null)
+          {
+              bool should_disappear = false;
+  
+              //print("Hit: " + hitObject.GetName());
+              switch (hitObject.Item.ItemType)
+              {
+                  case Item.ItemTypeEnum.GRASS:
+                  case Item.ItemTypeEnum.STONE:
+                  case Item.ItemTypeEnum.COIN:
+                      should_disappear = inventory_ui.AddItem(hitObject);
+                      break;
+                  case Item.ItemTypeEnum.HEALTH:
+                      should_disappear = stat_manager.AdjustHP(hitObject.Quantity);
+                      break;
+              }
+  
+              if (should_disappear)
+              {
+                  Destroy(collision.gameObject, .0f);
+              }
+          }
+      }
+  }
+  ```
+  PlayerEntity는 OnTriggerEnter2D() 함수를 통해 다른 Entity의 Collider2D 컴포넌트와의 충돌을 감지할 수 있다. 특히 Tag를 비교해 충돌한 Entity의 성질을 감지할 수 있는데, 위의 코드에서는 PickableObject Entity만 감지하도록 작성했다.
+  ``` C#
+  void OnCollisionEnter2D(UnityEngine.Collision2D collision)
+  {
+      // 플레이어가 Enemy의 Collision에 들어감
+      if (collision.gameObject.CompareTag("Player"))
+      {
+          PlayerEntity player = collision.gameObject.GetComponent<PlayerEntity>();
+  
+          if (player.player_damage_coroutine == null)
+          {
+              // interval의 딜레이마다 damage_scale의 피해를 입힌다
+              player.player_damage_coroutine = StartCoroutine(player.DamageEntity(damage_scale, 1.0f, this.gameObject));
+          }
+      }
+  }
+  ```
+  플레이어가 몬스터한테 피격 당하는 경우는 EnemyEntity의 OnCollisionEnter2D() 함수를 활용해 구현했다. PlayerEntity가 EnemyEntity의 Collision에 충돌할 경우 1.0f의 간격으로 캐릭터에게 데미지를 가하는 코루틴을 재생하도록 했다.
 
 ### 3. 아이템 습득, 폐기 및 이동   
   ![기능 3 이미지](images/features3.gif)
-- **설명**: 기능 3 설명
-- **주요 기술**: 기능 3 주요 기술
-- **구조도**:
-  ![기능 3 구조도](images/features-flowchart3.png)
-
-<br>
-
----
-
-<br>
-
-## 이슈 및 해결 과정
-### 1. 이슈 1   
-  ![이슈 1 이미지](issues1.png)
-- **문제**: 이슈 1 설명
-- **해결 과정**:
-  1. `file.cpp` 과정 1
-  2. `file.cpp` 과정 2
-     ```c++
-     // this is c++ code.
-     ```
-
-### 2. 이슈 2
-  ![이슈 2 이미지](issues2.png)
-- **문제**: 이슈 2 설명
-- **해결 과정**:
-  1. `file.cpp` 과정 1
-  2. `file.cpp` 과정 2
-     ```c++
-     // this is c++ code.
-     ```
-
-### 3. 이슈 3
-  ![이슈 3 이미지](issues3.png)
-- **문제**: 이슈 3 설명
-- **해결 과정**:
-  1. `file.cpp` 과정 1
-  2. `file.cpp` 과정 2
-     ```c++
-     // this is c++ code.
-     ```
+- **설명**:   
+  플레이어는 맵에 드랍된 아이템을 주워 인벤토리에 저장할 수 있다. 또한 인벤토리에 저장되어 있는 아이템을 클릭-드래그를 통해 순서를 바꿀 수도 있고, 맵에 드랍할 수도 있다.
+- **주요 기술**:
+  배열과 prefab을 통한 인벤토리와 기능 구현
+- **구현 방법**:   
+  ``` C#
+  public void CreateSlots()
+  {
+      if (slotPrefab != null)
+      {
+          for (int i = 0; i < numSlots; i++)
+          {
+              GameObject newSlot = Instantiate(slotPrefab);
+              newSlot.name = "ItemSlot_" + i;
+  
+              // gameObject.transform.GetChild(0)은 InventoryBackground
+              newSlot.transform.SetParent(inventory_background.transform);
+  
+              slots[i] = newSlot;
+  
+              // newSlot.transform.GetChild(1)은 ItemImage
+              itemImages[i] = newSlot.transform.GetChild(1).GetComponent<Image>();
+          }
+  
+          duplicatedSlot = Instantiate(slotPrefab);
+          duplicatedSlot.name = "ItemDuplicateSlot";
+          duplicatedSlot.transform.SetParent(inventory_background.transform);
+          duplicatedSlot_RectTransform = duplicatedSlot.GetComponent<RectTransform>();
+          duplicatedSlot_Image = duplicatedSlot.transform.GetChild(1).GetComponent<Image>();
+          duplicatedSlot_QtyText = duplicatedSlot.transform.GetComponentsInChildren<TMP_Text>()[0];
+          // Disable Slot Background Image
+          duplicatedSlot.transform.GetChild(0).gameObject.GetComponent<Image>().enabled = false;
+          // Disable Slot Tray Image
+          duplicatedSlot.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().enabled = false;
+      }
+  }
+  ```
+  먼저 numSlots만큼 InventorySlot을 만들고 slots[] 배열에 순서대로 저장한다. 그리고 또 하나의 InventorySlot을 만들고 이를 duplicatedSlot 변수에 저장한다.
+  ``` C#
+  public bool AddItem(PickableObjects itemToAdd)
+  {
+      for (int i = 0; i < items.Length; i++)
+      {
+          if (items[i] != null && items[i].ItemType == itemToAdd.Item.ItemType && itemToAdd.Item.Stackable == true)
+          {
+              InventorySlotUI slotScript = slots[i].GetComponent<InventorySlotUI>();
+              TMP_Text qtyText = slotScript.transform.GetComponentsInChildren<TMP_Text>()[0];
+  
+              if (qtyText != null)
+              {
+                  //qtyText.enabled = true;
+                  int qty = int.Parse(qtyText.text);
+                  qty += itemToAdd.Quantity;
+                  qtyText.text = qty.ToString();
+              }
+  
+              return true;
+          }
+      }
+      for (int i = 0; i < items.Length; i++)
+      {
+          if (items[i] == null)
+          {
+              items[i] = Instantiate(itemToAdd.Item);
+              itemImages[i].sprite = itemToAdd.Item.Sprite;
+              itemImages[i].enabled = true;
+              InventorySlotUI slotScript = slots[i].GetComponent<InventorySlotUI>();
+              TMP_Text qtyText = slotScript.transform.GetComponentsInChildren<TMP_Text>()[0];
+  
+              if (qtyText != null)
+              {
+                  qtyText.enabled = true;
+                  int qty = itemToAdd.Quantity;
+                  qtyText.text = qty.ToString();
+              }
+  
+              return true;
+          }
+      }
+      return false;
+  }
+  ```
+  인벤토리에 아이템을 추가하는 것은 간단하다.
+  1. 인벤토리를 순회하며 추가하려는 아이템이 이미 존재하는지 확인한다.
+  2. 만약 존재한다면 해당 위치에 추가하려는 아이템의 수량을 더한다.
+  3. 만약 존재하지 않는다면 인벤토리를 다시 순회하며 비어 있는 마지막 위치에 아이템을 추가한다.
+  4. 만약 인벤토리가 하나도 비어 있지 않다면 false를 반환한다.
+  ``` C#
+  public bool MoveItem(int targetSlotNum)
+  {
+      GameObject src = duplicatedSlot;
+      TMP_Text src_qty_text = duplicatedSlot_QtyText;
+      Image src_image = duplicatedSlot_Image;
+  
+      GameObject dst = slots[targetSlotNum];
+      TMP_Text dst_qty_text = dst.transform.GetComponentsInChildren<TMP_Text>()[0];
+      Image dst_image = itemImages[targetSlotNum];
+  
+      int quantity = int.Parse(duplicatedSlot_QtyText.text);
+      // Destination Slot is empty
+      if (items[targetSlotNum] != null)
+      {
+          //Debug.Log("item.objectname = " + items[targetSlotNum].ObjectName + ", item.sprite = " + items[targetSlotNum].Sprite + "items.stackable" + items[targetSlotNum].Stackable + "items.itemType" + items[targetSlotNum].ItemType);
+      }
+          
+      if (AddItemAt(new PickableObjects(items[clicked_slot], quantity), targetSlotNum))
+      {
+          //Debug.Log("Slot is empty");
+          if (int.Parse(slots[clicked_slot].transform.GetComponentsInChildren<TMP_Text>()[0].text) - quantity != 0)
+          {
+              return DeleteItem(clicked_slot, quantity);
+          }
+          else
+          {
+              ClearSlot(clicked_slot);
+              ClearSlot(numSlots);
+              return true;
+          }
+      }
+      // Destination Slot is not empty
+      else
+      {
+          //SwapSlot();
+          // Swap
+          if (int.Parse(src_qty_text.text) == quantity)
+          {
+              GameObject srcSlots = slots[clicked_slot];
+              string srcQty = srcSlots.transform.GetComponentsInChildren<TMP_Text>()[0].text;
+              PickableObjects srcTmp = new PickableObjects(items[clicked_slot], int.Parse(srcQty));
+              ClearSlot(clicked_slot);
+  
+              GameObject dstSlots = slots[targetSlotNum];
+              string dstQty = dstSlots.transform.GetComponentsInChildren<TMP_Text>()[0].text;
+              PickableObjects dstTmp = new PickableObjects(items[targetSlotNum], int.Parse(dstQty));
+              ClearSlot(targetSlotNum);
+  
+              AddItemAt(srcTmp, targetSlotNum);
+              AddItemAt(dstTmp, clicked_slot);
+  
+              ClearSlot(numSlots);
+  
+              return true;
+          }
+          else
+          {
+              /*
+              Item tmpItems = new Item(items[targetSlotNum]);
+              Image tmpItemImages = itemImages[targetSlotNum];
+              GameObject tmpSlots = slots[targetSlotNum];
+  
+              items[targetSlotNum] = items[targetSlotNum];
+              itemImages[targetSlotNum] = itemImages[targetSlotNum];
+              slots[targetSlotNum] = slots[targetSlotNum];
+  
+              items[targetSlotNum] = tmpItems;
+              itemImages[targetSlotNum] = tmpItemImages;
+              slots[targetSlotNum] = tmpSlots;
+  
+  
+              */
+              ClearSlot(numSlots);
+              
+              return true;
+          }
+  
+      }
+      return false;
+  }
+  ```
+  인벤토리 내의 선택한 아이템의 위치를 바꾸는 것은 생각보다 복잡했다.
+  1. 먼저 클릭해 선택한 아이템을 duplicatedSlot에 복사한다.
+  2. 목적지 슬롯이 비어있다면 단순히 아이템을 추가하고, 선택했던 슬롯의 아이템은 삭제한다.
+  3. 만약 목적지 슬롯이 비어있지 않다면 두 슬롯의 아이템을 서로 바꾸고, duplicatedSlot을 삭제한다.
+ 
+  ``` C#
+  private bool DropItem()
+  {
+      // Drop Clicked Slot's Item
+      string prefab_path = null;
+      GameObject prefab_to_spawn;
+  
+      prefab_path = "Prefabs/";
+  
+      switch (itemToDrop.ItemType)
+      {
+          case Item.ItemTypeEnum.COIN:
+              prefab_path += "CoinObject";
+              break;
+          case Item.ItemTypeEnum.GRASS:
+              prefab_path += "Glass_PickableObject";
+              break;
+          case Item.ItemTypeEnum.STONE:
+              prefab_path += "Stone_PickableObject";
+              break;
+      };
+  
+      if (prefab_path != null)
+      {
+          prefab_to_spawn = Resources.Load<GameObject>(prefab_path);
+  
+          PlayerEntity player = GameObject.FindWithTag("Player").GetComponent<PlayerEntity>();
+          Vector2 playerPos = player.GetPos();
+          //Vector2 mousePos = player.GetMousePos().normalized;
+          Vector3 spawnPos = new Vector3(playerPos.x, playerPos.y - 0.5f, 0.0f);
+          GameObject spawnObject = Instantiate(prefab_to_spawn, spawnPos, Quaternion.identity);
+          PickableObjects spawnItem = spawnObject.GetComponent<PickableObjects>();
+          spawnItem.Quantity = int.Parse(duplicatedSlot_QtyText.text);
+          //Debug.Log("spawnItem.Quantity = " + spawnItem.Quantity);
+  
+          // Clear Slot
+          ClearSlot(clicked_slot);
+          ClearSlot(numSlots);
+  
+          return true;
+      }
+      return false;
+  }
+  ```
+  아이템을 월드에 드랍하는 것은 duplicatedSlot을 활용해 어렵지 않게 구현했다.
+  1. 선택한 아이템의 prefab을 불러온다.
+  2. prefab의 수량을 조절하고, 월드에 스폰한다.
+  3. duplicatedSlot을 삭제한다.
 
 <br>
 

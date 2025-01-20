@@ -302,6 +302,7 @@
 <br>
 
 ## 데모
+- **[보고서](docs/보고서.pdf)**
 - **스크린샷**:   
   ![task_1 데모 스크린샷](images/demo-task_1.png)   
   (좌: Server, 우: Client)   
@@ -309,5 +310,4 @@
   ![task_2 데모 스크린샷](images/demo-task_2.png)   
   (좌: Server, 우: Client)   
   4개의 Client가 Server에 접속하여 여러 요청을 처리하는 모습이다.
-- **보고서**:   
-  ![보고서](docs/보고서.pdf)
+

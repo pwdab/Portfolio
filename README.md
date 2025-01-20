@@ -34,6 +34,8 @@
 
 - **설명**:   
   Unity Game Engine을 이용하여 제작한 간단한 탑뷰 솔로플레이 2D 게임입니다.
+- **개발 환경 및 언어**:   
+  Unity 2022.3.21f, C#
 - **주요 기능 및 이미지**:
   - 캐릭터 이동 및 캔슬   
   <img src="Project%20HAL/images/features1.gif" alt="Project_HAL 이미지1" width="50%">
@@ -55,6 +57,8 @@
 
 - **설명**:   
   Unreal Game Engine을 이용하여 제작한 네트워크 기반의 3D 멀티플레이 게임입니다.
+- **개발 환경 및 언어**:   
+  Unreal 5.2.1, C++, Blueprint
 - **주요 기능 및 이미지**:
   - 게임 Session 생성 및 참가   
     <img src="Squire/images/features1.gif" alt="Squire 이미지1" width="50%">
@@ -83,6 +87,8 @@
 
 - **설명**:   
   OpenGL을 이용해 3D 맵에서의 오브젝트 및 가상 카메라를 배치하고 움직임을 구현했습니다.
+- **개발 환경 및 언어**:   
+  OpenGL 4.6, C++
 - **주요 기능 및 이미지**:
   - 물체의 배치 및 움직임   
   <p align="center">
@@ -110,6 +116,8 @@
 
 - **설명**:   
   C를 이용해 다중 Client의 요청을 처리하기 위한 Stock Server입니다.
+- **개발 환경 및 언어**:   
+  Linux 4.4.0, C
 - **주요 기능 및 이미지**:
   - 서버 접속 및 주식 정보 조회, 구매, 판매   
   <img src="Concurrent%20Stock%20Server/images/demo-task_1.png" alt="Concurrent Stock Server 이미지1" width="50%">

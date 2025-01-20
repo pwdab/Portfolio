@@ -26,12 +26,12 @@
 
 ## Project List
 다음은 본 포트폴리오에서 소개하는 저의 프로젝트들의 목록입니다.
-### [팀 프로젝트](#팀-프로젝트)
-1. [Project_HAL](#1-project_hal)
-2. [Squire](#2-squire)   
-### [개인 프로젝트](#개인-프로젝트)
-1. [OpenGL 3D Viewing](#1-opengl-3d-viewing)
-2. [Concurrent Stock Server](#2-concurrent-stock-server)   
+### 팀 프로젝트
+1-1. [Project_HAL](#1-project_hal)   
+1-2. [Squire](#2-squire)   
+### 개인 프로젝트
+2-1. [OpenGL 3D Viewing](#1-opengl-3d-viewing)   
+2-2. [Concurrent Stock Server](#2-concurrent-stock-server)   
   
 <br>
 
@@ -92,7 +92,7 @@
 
 <br>
 
-# 개인 프로젝트   
+# 개인 프로젝트
 수업을 듣거나 이론을 공부하며 진행한 개인 프로젝트들을 기록하는 곳입니다.   
 ## [1. OpenGL 3D Viewing](#project-list)  
 <img src="images/OpenGL_3D_Viewing.png" alt="OpenGL 3D Viewing" width="70%">

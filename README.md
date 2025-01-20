@@ -27,31 +27,48 @@
 
 <br>
 
-## 팀 프로젝트
+# 팀 프로젝트
 팀 단위로 진행한 게임 개발 프로젝트들을 기록하는 곳입니다.   
-### 1. Project_HAL  
-![Project_HAL](images/Project_HAL.png) 
+## 1. Project_HAL  
+<img src="images/Project_HAL.png" alt="Project_HAL" width="80%">
+
 - **설명**:   
   Unity Game Engine을 이용하여 제작한 간단한 탑뷰 솔로플레이 2D 게임입니다.
-- **주요 이미지**:   
-  ![Project_HAL 이미지1](Project%20HAL/images/features1.gif)
-  ![Project_HAL 이미지2](Project%20HAL/images/features2.gif)
-  ![Project_HAL 이미지3](Project%20HAL/images/features3.gif)
-- **More**:   
-  ![Project_HAL](https://github.com/pwdab/Portfolio/tree/main/Project%20HAL)   
-  [![Project_HAL Demo 영상](https://img.youtube.com/vi/RwQ4D90kwPk/0.jpg)](https://www.youtube.com/watch?v=RwQ4D90kwPk)
+- **주요 기능 및 이미지**:
+  - 캐릭터 이동 및 캔슬   
+  <img src="Project%20HAL/images/features1.gif" alt="Project_HAL 이미지1" width="50%">
+  
+  - 상호작용   
+  <img src="Project%20HAL/images/features2.gif" alt="Project_HAL 이미지2" width="50%">
+  
+  - 아이템 습득, 폐기 및 이동   
+  <img src="Project%20HAL/images/features3.gif" alt="Project_HAL 이미지3" width="50%">
 
-### 2. Squire   
-![Squire](images/Squire.png) 
+- **More**:   
+  - 이 프로젝트에 대해 더 자세한 내용은 [여기](https://github.com/pwdab/Portfolio/tree/main/Project%20HAL)에서 보실 수 있습니다.   
+  - 이 프로젝트에 대한 데모 영상은 아래의 유튜브 썸네일을 클릭해 보실 수 있습니다. 
+    [![Project_HAL Demo 영상](https://img.youtube.com/vi/RwQ4D90kwPk/0.jpg)](https://www.youtube.com/watch?v=RwQ4D90kwPk)
+
+
+## 2. Squire   
+<img src="images/Squire.png" alt="Squire" width="40%">
+
 - **설명**:   
   Unreal Game Engine을 이용하여 제작한 네트워크 기반의 3D 멀티플레이 게임입니다.
-- **주요 이미지**:   
-  ![Squire 이미지1](Squire/images/features1.gif)
-  ![Squire 이미지2](Squire/images/features2.gif)
-  ![Squire 이미지3](Squire/images/features3.gif)
+- **주요 기능 및 이미지**:
+  - 게임 Session 생성 및 참가   
+    <img src="Squire/images/features1.gif" alt="Squire 이미지1" width="50%">
+    
+  - 캐릭터 시선 처리   
+    <img src="Squire/images/features2.gif" alt="Squire 이미지1" width="50%">
+    
+  - 게임 흐름 제어와 데이터 동기화   
+    <img src="Squire/images/features3.gif" alt="Squire 이미지1" width="50%">
+
 - **More**:   
-  ![Squire](https://github.com/pwdab/Portfolio/tree/main/Squire)   
-  [![Squire 테스트 영상](https://img.youtube.com/vi/AIy8zwr5r8M/0.jpg)](https://www.youtube.com/watch?v=AIy8zwr5r8M)
+  - 이 프로젝트에 대해 더 자세한 내용은 [여기](https://github.com/pwdab/Portfolio/tree/main/Squire)에서 보실 수 있습니다.   
+  - 이 프로젝트에 대한 데모 영상은 아래의 유튜브 썸네일을 클릭해 보실 수 있습니다. 
+    [![Squire 테스트 영상](https://img.youtube.com/vi/AIy8zwr5r8M/0.jpg)](https://www.youtube.com/watch?v=AIy8zwr5r8M)
 
 <br>
 
@@ -59,38 +76,57 @@
 
 <br>
 
-## 개인 프로젝트   
+# 개인 프로젝트   
 수업을 듣거나 이론을 공부하며 진행한 개인 프로젝트들을 기록하는 곳입니다.   
-### 1.  Concurrent Stock Server 
-![Concurrent Stock Server](images/Concurrent_Stock_Server.png) 
-- **설명**:   
-  C를 이용해 다중 Client의 요청을 처리하기 위한 Stock Server입니다.
-- **주요 이미지**:   
-  ![Concurrent Stock Server 이미지1](Project%20HAL/images/features1.gif)
-  ![Concurrent Stock Server 이미지2](Project%20HAL/images/features2.gif)
-  ![Concurrent Stock Server 이미지3](Project%20HAL/images/features3.gif)
-- **More**:
-  ![Concurrent Stock Server]([features-structure1.png](https://github.com/pwdab/Portfolio/tree/main/Squire))
-  
-### 2. OpenGL 3D Viewing
-![OpenGL 3D Viewing](images/OpenGL_3D_Viewing.png) 
+## 1. OpenGL 3D Viewing
+<img src="images/OpenGL_3D_Viewing.png" alt="OpenGL 3D Viewing" width="70%">
+
 - **설명**:   
   OpenGL을 이용해 3D 맵에서의 오브젝트 및 가상 카메라를 배치하고 움직임을 구현했습니다.
-- **주요 이미지**:   
-  ![OpenGL 3D Viewing 이미지1](Project%20HAL/images/features1.gif)
-  ![OpenGL 3D Viewing 이미지2](Project%20HAL/images/features2.gif)
-  ![OpenGL 3D Viewing 이미지3](Project%20HAL/images/features3.gif)
+- **주요 기능 및 이미지**:
+  - 물체의 배치 및 움직임   
+  <p align="center">
+    <img src="OpenGL%203D%20Viewing/images/features1-1.gif" alt="OpenGL 3D Viewing 이미지1" width="49%">
+    <img src="OpenGL%203D%20Viewing/images/features1-2.gif" alt="OpenGL 3D Viewing 이미지2" width="49%">
+  </p>
+
+  - 가상 카메라의 배치 및 조절
+  <p align="center">
+    <img src="OpenGL%203D%20Viewing/images/features2-1.gif" alt="OpenGL 3D Viewing 이미지3" width="49%">
+    <img src="OpenGL%203D%20Viewing/images/features2-2.gif" alt="OpenGL 3D Viewing 이미지4" width="49%">
+  </p>
+  <p align="center">
+    <img src="OpenGL%203D%20Viewing/images/features2-3.gif" alt="OpenGL 3D Viewing 이미지5" width="49%">
+    <img src="OpenGL%203D%20Viewing/images/features2-4.gif" alt="OpenGL 3D Viewing 이미지6" width="49%">
+  </p>
+  
+- **More**:   
+  - 이 프로젝트에 대해 더 자세한 내용은 [여기](https://github.com/pwdab/Portfolio/tree/main/OpenGL%203D%20Viewing)에서 보실 수 있습니다.   
+  - 이 프로젝트에 대한 데모 영상은 아래의 유튜브 썸네일을 클릭해 보실 수 있습니다. 
+    [![OpenGL 3D Viewing Demo 영상](https://img.youtube.com/vi/TaTx-juZHFY/0.jpg)](https://www.youtube.com/watch?v=TaTx-juZHFY)
+
+## 2.  Concurrent Stock Server 
+<img src="images/Concurrent_Stock_Server.png" alt="Concurrent Stock ServerL" width="40%">
+
+- **설명**:   
+  C를 이용해 다중 Client의 요청을 처리하기 위한 Stock Server입니다.
+- **주요 기능 및 이미지**:
+  - 서버 접속 및 주식 정보 조회, 구매, 판매   
+  <img src="Concurrent%20Stock%20Server/images/demo-task_1.png" alt="Concurrent Stock Server 이미지1" width="50%">
+
 - **More**:
-  ![OpenGL 3D Viewing]([features-structure1.png](https://github.com/pwdab/Portfolio/tree/main/Squire))
+  - 이 프로젝트에 대해 더 자세한 내용은 [여기](https://github.com/pwdab/Portfolio/tree/main/Concurrent%20Stock%20Server)에서 보실 수 있습니다.   
+
 <br>
 
 ---
 
 <br>
+
 ## Contact   
 - **E-Mail**   
   soundno07@naver.com   
 - **Git**   
-  soundno07@naver.com   
+  [Git](https://github.com/pwdab)   
 - **YouTube**   
-  ![YouTube]https://www.youtube.com/@%ED%8F%89%EB%8B%A4%EB%B2%94
+  [YouTube](https://www.youtube.com/@%ED%8F%89%EB%8B%A4%EB%B2%94)

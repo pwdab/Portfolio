@@ -5,6 +5,7 @@
 게임이 선사하는 행복과 아름다움에 매료되어 자연스럽게 게임 개발이라는 길을 선택하게 되었습니다.   
 아직 부족한 점도 많지만, 끊임없이 배우고 성장하며 더 많은 사람들에게 기쁨과 감동을 전할 수 있는 게임을 만들고 싶습니다.    
 그날까지 열정을 다해 노력하겠습니다.   
+
 <br>
 
 ## About Me
@@ -19,7 +20,18 @@
 - Unreal 5   
 - Unity 5   
 - C   
-- C++   
+- C++
+
+<br>
+
+## Project List
+다음은 본 포트폴리오에서 소개하는 저의 프로젝트들의 목록입니다.
+### 팀 프로젝트
+1. [Project_HAL](#1-project_hal)   
+2. [Squire](#2-squire)   
+### 개인 프로젝트
+1. [OpenGL 3D Viewing](#1-opengl-3d-viewing)   
+2. [Concurrent Stock Server](#2-concurrent-stock-server)   
   
 <br>
 
@@ -111,7 +123,7 @@
   - 이 프로젝트에 대한 데모 영상은 아래의 유튜브 썸네일을 클릭해 보실 수 있습니다. 
     [![OpenGL 3D Viewing Demo 영상](https://img.youtube.com/vi/TaTx-juZHFY/0.jpg)](https://www.youtube.com/watch?v=TaTx-juZHFY)
 
-## 2.  Concurrent Stock Server 
+## 2. Concurrent Stock Server 
 <img src="images/Concurrent_Stock_Server.png" alt="Concurrent Stock ServerL" width="40%">
 
 - **설명**:   

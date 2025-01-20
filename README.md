@@ -72,13 +72,13 @@
   Unreal 5.2.1, C++, Blueprint
 - **주요 기능 및 이미지**:
   - 게임 Session 생성 및 참가   
-    <img src="Squire/images/features1.gif" alt="Squire 이미지1" width="50%">
+    <img src="Squire/images/features1.gif" alt="Squire 이미지1" width="85%">
     
   - 캐릭터 시선 처리   
-    <img src="Squire/images/features2.gif" alt="Squire 이미지1" width="50%">
+    <img src="Squire/images/features2.gif" alt="Squire 이미지1" width="85%">
     
   - 게임 흐름 제어와 데이터 동기화   
-    <img src="Squire/images/features3.gif" alt="Squire 이미지1" width="50%">
+    <img src="Squire/images/features3.gif" alt="Squire 이미지1" width="85%">
 
 - **More**:   
   - 이 프로젝트에 대해 더 자세한 내용은 [여기](https://github.com/pwdab/Portfolio/tree/main/Squire)에서 보실 수 있습니다.   

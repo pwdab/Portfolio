@@ -50,17 +50,169 @@
 - **설명**:   
   Unity Game Engine을 이용하여 제작한 간단한 탑뷰 솔로플레이 2D 게임입니다.
 - **개발 환경 및 언어**:   
-  Unity 2022.3.21f, C#
-- **주요 기능 및 이미지**:
-  - 캐릭터 이동 및 캔슬   
-  <img src="Project%20HAL/images/features1.gif" alt="Project_HAL 이미지1" width="50%">
+  Unity 2022.3.21f, C#   
+- **멤버 구성**:   
+  개발 4명   
+- **기여 내용**:   
+  - PlayerEntity, EnemyEntity, VirtualCameraManager, UI, PickableObjects 설계 및 작성
+- **주요 기능 및 구현 방법**:   
+  1. 캐릭터 애니메이션 재생 및 캔슬   
+  <img src="Project%20HAL/images/features1.gif" alt="Project_HAL 이미지1" width="50%"><br>
+      - AnimationController와 Coroutine을 이용해 애니메이션의 재생을 제어
+        <img src="Project%20HAL/images/features1-flowchart1.png" alt="Project_HAL 기능 1 구현 방법 이미지1" width="50%">
+        ``` C#
+        public IEnumerator Attack(Animator animator)
+        {
+            if (!is_animation_playing)
+            {
+                CharacterStop();
+        
+                // 이전에 재생되던 애니메이션이 존재 (캔슬한 경우)
+                if (is_animation_cancelable)
+                {
+                    while (!animator.GetCurrentAnimatorStateInfo(0).IsName("0_idle"))
+                    {
+                        animator.SetInteger(animationState, (int)AnimationStateEnum.idle);
+                        yield return null;
+                    }
+                    is_animation_cancelable = false;
+                }
+        
+                while (!animator.GetCurrentAnimatorStateInfo(0).IsName("2_Attack_Bow"))
+                {
+                    animator.SetInteger(animationState, (int)AnimationStateEnum.attack);
+                    yield return null;
+                }
+        
+                while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+                {
+                    is_animation_playing = true;
+                    if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f)
+                    {
+                        is_animation_cancelable = true;
+                        is_moveable = true;
+                    }
+                    yield return null;
+                }
+        
+                if (is_animation_playing)
+                {
+                    CharacterIdleSet();
+                }
+            }
+            is_animation_started = false;
+            animation_coroutine = null;
+        }
+        ```
   
-  - 상호작용   
-  <img src="Project%20HAL/images/features2.gif" alt="Project_HAL 이미지2" width="50%">
-  
-  - 아이템 습득, 폐기 및 이동   
-  <img src="Project%20HAL/images/features3.gif" alt="Project_HAL 이미지3" width="50%">
-
+  2. 상호작용   
+  <img src="Project%20HAL/images/features2.gif" alt="Project_HAL 이미지2" width="50%"><br>
+      - Entity에 부착되어 있는 Collider2D 컴포넌트를 활용해 상호작용 구현
+        <p align="center">
+          <img src="Project%20HAL/images/features2-flowchart1.png" alt="Project_HAL 기능 2 구현 방법 이미지1" width="24%">
+          <img src="Project%20HAL/images/features2-flowchart2.png" alt="Project_HAL 기능 2 구현 방법 이미지2" width="24%">
+          <img src="Project%20HAL/images/features2-flowchart3.png" alt="Project_HAL 기능 2 구현 방법 이미지3" width="24%">
+          <img src="Project%20HAL/images/features2-flowchart4.png" alt="Project_HAL 기능 2 구현 방법 이미지4" width="24%">
+        </p>
+        
+        ``` C#
+        // 상호작용 시작
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (is_alive && collision.gameObject.CompareTag(pickable_objects))
+            {
+                PickableObjects hitObject = collision.gameObject.GetComponent<PickableObjects>();
+        
+                if (hitObject != null)
+                {
+                    bool should_disappear = false;
+        
+                    switch (hitObject.Item.ItemType)
+                    {
+                        case Item.ItemTypeEnum.GRASS:
+                        case Item.ItemTypeEnum.STONE:
+                        case Item.ItemTypeEnum.COIN:
+                            should_disappear = inventory_ui.AddItem(hitObject);
+                            break;
+                        case Item.ItemTypeEnum.HEALTH:
+                            should_disappear = stat_manager.AdjustHP(hitObject.Quantity);
+                            break;
+                    }
+        
+                    if (should_disappear)
+                    {
+                        Destroy(collision.gameObject, .0f);
+                    }
+                }
+            }
+        }
+        ```
+        ``` C#
+        // 상호작용 끝
+        void OnCollisionEnter2D(UnityEngine.Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                PlayerEntity player = collision.gameObject.GetComponent<PlayerEntity>();
+        
+                if (player.player_damage_coroutine == null)
+                {
+                    // interval의 딜레이마다 damage_scale의 피해를 입힌다
+                    player.player_damage_coroutine = StartCoroutine(player.DamageEntity(damage_scale, 1.0f, this.gameObject));
+                }
+            }
+        }
+        ```  
+  3. 아이템 습득, 폐기 및 이동   
+  <img src="Project%20HAL/images/features3.gif" alt="Project_HAL 이미지3" width="50%"><br>   
+      - 배열과 prefab을 통한 인벤토리와 기능 구현   
+        ``` C#
+        public bool AddItem(PickableObjects itemToAdd)
+        {
+            // 추가하려는 아이템이 인벤토리에 존재
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (items[i] != null && items[i].ItemType == itemToAdd.Item.ItemType && itemToAdd.Item.Stackable == true)
+                {
+                    InventorySlotUI slotScript = slots[i].GetComponent<InventorySlotUI>();
+                    TMP_Text qtyText = slotScript.transform.GetComponentsInChildren<TMP_Text>()[0];
+        
+                    if (qtyText != null)
+                    {
+                        int qty = int.Parse(qtyText.text);
+                        qty += itemToAdd.Quantity;
+                        qtyText.text = qty.ToString();
+                    }
+        
+                    return true;
+                }
+            }
+            // 추가하려는 아이템이 인벤토리에 존재하지 않음
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (items[i] == null)
+                {
+                    items[i] = Instantiate(itemToAdd.Item);
+                    itemImages[i].sprite = itemToAdd.Item.Sprite;
+                    itemImages[i].enabled = true;
+                    InventorySlotUI slotScript = slots[i].GetComponent<InventorySlotUI>();
+                    TMP_Text qtyText = slotScript.transform.GetComponentsInChildren<TMP_Text>()[0];
+        
+                    if (qtyText != null)
+                    {
+                        qtyText.enabled = true;
+                        int qty = itemToAdd.Quantity;
+                        qtyText.text = qty.ToString();
+                    }
+        
+                    return true;
+                }
+            }
+            // 아이템 추가 실패
+            return false;
+        }
+        ```
+        
 - **More**:   
   - 이 프로젝트에 대해 더 자세한 내용은 [여기](https://github.com/pwdab/Portfolio/tree/main/Project%20HAL)에서 보실 수 있습니다.   
   - 이 프로젝트에 대한 데모 영상은 아래의 유튜브 썸네일을 클릭해 보실 수 있습니다. 

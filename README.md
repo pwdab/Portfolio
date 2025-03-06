@@ -274,8 +274,6 @@
         }
         ```
         ```C++
-        // PS_AnimInstance.cpp
-        
         void UPS_AnimInstance::SetControlRotation(FRotator Rotator)
         {
         	  ControlRotation = Rotator;
@@ -563,10 +561,128 @@
   C를 이용해 다중 Client의 요청을 처리하기 위한 Stock Server입니다.
 - **개발 환경 및 언어**:   
   Linux 4.4.0, C
-- **주요 기능 및 이미지**:
-  - 서버 접속 및 주식 정보 조회, 구매, 판매   
-  <img src="Concurrent%20Stock%20Server/images/demo-task_1.png" alt="Concurrent Stock Server 이미지1" width="50%">
-
+- **기여 내용**:   
+  - task_1과 task_2의 stockserver.c 작성
+- **주요 기능 및 구현 방법**:   
+  1. Event-driven 서버 접속 및 주식 정보 조회, 구매, 판매   
+      - Server는 Open_listenfd() 함수를 통해 listenfd를 열고, init_pool() 함수를 통해 pool 구조체를 초기화한 뒤 Client를 대기한다. 이후 while문 안에서 Client의 Connection 요청이 오면 Accept() 함수를 통해 이를 수락하고, add_client() 함수를 이용해 해당 connfd를 pool에 저장한다.
+        ```C
+        int main(int argc, char **argv) {
+            ⋮
+            listenfd = Open_listenfd(argv[1]);
+            init_pool(listenfd, &pool);
+            
+            while (1) {
+                pool.ready_set = pool.read_set;     /* Wait for listening / connected descriptor(s) to become ready */
+                pool.nready = Select(pool.maxfd + 1, &pool.ready_set, NULL, NULL, NULL);
+            
+                /* If listening descriptor is ready, add new client to pool */
+                if (FD_ISSET(listenfd, &pool.ready_set)) {
+                    clientlen = sizeof(struct sockaddr_storage); 
+                    connfd = Accept(listenfd, (SA *)&clientaddr, &clientlen);
+                    Getnameinfo((SA *) &clientaddr, clientlen, client_hostname, MAXLINE, 
+                                client_port, MAXLINE, 0);
+                    printf("Connected to (%s, %s)\n", client_hostname, client_port);
+                    add_client(connfd, &pool);
+                }
+            ⋮
+        }
+        ```
+        ```C
+        void add_client(int connfd, pool *p) {
+           int i;
+           p->nready--;
+           /* Find an available slot */
+           for (i = 0; i < FD_SETSIZE; i++) {
+               /* If slot is empty */
+               if (p->clientfd[i] < 0) {
+                   /* Add connected descriptor to the pool */
+                   p->clientfd[i] = connfd;
+                   Rio_readinitb(&p->clientrio[i], connfd);
+        
+                   /* Add the descriptor to descriptor set */
+                   FD_SET(connfd, &p->read_set);
+        
+                   /* Update max descriptor and pool high water mark */
+                   if (connfd > p->maxfd) {
+                       p->maxfd = connfd;
+                   }
+                   if ( i > p->maxi) {
+                       p->maxi = i;
+                   }
+                   break;
+               }
+           }
+           
+           /* Couldn't find an empty slot */
+           if (i == FD_SETSIZE) {
+               app_error("add_client error: Too many clients");
+           }
+        }
+        ```
+    2. Thread-based 서버 접속 및 주식 정보 조회, 구매, 판매
+      - Server의 Worker Thread는 sbuf_remove() 함수를 통해 sbuf의 가장 오래된 connfd를 꺼내고 rio를 통해 Client의 요청을 받게 된다. Client의 요청을 수행할 때 발생할 수 있는 동시성 문제는 mutex를 사용해 해결한다. Client의 요청에 대한 Server의 수행이 끝나면, Rio_writen() 함수를 통해 Client에게 해당 요청의 결과를 보내주게 된다. 이후 Worker Thread는 수행이 끝난 connfd를 삭제함으로써 Client의 요청을 마무리 짓는다.
+        ```C
+        void *thread(void *vargp) {
+          Pthread_detach(pthread_self());
+          while(1) {
+              /* Remove connfd from buf */
+              int connfd = sbuf_remove(&sbuf);
+              /* Service Client */
+              //echo_cnt(connfd);
+              int n;
+              char buf[MAXLINE];
+              rio_t rio;
+              itemNode* ptr;
+        
+              Rio_readinitb(&rio, connfd);
+              while((n = Rio_readlineb(&rio, buf, MAXLINE)) != 0) {
+                  printf("thread %d received %d bytes on fd %d\n", (int)pthread_self(), n, connfd);
+                  if (!strncmp(buf, "show", 4)) {
+                      sprint_Node(root, buf);
+                  }
+                  else if(!strncmp(buf, "buy", 3)) {
+                      int buy_ID, buy_amount;
+                      sscanf(buf, "%*s %d %d\n", &buy_ID, &buy_amount);
+        
+                      ptr = search_Node(root, buy_ID);
+                      //sem_wait(&Node[i].mutex);
+                      P(&ptr->mutex);
+                      if (ptr->left_stock >= buy_amount) {
+                          ptr->left_stock -= buy_amount;
+                          strcat(buf, "[buy] success\n");
+                      }
+                      else {
+                          strcat(buf, "Not enough left stocks\n");
+                      }
+                      //sem_post(&Node[i].mutex);
+                      V(&ptr->mutex);
+                  }
+                  else if (!strncmp(buf, "sell", 4)) {
+                      int sell_ID, sell_amount;
+                      sscanf(buf, "%*s %d %d\n", &sell_ID, &sell_amount);
+        
+                      ptr = search_Node(root, sell_ID);
+                      //sem_wait(&Node[i].mutex);
+                      P(&ptr->mutex);
+                      ptr->left_stock += sell_amount;
+                      strcat(buf, "[sell] success\n");
+                      //sem_post(&Node[i].mutex);
+                      V(&ptr->mutex);
+                  }
+                  Rio_writen(connfd, buf, MAXLINE);
+              }
+              /* EOF detected, remove descriptor from pool */
+              P(&file_mutex);
+              fp = fopen("stock.txt", "w");
+              fprint_Node(root, fp);
+              fclose(fp);
+              V(&file_mutex);
+        
+              Close(connfd);
+          }
+        }
+        ```
 - **More**:
   - 이 프로젝트에 대해 더 자세한 내용은 [여기](https://github.com/pwdab/Portfolio/tree/main/Concurrent%20Stock%20Server)에서 보실 수 있습니다.   
 # <a id="contact"></a> [4. Contact](#index)

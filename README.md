@@ -51,10 +51,8 @@
   Unity Game Engine을 이용하여 제작한 간단한 탑뷰 솔로플레이 2D 게임입니다.
 - **개발 환경 및 언어**:   
   Unity 2022.3.21f, C#   
-- **멤버 구성**:   
-  개발 4명   
 - **기여 내용**:   
-  - PlayerEntity, EnemyEntity, VirtualCameraManager, UI, PickableObjects 설계 및 작성
+  - PlayerEntity, EnemyEntity, VirtualCameraManager, UI, PickableObjects 설계 및 작성   
 - **주요 기능 및 구현 방법**:   
   1. 캐릭터 애니메이션 재생 및 캔슬   
   <img src="Project%20HAL/images/features1.gif" alt="Project_HAL 이미지1" width="50%"><br>
@@ -222,18 +220,144 @@
 <img src="images/Squire.png" alt="Squire" width="40%">
 
 - **설명**:   
-  Unreal Game Engine을 이용하여 제작한 네트워크 기반의 3D 멀티플레이 게임입니다.
+  Unreal Game Engine을 이용하여 제작한 리슨(Listen) 서버 기반의 3D 멀티플레이 게임입니다.   
 - **개발 환경 및 언어**:   
-  Unreal 5.2.1, C++, Blueprint
-- **주요 기능 및 이미지**:
-  - 게임 Session 생성 및 참가   
-    <img src="Squire/images/features1.gif" alt="Squire 이미지1" width="85%">
+  Unreal 5.2.1, C++, Blueprint   
+- **기여 내용**:   
+  - 내용: 폰 및 액터의 제작, 네트워크 제어, UI 제작, 게임 플레이 구현   
+- **주요 기능 및 구현 방법**:   
+  1. 게임 Session 생성 및 참가   
+  <img src="Squire/images/features1.gif" alt="Squire 이미지1" width="85%"><br>
+      - UMG와 블루프린트를 이용한 MainMenu UI와 Session UI 제작 
+        <img src="Squire/images/features1-flowchart1.png" alt="Squire 이미지1" width="85%">   
+        ① Host Game 버튼을 누르면 PlayerController는 LAN 상에서 Listen Server로 서버를 열고, 로비 맵으로 이동한다.   
+        ② Join Game 버튼을 누르면 Find_Session_UI를 화면에 출력한다.   
+        ③ Quit 버튼을 누르면 게임을 종료한다.   
     
-  - 캐릭터 시선 처리   
-    <img src="Squire/images/features2.gif" alt="Squire 이미지1" width="85%">
-    
-  - 게임 흐름 제어와 데이터 동기화   
-    <img src="Squire/images/features3.gif" alt="Squire 이미지1" width="85%">
+  2. 캐릭터 시선 처리   
+  <img src="Squire/images/features2.gif" alt="Squire 이미지1" width="85%"><br>
+      - RPC를 활용해 캐릭터의 Rotator 변수를 동기화
+        <img src="Squire/images/features2-flowchart1.png" alt="Squire 기능 1 구현 방법 이미지1" width="85%">
+        ```C++
+        // PS_Character.cpp
+
+        void APS_Character::Tick(float DeltaTime)
+        {
+            Super::Tick(DeltaTime);
+            ⋮
+            HeadRotator.Roll = -GetControlRotation().Pitch + 90.0f;
+            if (HeadRotator.Roll < 0)
+            {
+            	HeadRotator.Roll += 360.0f;
+            }
+            
+            // 머리 위아래
+            HeadRotator.Roll = FMath::Clamp(HeadRotator.Roll, 90 - MAX_ROTATION_ROLL, 90 - MIN_ROTATION_ROLL);
+            // 머리 좌우
+            HeadRotator.Yaw = GetControlRotation().Yaw - 90.0f - GetActorRotation().Yaw;
+            
+            SetHeadRotator(HeadRotator);
+            ⋮
+        }
+        
+        void APS_Character::SetHeadRotator(FRotator NewRotator)
+        {
+        	  SetHeadRotator_Server(NewRotator);
+        }
+        
+        void APS_Character::SetHeadRotator_Server_Implementation(FRotator NewRotator)
+        {
+        	  SetHeadRotator_Client(NewRotator);
+        }
+        
+        void APS_Character::SetHeadRotator_Client_Implementation(FRotator NewRotator)
+        {
+        	  PS_AnimInstance->SetControlRotation(NewRotator);
+        }
+        ```
+        ```C++
+        // PS_AnimInstance.cpp
+        
+        void UPS_AnimInstance::SetControlRotation(FRotator Rotator)
+        {
+        	  ControlRotation = Rotator;
+        }
+        ```
+  3. 게임 흐름 제어와 데이터 동기화   
+  <img src="Squire/images/features3.gif" alt="Squire 이미지1" width="85%"><br>
+      - GameMode를 통한 게임 흐름 제어와 변수 Replication을 통한 데이터 동기화
+        ```C++
+        // PS_GameMode.cpp
+        void APS_GameMode::StartFirstWordSelectionTimer(int TimeLimit)
+        {
+            PS_LOG_S(Log);
+        
+            ButtonWords = InitializeWords(CurrentMap, CurrentStage, 3);
+        
+            // 모든 Player에 Stage UI 추가
+            for (FConstPlayerControllerIterator It = GetWorld()->GetPlayerControllerIterator(); It; It++)
+            {
+                APS_PlayerController* PS_PlayerController = Cast<APS_PlayerController>(It->Get());
+                if (PS_PlayerController)
+                {
+                    PS_PlayerController->ShowStageUI();
+                }
+            }
+        
+            // 타이머 설정
+            GetWorldTimerManager().SetTimer(SelectionUITimerHandle, this, &APS_GameMode::OnFirstWordSelectionComplete, TimeLimit, false);
+        
+            // 첫번째 PlayerController에 단어 선택 UI 추가
+            FConstPlayerControllerIterator It = GetWorld()->GetPlayerControllerIterator();
+            APS_PlayerController* PS_PlayerController = Cast<APS_PlayerController>(It->Get());
+            if (PS_PlayerController)
+            {
+                APS_PlayerState* PS_PlayerState = Cast<APS_PlayerState>(PS_PlayerController->PlayerState);
+                if (PS_PlayerState)
+                {
+                    PS_PlayerState->InitSelectedWord();
+                }
+                PS_PlayerController->ShowWordSelectionUI(GetWorld()->GetTimerManager().GetTimerRemaining(SelectionUITimerHandle));
+                PS_PlayerController->SetSelectionButtonWords(ButtonWords);
+            }
+        
+            // 두번째 PlayerController에 대기 UI 추가
+            It++;
+            PS_PlayerController = Cast<APS_PlayerController>(It->Get());
+            if (PS_PlayerController)
+            {
+                PS_PlayerController->ShowStageTextUI(FString(TEXT("")));
+                PS_PlayerController->ShowWordSelectionWaitUI(GetWorld()->GetTimerManager().GetTimerRemaining(SelectionUITimerHandle));
+            }
+        }
+        ```
+        ```C++
+        // PS_PlayerController.h
+        UCLASS()
+        class PROJECT_S_API APS_PlayerController : public APlayerController
+        {
+        	GENERATED_BODY()
+        
+          public:
+              ⋮
+              UFUNCTION(Client, Reliable)
+              void ShowStageUI();
+      
+              UFUNCTION(Client, Reliable)
+              void ShowWordSelectionUI(float RemainingTime);
+
+              UFUNCTION(Client, Reliable)
+              void SetSelectionButtonWords(const TArray<FString>& SelectedWords);
+              
+              UFUNCTION(Client, Reliable)
+              void ShowStageTextUI(const FString& Text);
+              
+              UFUNCTION(Client, Reliable)
+              void ShowAnswerSelectionWaitUI(float RemainingTime);
+              ⋮
+        }
+        ```
+  
 
 - **More**:   
   - 이 프로젝트에 대해 더 자세한 내용은 [여기](https://github.com/pwdab/Portfolio/tree/main/Squire)에서 보실 수 있습니다.   

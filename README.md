@@ -8,10 +8,10 @@
       &nbsp;&nbsp;<a href="#team-project"> 2. 팀 프로젝트 </a><br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#project-hal"> 2-1. Project_HAL </a><br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#squire"> 2-2. Squire </a><br>
-      &nbsp;&nbsp;<a href="side-project"> 3. 개인 프로젝트 </a><br>
+      &nbsp;&nbsp;<a href="#side-project"> 3. 개인 프로젝트 </a><br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#opengl-3d-viewing"> 3-1. OpenGL 3D Viewing </a><br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#concurrent-stock-server"> 3-2. Concurrent Stock Server </a><br>
-      &nbsp;&nbsp;<a href="side-project"> 4. 연락처 </a><br>
+      &nbsp;&nbsp;<a href="#contact"> 4. 연락처 </a><br>
     </td>
   </tr>
 </table>

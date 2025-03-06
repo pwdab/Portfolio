@@ -1,46 +1,50 @@
 # 김윤성의 포트폴리오
+
+<table>
+  <tr>
+    <td>
+      <a id="index"></a> 목차 <br><br>
+      &nbsp;&nbsp;<a href="#about-me"> 1. About Me </a><br>
+      &nbsp;&nbsp;<a href="#team-project"> 2. 팀 프로젝트 </a><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#project-hal"> 2-1. Project_HAL </a><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#squire"> 2-2. Squire </a><br>
+      &nbsp;&nbsp;<a href="side-project"> 3. 개인 프로젝트 </a><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#opengl-3d-viewing"> 3-1. OpenGL 3D Viewing </a><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#concurrent-stock-server"> 3-2. Concurrent Stock Server </a><br>
+      &nbsp;&nbsp;<a href="side-project"> 4. 연락처 </a><br>
+    </td>
+  </tr>
+</table>
+<br>
+
+# <a id="about-me"> [1. About Me](#index)
 안녕하세요, 게임 클라이언트 프로그래머를 지망하고 있는 김윤성이라고 합니다.   
 
 어릴 적부터 게임은 제 삶의 큰 즐거움이자 영감을 주는 원천이었습니다.   
 게임이 선사하는 행복과 아름다움에 매료되어 자연스럽게 게임 개발이라는 길을 선택하게 되었습니다.   
-아직 부족한 점도 많지만, 끊임없이 배우고 성장하며 더 많은 사람들에게 기쁨과 감동을 전할 수 있는 게임을 만들고 싶습니다.    
-
-<br>
-
-## About Me
-### 이름  
-  - 김윤성   
+아직 부족한 점도 많지만, 끊임없이 배우고 성장하며 더 많은 사람들에게 기쁨과 감동을 전할 수 있는 게임을 만들고 싶습니다.  
+## 이름
+&nbsp;&nbsp;&nbsp;&nbsp;김윤성
   
-### 학력   
-  - 2019.03 ~ 2025.02   
-  서강대학교 컴퓨터공학과 졸업예정   
+## 학력   
+&nbsp;&nbsp;&nbsp;&nbsp;2019.03 ~ 2025.02   
+&nbsp;&nbsp;&nbsp;&nbsp;서강대학교 컴퓨터공학과 졸업예정
+
+## 희망 직무   
+&nbsp;&nbsp;&nbsp;&nbsp;게임 클라이언트 프로그래머   
   
-### 기술 스택 
-- Unreal 5   
-- Unity 5   
-- C   
-- C++
+## 기술 스택 
+### &nbsp;&nbsp;&nbsp;&nbsp;Unreal 5
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;내용내용
+### &nbsp;&nbsp;&nbsp;&nbsp;Unity 5   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;내용내용
+### &nbsp;&nbsp;&nbsp;&nbsp;C   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;내용내용
+### &nbsp;&nbsp;&nbsp;&nbsp;C++
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;내용내용
 
-<br>
-
-## Project List
-다음은 본 포트폴리오에서 소개하는 저의 프로젝트들의 목록입니다.
-### 팀 프로젝트
-1-1. [Project_HAL](#1-project_hal)   
-1-2. [Squire](#2-squire)   
-### 개인 프로젝트
-2-1. [OpenGL 3D Viewing](#1-opengl-3d-viewing)   
-2-2. [Concurrent Stock Server](#2-concurrent-stock-server)   
-  
-<br>
-
----
-
-<br>
-
-# 팀 프로젝트
-팀 단위로 진행한 게임 개발 프로젝트들을 기록하는 곳입니다.   
-## [1. Project_HAL](#project-list)  
+# <a id="team-project"></a> [2. 팀 프로젝트](#index)
+## <a id="project-hal"></a> [2-1. Project_HAL](#index)  
 <img src="images/Project_HAL.png" alt="Project_HAL" width="80%">
 
 - **설명**:   
@@ -62,8 +66,7 @@
   - 이 프로젝트에 대한 데모 영상은 아래의 유튜브 썸네일을 클릭해 보실 수 있습니다. 
     [![Project_HAL Demo 영상](https://img.youtube.com/vi/RwQ4D90kwPk/0.jpg)](https://www.youtube.com/watch?v=RwQ4D90kwPk)
 
-
-## [2. Squire](#project-list)     
+## <a id="squire"></a> [2-2. Squire](#index)     
 <img src="images/Squire.png" alt="Squire" width="40%">
 
 - **설명**:   
@@ -85,15 +88,8 @@
   - 이 프로젝트에 대한 데모 영상은 아래의 유튜브 썸네일을 클릭해 보실 수 있습니다. 
     [![Squire 테스트 영상](https://img.youtube.com/vi/AIy8zwr5r8M/0.jpg)](https://www.youtube.com/watch?v=AIy8zwr5r8M)
 
-<br>
-
----
-
-<br>
-
-# 개인 프로젝트
-수업을 듣거나 이론을 공부하며 진행한 개인 프로젝트들을 기록하는 곳입니다.   
-## [1. OpenGL 3D Viewing](#project-list)  
+# <a id="side-project"></a> [3. 개인 프로젝트](#index)  
+## <a id="opengl-3d-viewing"></a>[3-1. OpenGL 3D Viewing](#index)  
 <img src="images/OpenGL_3D_Viewing.png" alt="OpenGL 3D Viewing" width="70%">
 
 - **설명**:   
@@ -122,7 +118,7 @@
   - 이 프로젝트에 대한 데모 영상은 아래의 유튜브 썸네일을 클릭해 보실 수 있습니다. 
     [![OpenGL 3D Viewing Demo 영상](https://img.youtube.com/vi/TaTx-juZHFY/0.jpg)](https://www.youtube.com/watch?v=TaTx-juZHFY)
 
-## [2. Concurrent Stock Server](#project-list)  
+## <a id="concurrent-stock-server"></a> [3-2. Concurrent Stock Server](#index)  
 <img src="images/Concurrent_Stock_Server.png" alt="Concurrent Stock ServerL" width="40%">
 
 - **설명**:   
@@ -135,17 +131,10 @@
 
 - **More**:
   - 이 프로젝트에 대해 더 자세한 내용은 [여기](https://github.com/pwdab/Portfolio/tree/main/Concurrent%20Stock%20Server)에서 보실 수 있습니다.   
-
-<br>
-
----
-
-<br>
-
-## Contact   
-- **E-Mail**   
-  soundno07@naver.com   
-- **Git**   
-  [Git](https://github.com/pwdab)   
-- **YouTube**   
-  [YouTube](https://www.youtube.com/@%ED%8F%89%EB%8B%A4%EB%B2%94)
+# <a id="contact"></a> [4. Contact](#index)
+## &nbsp;&nbsp;E-Mail
+&nbsp;&nbsp;&nbsp;&nbsp;soundno07@naver.com   
+## &nbsp;&nbsp;Git
+&nbsp;&nbsp;&nbsp;&nbsp;[Git](https://github.com/pwdab)   
+## &nbsp;&nbsp;YouTube
+&nbsp;&nbsp;&nbsp;&nbsp;[YouTube](https://www.youtube.com/@%ED%8F%89%EB%8B%A4%EB%B2%94)

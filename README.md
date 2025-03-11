@@ -53,16 +53,16 @@
   - PlayerEntity, EnemyEntity, VirtualCameraManager, UI, PickableObjects 설계 및 작성   
 - **주요 기능 및 이미지**:
   - 캐릭터 이동 및 캔슬   
-  <img src="Project%20HAL/images/features1.gif" alt="Project_HAL 이미지1" width="50%">
+  <img src="images/Project_HAL/features1.gif" alt="Project_HAL 이미지1" width="50%">
   
   - 상호작용   
-  <img src="Project%20HAL/images/features2.gif" alt="Project_HAL 이미지2" width="50%">
+  <img src="images/Project_HAL/features2.gif" alt="Project_HAL 이미지2" width="50%">
   
   - 아이템 습득, 폐기 및 이동   
-  <img src="Project%20HAL/images/features3.gif" alt="Project_HAL 이미지3" width="50%">
+  <img src="images/Project_HAL/features3.gif" alt="Project_HAL 이미지3" width="50%">
 
 - **More**:   
-  - 이 프로젝트에 대해 더 자세한 내용은 [여기](https://github.com/pwdab/Portfolio/tree/main/Project%20HAL)에서 보실 수 있습니다.   
+  - 이 프로젝트에 대해 더 자세한 내용은 [여기](https://github.com/pwdab/Project_HAL)에서 보실 수 있습니다.   
   - 이 프로젝트에 대한 데모 영상은 아래의 유튜브 썸네일을 클릭해 보실 수 있습니다. 
     [![Project_HAL Demo 영상](https://img.youtube.com/vi/RwQ4D90kwPk/0.jpg)](https://www.youtube.com/watch?v=RwQ4D90kwPk)
 
@@ -78,16 +78,16 @@
   - 내용: 폰 및 액터의 제작, 네트워크 제어, UI 제작, 게임 플레이 구현   
 - **주요 기능 및 이미지**:
   - 게임 Session 생성 및 참가   
-    <img src="Squire/images/features1.gif" alt="Squire 이미지1" width="85%">
+    <img src="images/Squire/features1.gif" alt="Squire 이미지1" width="85%">
     
   - 캐릭터 시선 처리   
-    <img src="Squire/images/features2.gif" alt="Squire 이미지1" width="85%">
+    <img src="images/Squire/features2.gif" alt="Squire 이미지1" width="85%">
     
   - 게임 흐름 제어와 데이터 동기화   
-    <img src="Squire/images/features3.gif" alt="Squire 이미지1" width="85%">
+    <img src="images/Squire/features3.gif" alt="Squire 이미지1" width="85%">
 
 - **More**:   
-  - 이 프로젝트에 대해 더 자세한 내용은 [여기](https://github.com/pwdab/Portfolio/tree/main/Squire)에서 보실 수 있습니다.   
+  - 이 프로젝트에 대해 더 자세한 내용은 [여기](https://github.com/pwdab/Squire)에서 보실 수 있습니다.   
   - 이 프로젝트에 대한 데모 영상은 아래의 유튜브 썸네일을 클릭해 보실 수 있습니다. 
     [![Squire 테스트 영상](https://img.youtube.com/vi/AIy8zwr5r8M/0.jpg)](https://www.youtube.com/watch?v=AIy8zwr5r8M)
     

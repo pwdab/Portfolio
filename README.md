@@ -36,9 +36,9 @@
 ### &nbsp;&nbsp;&nbsp;&nbsp;Unity 5   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unity 5의 프레임워크를 이용하여 2D 솔로플레이 게임을 제작해 본 경험이 있습니다.
 ### &nbsp;&nbsp;&nbsp;&nbsp;C/C++   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OpenGL API을 이용하여 3D Camera Viewing을 구현해본 경험이 있습니다.   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PintOS 프로젝트를 통해 User Stack과 Thread Scheduling을 구현해본 경험이 있습니다.
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OpenGL API을 이용하여 3D Camera Viewing을 구현해 본 경험이 있습니다.   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PintOS 프로젝트를 통해 User Stack과 Thread Scheduling을 구현해 본 경험이 있습니다.   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;서버-클라이언트 기반의 간단한 주식 서버에서 클라이언트 코드를 수정해 동시성 문제를 해결해 본 경험이 있습니다.   
 
 # <a id="team-project"></a> [2. 팀 프로젝트](#index)
 ## <a id="project-hal"></a> [2-1. Project_HAL](#index)  

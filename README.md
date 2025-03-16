@@ -105,7 +105,7 @@
 
 ### More
   - 이 프로젝트에 대해 더 자세한 내용과 구현 방법은 [여기](https://github.com/pwdab/Squire)에서 보실 수 있습니다.   
-  - 이 프로젝트에 대한 데모 영상은 아래의 유튜브 썸네일을 클릭해 보실 수 있습니다. 
+  - 이 프로젝트의 데모 영상은 아래의 유튜브 썸네일을 클릭해 보실 수 있습니다. 
     [![Squire 테스트 영상](https://img.youtube.com/vi/AIy8zwr5r8M/0.jpg)](https://www.youtube.com/watch?v=AIy8zwr5r8M)
     
 # <a id="contact"></a> [3. Contact](#index)

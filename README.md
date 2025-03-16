@@ -134,7 +134,5 @@
 &nbsp;&nbsp;&nbsp;&nbsp;soundno07@naver.com   
 ## &nbsp;&nbsp;Git
 &nbsp;&nbsp;&nbsp;&nbsp;[Git](https://github.com/pwdab)   
-## &nbsp;&nbsp;Velog
-&nbsp;&nbsp;&nbsp;&nbsp;[Velog](https://velog.io/@pwdab/)   
 ## &nbsp;&nbsp;YouTube
 &nbsp;&nbsp;&nbsp;&nbsp;[YouTube](https://www.youtube.com/@%ED%8F%89%EB%8B%A4%EB%B2%94)

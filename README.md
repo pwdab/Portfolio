@@ -45,24 +45,41 @@
 ## <a id="project-hal"></a> [2-1. Project_HAL](#index)  
 <img src="images/Project_HAL.png" alt="Project_HAL" width="80%">
 
-- **설명**:   
+### 프로젝트 소개
+- **개발 기간**   
+  2024.03.09 ~ 2024.06.24
+- **개발 환경**   
+  Unity 2022.3.21f
+- **설명**   
   Unity Game Engine을 이용하여 제작한 간단한 탑뷰 솔로플레이 2D 게임입니다.
-- **개발 환경 및 언어**:   
-  Unity 2022.3.21f, C#
-- **기여 내용**:   
-  - PlayerEntity, EnemyEntity, VirtualCameraManager, UI, PickableObjects 설계 및 작성   
-- **주요 기능 및 이미지**:
-  - 캐릭터 이동 및 캔슬   
+- **프로젝트 목적**   
+  Unity Game Engine을 이용하여 간단한 탑뷰 솔로플레이 2D 게임을 제작함으로써 Unity Engine의 프레임워크를 이해하고, 2D 게임 개발의 워크플로우와 필요 기술을 습득하는 것 목적으로 한다.
+- **주요 기술 및 도구**   
+  - Framework
+    - Unity (C#)
+  - Design Pattern
+    - Entity-Component
+    - SingleTone
+- **멤버 구성**   
+  프로그래밍 4명
+- **기여 내용**   
+  - PlayerEntity 설계 및 작성
+  - EnemyEntity 설계 및 작성
+  - VirtualCameraManager 설계 및 작성
+  - UI 설계 및 작성
+  - PickableObjects 설계 및 작성
+### 주요 기능 및 이미지
+  - 캐릭터 이동 제어 및 애니메이션 제어   
   <img src="images/Project_HAL/features1.gif" alt="Project_HAL 이미지1" width="50%">
   
-  - 상호작용   
+  - 오브젝트 와의 상호작용   
   <img src="images/Project_HAL/features2.gif" alt="Project_HAL 이미지2" width="50%">
   
-  - 아이템 습득, 폐기 및 이동   
+  - 인벤토리 구현 및 아이템 습득, 폐기 및 이동   
   <img src="images/Project_HAL/features3.gif" alt="Project_HAL 이미지3" width="50%">
 
-- **More**:   
-  - 이 프로젝트에 대해 더 자세한 내용은 [여기](https://github.com/pwdab/Project_HAL)에서 보실 수 있습니다.   
+### More  
+  - 이 프로젝트에 대해 더 자세한 내용과 구현 방법은 [여기](https://github.com/pwdab/Project_HAL)에서 보실 수 있습니다.   
   - 이 프로젝트에 대한 데모 영상은 아래의 유튜브 썸네일을 클릭해 보실 수 있습니다. 
     [![Project_HAL Demo 영상](https://img.youtube.com/vi/RwQ4D90kwPk/0.jpg)](https://www.youtube.com/watch?v=RwQ4D90kwPk)
 
@@ -86,8 +103,8 @@
   - 게임 흐름 제어와 데이터 동기화   
     <img src="images/Squire/features3.gif" alt="Squire 이미지1" width="85%">
 
-- **More**:   
-  - 이 프로젝트에 대해 더 자세한 내용은 [여기](https://github.com/pwdab/Squire)에서 보실 수 있습니다.   
+### More
+  - 이 프로젝트에 대해 더 자세한 내용과 구현 방법은 [여기](https://github.com/pwdab/Squire)에서 보실 수 있습니다.   
   - 이 프로젝트에 대한 데모 영상은 아래의 유튜브 썸네일을 클릭해 보실 수 있습니다. 
     [![Squire 테스트 영상](https://img.youtube.com/vi/AIy8zwr5r8M/0.jpg)](https://www.youtube.com/watch?v=AIy8zwr5r8M)
     

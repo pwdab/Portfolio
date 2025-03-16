@@ -32,13 +32,12 @@
   
 ## 기술 스택 
 ### &nbsp;&nbsp;&nbsp;&nbsp;Unreal 5
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;내용내용
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unreal 5의 프레임워크를 이용하여 3D 리슨 서버 기반의 멀티플레이 게임을 제작해 본 경험이 있습니다.
 ### &nbsp;&nbsp;&nbsp;&nbsp;Unity 5   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;내용내용
-### &nbsp;&nbsp;&nbsp;&nbsp;C   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;내용내용
-### &nbsp;&nbsp;&nbsp;&nbsp;C++
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;내용내용
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unity 5의 프레임워크를 이용하여 2D 솔로플레이 게임을 제작해 본 경험이 있습니다.
+### &nbsp;&nbsp;&nbsp;&nbsp;C/C++   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OpenGL API을 이용하여 3D Camera Viewing을 구현해본 경험이 있습니다.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PintOS 프로젝트를 통해 User Stack과 Thread Scheduling을 구현해본 경험이 있습니다.
 
 
 # <a id="team-project"></a> [2. 팀 프로젝트](#index)

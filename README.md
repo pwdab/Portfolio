@@ -5,7 +5,7 @@
     <td>
       <a id="index"></a> 목차 <br><br>
       &nbsp;&nbsp;<a href="#about-me"> 1. About Me </a><br>
-      &nbsp;&nbsp;<a href="#team-project"> 2. 팀 프로젝트 </a><br>
+      &nbsp;&nbsp;<a href="#projects"> 2. Projects </a><br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#project-hal"> 2-1. Project_HAL </a><br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#squire"> 2-2. Squire </a><br>
       &nbsp;&nbsp;<a href="#contact"> 3. Contact </a><br>
@@ -21,28 +21,51 @@
 게임이 선사하는 행복과 아름다움에 매료되어 자연스럽게 게임 개발이라는 길을 선택하게 되었습니다.   
 아직 부족한 점도 많지만, 끊임없이 배우고 성장하며 더 많은 사람들에게 기쁨과 감동을 전할 수 있는 게임을 만들고 싶습니다.  
 ## 이름
-&nbsp;&nbsp;&nbsp;&nbsp;김윤성
+김윤성   
+
+## 지원 직무
+게임 클라이언트 프로그래밍(PC)   
   
 ## 학력   
-&nbsp;&nbsp;&nbsp;&nbsp;2019.03 ~ 2025.02   
-&nbsp;&nbsp;&nbsp;&nbsp;서강대학교 컴퓨터공학과 졸업예정
+2019.02 ~ 2025.08   
+서강대학교 컴퓨터공학과 졸업예정   
 
-## 희망 직무   
-&nbsp;&nbsp;&nbsp;&nbsp;게임 클라이언트 프로그래머   
+2014.02 ~ 2017.02   
+영동일고등학교 졸업   
   
 ## 기술 스택 
-### &nbsp;&nbsp;&nbsp;&nbsp;Unreal 5
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unreal 5의 프레임워크를 이용하여 3D 리슨 서버 기반의 멀티플레이 게임을 제작해 본 경험이 있습니다.
-### &nbsp;&nbsp;&nbsp;&nbsp;Unity 5   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unity 5의 프레임워크를 이용하여 2D 솔로플레이 게임을 제작해 본 경험이 있습니다.
-### &nbsp;&nbsp;&nbsp;&nbsp;C/C++   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OpenGL API을 이용하여 3D Camera Viewing을 구현해 본 경험이 있습니다.   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PintOS 프로젝트를 통해 User Stack과 Thread Scheduling을 구현해 본 경험이 있습니다.   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;서버-클라이언트 기반의 간단한 주식 서버에서 클라이언트 코드를 수정해 동시성 문제를 해결해 본 경험이 있습니다.   
+### Unreal Engine 5
+- Unreal Engine 5 프레임워크 및 C++ 클래스 시스템을 활용하여 3D 리슨 서버 기반의 멀티플레이 게임을 개발한 경험이 있습니다.
+- Replication 및 RPC를 통해 클라이언트-서버 간 데이터 동기화 및 명령 전파를 구현한 경험이 있습니다.
+- Animation Blueprint, Montage, AnimNotify를 사용하여 공격 타이밍, 전투 애니메이션 전환 등을 제어한 경험이 있습니다.
+- Interface 및 Actor Component를 활용하여 유연하고 재사용 가능한 시스템을 구성한 경험이 있습니다.
+- Widget Blueprint를 활용하여 게임 로직과 연동된 동적 UI 시스템을 구현한 경험이 있습니다.
+### Unity 
+- Unity 프레임워크를 활용하여 2D 싱글플레이 게임을 제작한 경험이 있습니다.
+- Sprite Atlas를 기반으로 스프라이트 분할 및 2D 애니메이션 클립을 생성하고, Animator Controller를 통해 캐릭터 상태에 따른 애니메이션 전환을 구현한 경험이 있습니다.
+- Canvas 시스템과 UI 컴포넌트를 활용하여 게임 내 상황에 따라 UI를 동기화한 경험이 있습니다.
+- Collider2D를 활용하여 캐릭터와 몬스터, 아이템 등의 엔티티 간 상호작용을 구현한 경험이 있습니다.
+- 가상 카메라 매니저를 구현하여 캐릭터의 움직임에 따라 카메라가 캐릭터를 부드럽게 따라가는 시스템을 구현한 경험이 있습니다.
+- 캐릭터의 인벤토리 시스템을 설계하여 아이템의 획득, 폐기, 슬롯 간 이동 기능을 구현한 경험이 있습니다.
+### C/C++   
+- OpenGL API를 활용하여 3D Camera Viewing System을 구현한 경험이 있습니다.   
+- PintOS 프로젝트를 통해 User Stack 구조 및 Thread Scheduling을 구현한 경험이 있습니다.   
+- 서버-클라이언트 기반의 주식 거래 시뮬레이터에서 동시성 문제를 해결한 경험이 있습니다.   
 
-# <a id="team-project"></a> [2. 팀 프로젝트](#index)
+---
+
+# <a id="projects"></a> [2. Projects](#index)
 ## <a id="project-hal"></a> [2-1. Project_HAL](#index)  
 <img src="images/Project_HAL.png" alt="Project_HAL" width="80%">
+
+### 데모
+- **플레이 방법**   
+  - [데모 다운로드](https://drive.google.com/file/d/1hhAQobi0zfsc5SucmJjASzMnFuvB9EYg/view?usp=sharing)에서 Project_HAL_Demo.zip 파일을 다운로드 받고, 압축 해제합니다.   
+  - HALNENG.exe 파일을 실행합니다.   
+- **YouTube 링크**
+  - 아래 썸네일을 클릭하면 YouTube 데모 영상으로 이동합니다.   
+  [![Project HAL Demo 영상](https://img.youtube.com/vi/RwQ4D90kwPk/0.jpg)](https://www.youtube.com/watch?v=RwQ4D90kwPk)
+
 
 ### 프로젝트 소개
 - **개발 기간**   
@@ -50,9 +73,9 @@
 - **개발 환경**   
   Unity 2022.3.21f
 - **설명**   
-  Unity Game Engine을 이용하여 제작한 간단한 탑뷰 솔로플레이 2D 게임입니다.
+  Unity를 활용하여 제작한 2D 싱글플레이 게임.
 - **프로젝트 목적**   
-  Unity Game Engine을 이용하여 간단한 탑뷰 솔로플레이 2D 게임을 제작함으로써 Unity Engine의 프레임워크를 이해하고, 2D 게임 개발의 워크플로우와 필요 기술을 습득하는 것 목적으로 한다.
+  Unity 프레임워크를 이해하고, 2D 게임 개발의 워크플로우와 게임 개발에 필요한 기술을 습득하는 것 목적으로 한다.
 - **주요 기술 및 도구**   
   - Framework
     - Unity (C#)
@@ -71,7 +94,7 @@
   - 캐릭터 이동 제어 및 애니메이션 제어   
   <img src="images/Project_HAL/features1.gif" alt="Project_HAL 이미지1" width="50%">
   
-  - 오브젝트 와의 상호작용   
+  - 오브젝트와 상호작용 및 UI 제어   
   <img src="images/Project_HAL/features2.gif" alt="Project_HAL 이미지2" width="50%">
   
   - 인벤토리 구현 및 아이템 습득, 폐기 및 이동   
@@ -79,12 +102,22 @@
 
 ### More  
   - 이 프로젝트에 대해 더 자세한 내용과 구현 방법은 [여기](https://github.com/pwdab/Project_HAL)에서 보실 수 있습니다.   
-  - 이 프로젝트에 대한 데모 영상은 아래의 유튜브 썸네일을 클릭해 보실 수 있습니다. 
-    [![Project_HAL Demo 영상](https://img.youtube.com/vi/RwQ4D90kwPk/0.jpg)](https://www.youtube.com/watch?v=RwQ4D90kwPk)
 
 
 ## <a id="squire"></a> [2-2. Squire](#index)     
 <img src="images/Squire.png" alt="Squire" width="40%">
+
+### 데모
+- **플레이 방법**
+  - [데모 다운로드](https://drive.google.com/file/d/1qY_DPr8J8oMFJID6m35nw-0haWrAdxRc/view?usp=sharing)에서 Squire_Demo.zip 파일을 다운로드 받고, 압축 해제합니다.
+  - Project_S.exe 파일을 실행합니다.
+- **참고 사항**   
+  - **같은 네트워크** 안의 **최소 2인의 플레이어**가 필요한 게임입니다.
+  - **혼자서 플레이**하기 위해서는 **두 개의 클라이언트**를 실행해야 합니다.
+  - **다른 네트워크**에서 플레이하고 싶다면 하마치와 같은 **외부 프로그램**이 필요합니다.  
+- **YouTube 링크**
+  - 아래 썸네일을 클릭하면 YouTube 데모 영상으로 이동합니다.   
+  [![Project SQ 테스트 영상](https://img.youtube.com/vi/AIy8zwr5r8M/0.jpg)](https://www.youtube.com/watch?v=AIy8zwr5r8M)
 
 ### 프로젝트 소개
 - **개발 기간**   
@@ -92,9 +125,9 @@
 - **개발 환경**   
   Unreal 5.2.1
 - **설명**   
-  Unreal Game Engine을 이용하여 제작한 리슨(Listen) 서버 기반의 3D 멀티플레이 게임입니다.   
-- **프로젝트 목적**   
-  게임 제작에 필요한 컴퓨터 공학 관련 지식을 확인하고 이를 바탕으로 실제 플레이 가능한 게임을 제작한다. 특히 Unreal Engine 5의 프레임워크를 깊이 이해하고, 이를 활용하여 게임 플레이 구현에 필요한 다양한 도구들을 적용해보는 것을 목표로 한다. 제작된 게임은 패키징 및 배포 과정을 거쳐 실제 서비스로 제공하며, 유저들에게 피드백을 받아 게임을 개선하는 경험도 포함한다.
+  Unreal Engine 5를 활용하여 제작한 리슨 서버 기반의 3D 멀티플레이 게임.   
+- **프로젝트 목적**
+  게임 제작에 필요한 컴퓨터 공학 관련 지식을 확인하고 이를 바탕으로 실제 플레이 가능한 게임을 제작한다. 특히 Unreal Engine 5의 프레임워크를 이해하고, 이를 활용하여 게임 플레이 구현에 필요한 다양한 도구들을 적용해보는 것을 목표로 한다. 제작된 게임은 패키징 및 배포 과정을 거쳐 실제 서비스로 제공하며, 유저들에게 피드백을 받아 게임을 개선하는 경험도 포함한다.
 - **주요 기술 및 도구**   
   - **Framework**
     - Unreal (C++, Blueprint)
@@ -125,10 +158,10 @@
     <img src="images/Squire/features3.gif" alt="Squire 이미지1" width="85%">
 
 ### More
-  - 이 프로젝트에 대해 더 자세한 내용과 구현 방법은 [여기](https://github.com/pwdab/Squire)에서 보실 수 있습니다.   
-  - 이 프로젝트의 데모 영상은 아래의 유튜브 썸네일을 클릭해 보실 수 있습니다. 
-    [![Squire 테스트 영상](https://img.youtube.com/vi/AIy8zwr5r8M/0.jpg)](https://www.youtube.com/watch?v=AIy8zwr5r8M)
-    
+  - 이 프로젝트에 대해 더 자세한 내용과 구현 방법은 [여기](https://github.com/pwdab/Squire)에서 보실 수 있습니다.
+
+---
+
 # <a id="contact"></a> [3. Contact](#index)
 ## &nbsp;&nbsp;E-Mail
 &nbsp;&nbsp;&nbsp;&nbsp;soundno07@naver.com   

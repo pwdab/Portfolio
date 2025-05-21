@@ -146,7 +146,7 @@
     - Unreal (C++, Blueprint)
     - Steamworks
   - **Network**   
-    - Replication, RPC   
+    - Replication, RPC, OnlineSubsystem   
   - **UI**   
     - UMG   
 

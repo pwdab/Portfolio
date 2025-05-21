@@ -116,19 +116,14 @@
 
 ### 데모
 - **플레이 방법**
-  - [데모 다운로드](https://drive.google.com/file/d/1qY_DPr8J8oMFJID6m35nw-0haWrAdxRc/view?usp=sharing)에서 Squire_Demo.zip 파일을 다운로드 받고, 압축 해제합니다.
-  - Project_S.exe 파일을 실행합니다.
-- **참고 사항**   
-  - **같은 네트워크** 안의 **최소 2인의 플레이어**가 필요한 게임입니다.
-  - **혼자서 플레이**하기 위해서는 **두 개의 클라이언트**를 실행해야 합니다.
-  - **다른 네트워크**에서 플레이하고 싶다면 하마치와 같은 **외부 프로그램**이 필요합니다.  
+  - [Steam](https://store.steampowered.com/app/3634090/The_First_Foreigner/)에서 게임을 다운로드 받고, 실행합니다.
 - **YouTube 링크**
   - 아래 썸네일을 클릭하면 YouTube 데모 영상으로 이동합니다.   
   [![Project SQ 테스트 영상](https://img.youtube.com/vi/AIy8zwr5r8M/0.jpg)](https://www.youtube.com/watch?v=AIy8zwr5r8M)
 
 ### 프로젝트 소개
 - **개발 기간**   
-  2024.09.10 ~ 2024.12.06 (1차 빌드 완료)
+  2024.09.10 ~ 2024.12.06 (2025.05.19 Steam 업로드 완료)
 - **개발 환경**   
   Unreal 5.2.1   
   Windows 10 (64bit)
@@ -144,10 +139,12 @@
   - Replication 및 RPC를 통해 클라이언트-서버 간 데이터 동기화 및 명령 전파를 구현   
   - Animation Blueprint, Montage, AnimNotify를 사용하여 애니메이션 전환을 제어   
   - Interface 및 Actor Component를 활용하여 유연하고 재사용 가능한 시스템을 설계   
-  - Widget Blueprint를 활용하여 게임 로직과 연동된 동적 UI 시스템을 구현   
+  - Widget Blueprint를 활용하여 게임 로직과 연동된 동적 UI 시스템을 구현
+  - Steamworks API를 활용하여 Steam과 연동 및 게임 매칭 시스템 구현
 - **주요 기술 및 도구**   
   - **Framework**   
-    - Unreal (C++, Blueprint)   
+    - Unreal (C++, Blueprint)
+    - Steamworks
   - **Network**   
     - Replication, RPC   
   - **UI**   

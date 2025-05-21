@@ -40,6 +40,7 @@
 - Animation Blueprint, Montage, AnimNotify를 사용하여 공격 타이밍, 전투 애니메이션 전환 등을 제어한 경험이 있습니다.
 - Interface 및 Actor Component를 활용하여 유연하고 재사용 가능한 시스템을 구성한 경험이 있습니다.
 - Widget Blueprint를 활용하여 게임 로직과 연동된 동적 UI 시스템을 구현한 경험이 있습니다.
+- OnlineSubsystem과 Steamworks API를 활용하여 Steam과 연동한 경험이 있습니다.
 ### Unity 
 - Unity 프레임워크를 활용하여 2D 싱글플레이 게임을 제작한 경험이 있습니다.
 - Sprite Atlas를 기반으로 2D 애니메이션 클립을 생성하고, Controller를 통해 상태에 따른 애니메이션 전환을 구현한 경험이 있습니다.

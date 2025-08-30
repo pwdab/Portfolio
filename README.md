@@ -4,59 +4,63 @@
   <tr>
     <td>
       <a id="index"></a> 목차 <br><br>
-      &nbsp;&nbsp;<a href="#about-me"> 1. About Me </a><br>
-      &nbsp;&nbsp;<a href="#projects"> 2. Projects </a><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#project-hal"> 2-1. Project_HAL </a><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#squire"> 2-2. Squire </a><br>
+      &nbsp;&nbsp;<a href="#introduction"> 1. Introduction </a><br>
+      &nbsp;&nbsp;<a href="#technical-stacks"> 2. Technical Stacks </a><br>
+      &nbsp;&nbsp;<a href="#team-projects"> 3. Team Projects </a><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#project-hal"> 3-1. Project_HAL </a><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#squire"> 3-2. Squire </a><br>
       &nbsp;&nbsp;<a href="#contact"> 3. Contact </a><br>
     </td>
   </tr>
 </table>
 <br>
 
-# <a id="about-me"> [1. About Me](#index)
+# <a id="introduction"> [1. 👋 Introduction](#index)
 안녕하세요, 게임 클라이언트 프로그래머를 지망하고 있는 김윤성이라고 합니다.   
 
 어릴 적부터 게임은 제 삶의 큰 즐거움이자 영감을 주는 원천이었습니다.   
 게임이 선사하는 행복과 아름다움에 매료되어 자연스럽게 게임 개발이라는 길을 선택하게 되었습니다.   
 아직 부족한 점도 많지만, 끊임없이 배우고 성장하며 더 많은 사람들에게 기쁨과 감동을 전할 수 있는 게임을 만들고 싶습니다.  
 ## 이름
-김윤성   
+김윤성 (Kim Youn Sung)   
 
-## 지원 직무
-게임 클라이언트 프로그래밍(PC)   
+## 직무
+C++ 게임 클라이언트 프로그래밍
   
 ## 학력   
-2019.02 ~ 2025.08   
+2019.02 ~ 2026.02   
 서강대학교 컴퓨터공학과 졸업예정   
 
 2014.02 ~ 2017.02   
 영동일고등학교 졸업   
-  
-## 기술 스택 
-### Unreal Engine 5
-- Unreal Engine 5 프레임워크 및 C++ 클래스 시스템을 활용하여 3D 리슨 서버 기반의 멀티플레이 게임을 개발한 경험이 있습니다.
-- Replication 및 RPC를 통해 클라이언트-서버 간 데이터 동기화 및 명령 전파를 구현한 경험이 있습니다.
-- Animation Blueprint, Montage, AnimNotify를 사용하여 공격 타이밍, 전투 애니메이션 전환 등을 제어한 경험이 있습니다.
-- Interface 및 Actor Component를 활용하여 유연하고 재사용 가능한 시스템을 구성한 경험이 있습니다.
-- Widget Blueprint를 활용하여 게임 로직과 연동된 동적 UI 시스템을 구현한 경험이 있습니다.
-- OnlineSubsystem과 Steamworks API를 활용하여 Steam과 연동한 경험이 있습니다.
-### Unity 
-- Unity 프레임워크를 활용하여 2D 싱글플레이 게임을 제작한 경험이 있습니다.
-- Sprite Atlas를 기반으로 2D 애니메이션 클립을 생성하고, Controller를 통해 상태에 따른 애니메이션 전환을 구현한 경험이 있습니다.
-- Canvas 시스템과 UI 컴포넌트를 활용하여 게임 내 상황과 동기화되는 UI를 구현한 경험이 있습니다.
-- Collider2D를 활용하여 캐릭터와 엔티티 간 상호작용을 구현한 경험이 있습니다.
-- 캐릭터의 움직임에 따라 카메라가 캐릭터를 부드럽게 따라가는 가상 카메라 시스템을 구현한 경험이 있습니다.
-- 아이템의 획득, 폐기, 슬롯 간 이동이 가능한 인벤토리 시스템을 구현한 경험이 있습니다.
-### C/C++   
-- OpenGL API를 활용하여 3D Camera Viewing System을 구현한 경험이 있습니다.   
-- PintOS 프로젝트를 통해 User Stack 구조 및 Thread Scheduling을 구현한 경험이 있습니다.   
-- 서버-클라이언트 기반의 주식 거래 시뮬레이터에서 동시성 문제를 해결한 경험이 있습니다.   
 
----
+<br>
 
-# <a id="projects"></a> [2. Projects](#index)
-## <a id="project-hal"></a> [2-1. Project_HAL](#index)  
+# <a id="technical-stacks"> [2. 💻 Technical Stacks](#index) 
+### <img src="images/unreal_logo.png" width="20" align="absmiddle"/> Unreal Engine 5
+
+- Listen Server 기반 3D 멀티플레이 게임 개발 및 출시
+- Unreal GamePlay Framework 이해 및 C++ API 활용
+- Replication·RPC를 활용한 네트워크 동기화 및 클라이언트·서버 상호작용 구현
+- Animation Blueprint·State Machine·Montage를 활용한 애니메이션 제어
+- Actor Component·Delegate·Notify를 활용한 모듈형·이벤트 중심 시스템 설계
+- UMG를 활용한 동적 UI 제작 및 데이터 연동
+- Steamworks API·OnlineSubsystem를 활용한 세션 생성 및 관리
+### <img src="images/unity_logo.png" width="20" align="absmiddle"/> Unity 
+- 2D 싱글플레이 게임 개발 경험
+- Unity Entity-Component 구조 이해
+- Sprite·Animator Controller를 활용한 애니메이션 전환 구현
+- Collider2D를 활용한 캐릭터·오브젝트 상호작용 처리
+- Canvas·UI를 활용한 동적 UI 및 인벤토리 시스템 구현
+### <img src="images/C++_logo.png" width="20" align="absmiddle"/> C/C++   
+- OpenGL API를 활용한 3D Camera Viewing System 구현
+- PintOS 환경에서 User Stack 구조 및 Thread Scheduling 구현
+- Linux 환경에서 프로세스 간 통신 기반 주식 거래 시뮬레이터 개발 및 동시성 문제 해결
+
+<br>
+
+# <a id="team-projects"></a> [3. 🎮 Team Projects](#index)
+## <a id="project-hal"></a> [3-1. Project_HAL](#index)  
 <img src="images/Project_HAL.png" alt="Project_HAL" width="80%">
 
 ### 데모

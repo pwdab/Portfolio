@@ -34,6 +34,10 @@ C++ 게임 클라이언트 프로그래밍
 2014.02 ~ 2017.02   
 영동일고등학교 졸업   
 
+## 활동   
+2025.02.07 ~ 2025.02.10   
+메이플 대학생 게임 커리어 캠프 <메토링> 2기   
+
 <br>
 
 # <a id="technical-stacks"> [2. 💻 Technical Stacks](#index) 
@@ -70,6 +74,9 @@ C++ 게임 클라이언트 프로그래밍
 - **YouTube 링크**
   - 아래 썸네일을 클릭하면 YouTube 데모 영상으로 이동합니다.   
   [![Project HAL Demo 영상](https://img.youtube.com/vi/RwQ4D90kwPk/0.jpg)](https://www.youtube.com/watch?v=RwQ4D90kwPk)
+
+### 참고 서적
+- 유니티 2D 게임 개발 (*Learn Unity 2D Game Development with C#*) – Jared Halpern  
 
 
 ### 프로젝트 소개
@@ -125,6 +132,10 @@ C++ 게임 클라이언트 프로그래밍
 - **YouTube 링크**
   - 아래 썸네일을 클릭하면 YouTube 데모 영상으로 이동합니다.   
   [![Project SQ 테스트 영상](https://img.youtube.com/vi/AIy8zwr5r8M/0.jpg)](https://www.youtube.com/watch?v=AIy8zwr5r8M)
+
+### 참고 서적
+- Multiplayer Game Development with Unreal Engine 5 – Maro Secchi  
+- 이득우의 언리얼 C++ 게임 개발의 정석 – 이득우  
 
 ### 프로젝트 소개
 - **개발 기간**   

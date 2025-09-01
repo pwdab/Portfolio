@@ -8,7 +8,7 @@
       &nbsp;&nbsp;<a href="#technical-stacks"> 2. Technical Stacks </a><br>
       &nbsp;&nbsp;<a href="#team-projects"> 3. Team Projects </a><br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#project-hal"> 3-1. Project_HAL </a><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#squire"> 3-2. Squire </a><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#The First Foreigner"> 3-2. The First Foreignere </a><br>
       &nbsp;&nbsp;<a href="#contact"> 3. Contact </a><br>
     </td>
   </tr>
@@ -44,7 +44,7 @@ C++ 게임 클라이언트 프로그래밍
 ### <img src="images/unreal_logo.png" width="20" align="absmiddle"/> Unreal Engine 5
 
 - Listen Server 기반 3D 멀티플레이 게임 개발 및 출시
-- Unreal GamePlay Framework 이해 및 C++ API 활용
+- Unreal Gameplay Framework 이해 및 C++ API 활용
 - Replication·RPC를 활용한 네트워크 동기화 및 클라이언트·서버 상호작용 구현
 - Animation Blueprint·State Machine·Montage를 활용한 애니메이션 제어
 - Actor Component·Delegate·Notify를 활용한 모듈형·이벤트 중심 시스템 설계
@@ -64,93 +64,159 @@ C++ 게임 클라이언트 프로그래밍
 <br>
 
 # <a id="team-projects"></a> [3. 🎮 Team Projects](#index)
-## <a id="project-hal"></a> [3-1. Project_HAL](#index)  
-<img src="images/Project_HAL.png" alt="Project_HAL" width="80%">
+# <a id="project-hal"></a> [3-1. Project_HAL](#index)  
+<div align="center">
+  <img src="images/Project_HAL.png" alt="Project_HAL" width="75%">
+</div>
 
-### 데모
-- **플레이 방법**   
-  - [데모 다운로드](https://drive.google.com/file/d/1hhAQobi0zfsc5SucmJjASzMnFuvB9EYg/view?usp=sharing)에서 Project_HAL_Demo.zip 파일을 다운로드 받고, 압축 해제합니다.   
-  - HALNENG.exe 파일을 실행합니다.   
-- **YouTube 링크**
-  - 아래 썸네일을 클릭하면 YouTube 데모 영상으로 이동합니다.   
-  [![Project HAL Demo 영상](https://img.youtube.com/vi/RwQ4D90kwPk/0.jpg)](https://www.youtube.com/watch?v=RwQ4D90kwPk)
-
-### 참고 서적
-- 유니티 2D 게임 개발 (*Learn Unity 2D Game Development with C#*) – Jared Halpern  
-
-
-### 프로젝트 소개
+## 📌 프로젝트 소개
 - **개발 기간**   
   2024.03.09 ~ 2024.06.24
 - **개발 환경**   
   Unity 2022.3.21f   
   Windows 10 (64bit)
-- **설명**   
-  Unity를 활용하여 제작한 2D 싱글플레이 게임.
+- **프로젝트 개요**   
+  탑뷰 2D 싱글플레이 어드벤처 게임.   
+  플레이어는 기본 공격과 카드형 스킬을 활용하여 몬스터를 처치하고 스테이지를 클리어한다.  
 - **프로젝트 목적**   
-  Unity 프레임워크를 이해하고, 2D 게임 개발의 워크플로우와 게임 개발에 필요한 기술을 습득하는 것 목적으로 한다.
+  Unity 프레임워크 학습 및 2D 게임 개발 워크플로우 이해  
 - **멤버 구성**   
   프로그래밍 4명
-- **담당 업무**
-  - Sprite Atlas를 기반으로 2D 애니메이션 클립을 생성하고, Animatino Controller를 통해 상태에 따른 애니메이션 전환을 제어
-  - Canvas 시스템과 UI 컴포넌트를 활용하여 게임 내 상황과 동기화되는 UI를 구현
-  - Collider2D를 활용하여 캐릭터와 엔티티 간 상호작용을 구현
-  - 캐릭터의 움직임에 따라 카메라가 캐릭터를 부드럽게 따라가는 가상 카메라 시스템을 설계
-  - 아이템의 획득, 폐기, 슬롯 간 이동이 가능한 인벤토리 시스템을 구현
-- **주요 기술 및 도구**   
-  - Framework
-    - Unity (C#)
-  - Design Pattern
-    - Entity-Component
-    - SingleTone
-  - Tool
-    - Animation Controller
-    - Scriptable Objects
-    - Collider2D
-    - Canvas UI
 
-### 주요 기능 및 이미지
-  - 캐릭터 이동 제어 및 애니메이션 제어   
-  <img src="images/Project_HAL/features1.gif" alt="Project_HAL 이미지1" width="50%">
+<br>
+
+## 🎯 담당 업무
+- Sprite Atlas 기반 2D 애니메이션 제작 및 Animator Controller 상태 전환 구현
+- Canvas·UI 컴포넌트를 활용한 동적 UI 구현 및 동기화
+- Collider2D 기반 캐릭터-오브젝트 상호작용 처리
+- 아이템 획득·폐기·이동이 가능한 인벤토리 시스템 구현
+
+<br>
+
+## 🛠 문제 해결 사례   
+### 캐릭터 애니메이션 전환 로직 개선   
+- **문제 인식**   
+  간헐적으로 캐릭터의 애니메이션(ex. 공격)이 재생되지 않는 현상이 발생
+  <div align="center">
+    <img src="images/Project_HAL/problem1.gif" alt="Project_HAL 문제 해결 경험 1" width="85%">
+  </div>
   
-  - 오브젝트와 상호작용 및 UI 제어   
-  <img src="images/Project_HAL/features2.gif" alt="Project_HAL 이미지2" width="50%">
-  
-  - 인벤토리 구현 및 아이템 습득, 폐기 및 이동   
-  <img src="images/Project_HAL/features3.gif" alt="Project_HAL 이미지3" width="50%">
+- **문제 원인**   
+  루프로 설정된 Idle 애니메이션의 진행도(normalizedTime) 값이 1.0f를 넘어 누적   
+  Animator의 상태가 실제로 전환되기도 전에 애니메이션 종료 조건이 먼저 충족되어 다음 루틴이 실행되지 않음
+```C#
+// Before
+public IEnumerator Attack(Animator animator)
+{
+  ︙
+    // 캐릭터의 상태를 "Attack"으로 바꿈
+    if (!animator.GetCurrentAnimatorStateInfo(0).IsName("2_Attack_Bow"))
+    {
+        animator.SetInteger(animationState, (int)AnimationStateEnum.attack);
+    }
 
-### More  
-  - 이 프로젝트에 대해 더 자세한 내용과 구현 방법은 [여기](https://github.com/pwdab/Project_HAL)에서 보실 수 있습니다.   
+    // state가 아직 "Attack"으로 바뀌지 않았음에도 이전에 재생 중이던 Idle의 normalizedTime이 1.0f을 넘으면 아래의 코드가 작동하지 않음
+    while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+    {
+        // 현재 애니메이션이 종료될 때까지 기다림
+    }
+  ︙
+}
+```
+- **해결 전략**   
+  Animator의 상태가 확실히 바뀌도록 대기하는 로직을 추가
+```C#
+// After
+public IEnumerator Attack(Animator animator)
+{
+  ︙
+    // 캐릭터의 상태를 확실히 "Attack"으로 바꿀 때까지 기다림
+    while (!animator.GetCurrentAnimatorStateInfo(0).IsName("2_Attack_Bow"))
+    {
+        animator.SetInteger(animationState, (int)AnimationStateEnum.attack);
+        yield return null;
+    }
 
+    // state가 확실히 "Attack"으로 바뀌었으므로 normalizedTime은 0.0f부터 시작
+    // 따라서 아래의 코드가 정상적으로 작동함
+    while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+    {
+        // 현재 애니메이션이 종료될 때까지 기다림
+    }
+  ︙
+}
+```
+- **결과**   
+  애니메이션이 정상적으로 재생되지 않던 문제를 해결
+  <div align="center">
+    <img src="images/Project_HAL/problem2.gif" alt="Project_HAL 문제 해결 경험 2" width="85%">
+  </div>
+  애니메이션 상태 전환에서 안정성을 확보   
+  애니메이션의 후딜레이를 캔슬하는 기능으로 확장해 조작감과 전투 흐름을 개선
+  <div align="center">
+    <img src="images/Project_HAL/problem3.gif" alt="Project_HAL 문제 해결 경험 3" width="85%">
+  </div>
 
-## <a id="squire"></a> [2-2. Squire](#index)     
-<img src="images/Squire.png" alt="Squire" width="40%">
+<br>
 
-### 데모
-- **플레이 방법**
-  - [Steam](https://store.steampowered.com/app/3634090/The_First_Foreigner/)에서 게임을 다운로드 받고, 실행합니다.
-- **YouTube 링크**
-  - 아래 썸네일을 클릭하면 YouTube 데모 영상으로 이동합니다.   
-  [![Project SQ 테스트 영상](https://img.youtube.com/vi/AIy8zwr5r8M/0.jpg)](https://www.youtube.com/watch?v=AIy8zwr5r8M)
+## 🎮 프로젝트 시연   
+- **플레이 방법**   
+  - [구글 드라이브](https://drive.google.com/file/d/1hhAQobi0zfsc5SucmJjASzMnFuvB9EYg/view?usp=sharing)에서 Project_HAL_Demo.zip 파일을 다운로드 받고, 압축 해제합니다.   
+  - HALNENG.exe 파일을 실행합니다.   
+- **데모 플레이 영상**   
+  - 아래 썸네일을 클릭하면 YouTube 데모 영상으로 이동합니다.
+    <div align="center">
+      <a href="https://www.youtube.com/watch?v=RwQ4D90kwPk">
+        <img src="https://img.youtube.com/vi/RwQ4D90kwPk/0.jpg" alt="Project HAL Demo 영상" width="50%">
+      </a>
+    </div>
+<br>
 
-### 참고 서적
-- Multiplayer Game Development with Unreal Engine 5 – Maro Secchi  
-- 이득우의 언리얼 C++ 게임 개발의 정석 – 이득우  
+## 📖 참고 자료
+- Halpern, J. (2016). *Learn Unity 2D Game Development with C#*. 김홍중 옮김. 서울: 에이콘. (2020).
+- Unity Official Documentation (Unity Manual & Scripting API)  
 
-### 프로젝트 소개
+<br>
+
+## 🔗 추가 정보
+- 상세 내용 및 구현 코드는 [GitHub Repository](https://github.com/pwdab/Project_HAL)에서 확인 가능합니다.
+
+<br>
+
+# <a id="The First Foreigner"></a> [3-2. The First Foreigner](#index)     
+<div align="center">
+  <img src="images/The First Foreigner.png" alt="The First Foreigner" width="75%">
+</div>
+
+## 📌 프로젝트 소개
 - **개발 기간**   
-  2024.09.10 ~ 2024.12.06 (2025.05.19 Steam 업로드 완료)
+  2024.09.10 ~ 2024.12.06   
+  2025.05.19 Steam 업로드 완료
 - **개발 환경**   
   Unreal 5.2.1   
   Windows 10 (64bit)
 - **설명**   
-  Unreal Engine 5를 활용하여 제작한 리슨 서버 기반의 3D 멀티플레이 게임.   
+  Unreal Engine 5를 활용하여 제작한 리슨 서버 기반의 3D 멀티플레이 게임.
+  두 명의 플레이어는 돌아가며 랜덤한 세 개의 단어 중 하나를 골라 다른 플레이어에게 행동과 주변의 사물로 설명해 제시어를 맞추는 것을 목표로 한다.
 - **프로젝트 목적**   
   Unreal Engine 5 프레임워크를 이해하고, 네트워크 프로그래밍을 적용해 클라이언트-서버 구조의 게임을 개발한다.   
   제작된 게임은 패키징 및 배포 과정을 거쳐 실제 서비스로 제공하며, 유저들에게 피드백을 받아 게임을 개선하는 경험도 포함한다.
 - **멤버 구성**
   - 기획 및 레벨 디자인 1명   
   - 프로그래밍 1명   
+
+## 🎮 데모 플레이
+- **플레이 방법**
+  - [Steam](https://store.steampowered.com/app/3634090/The_First_Foreigner/)에서 게임을 다운로드 받고, 실행합니다.
+- **YouTube 링크**
+  - 아래 썸네일을 클릭하면 YouTube 데모 영상으로 이동합니다.   
+  [![The First Foreigner 데모 영상](https://img.youtube.com/vi/AIy8zwr5r8M/0.jpg)](https://www.youtube.com/watch?v=AIy8zwr5r8M)
+
+### 참고 서적
+- Multiplayer Game Development with Unreal Engine 5 – Maro Secchi  
+- 이득우의 언리얼 C++ 게임 개발의 정석 – 이득우  
+
+
 - **담당 업무**
   - Replication 및 RPC를 통해 클라이언트-서버 간 데이터 동기화 및 명령 전파를 구현   
   - Animation Blueprint, Montage, AnimNotify를 사용하여 애니메이션 전환을 제어   

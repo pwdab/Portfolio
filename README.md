@@ -36,7 +36,7 @@ C++ 게임 클라이언트 프로그래밍
 
 ## 활동   
 2025.02.07 ~ 2025.02.10   
-메이플 대학생 게임 커리어 캠프, 메토링 2기   
+메이플 대학생 게임 커리어 캠프, 메토링 2기 수료   
 
 <br>
 
@@ -76,8 +76,8 @@ C++ 게임 클라이언트 프로그래밍
   Unity 2022.3.21f   
   Windows 10 (64bit)
 - **프로젝트 개요**   
-  탑뷰 2D 싱글플레이 어드벤처 게임.   
-  플레이어는 기본 공격과 카드형 스킬을 활용하여 몬스터를 처치하고 스테이지를 클리어한다.  
+  탑뷰 2D 싱글플레이 어드벤처 게임   
+  플레이어는 기본 공격과 카드 드로우 기반 스킬으로 몬스터를 처치하고 스테이지를 클리어
 - **프로젝트 목적**   
   Unity 프레임워크 학습 및 2D 게임 개발 워크플로우 이해  
 - **멤버 구성**   
@@ -96,9 +96,9 @@ C++ 게임 클라이언트 프로그래밍
 ## 🛠 문제 해결 사례   
 ### 캐릭터 애니메이션 전환 로직 개선   
 - **문제 인식**   
-  간헐적으로 캐릭터의 애니메이션(ex. 공격)이 재생되지 않는 현상이 발생
+  간헐적으로 캐릭터의 애니메이션(ex. 공격)이 재생되지 않는 현상 발생
   <div align="center">
-    <img src="images/Project_HAL/problem1.gif" alt="Project_HAL 문제 해결 경험 1" width="85%">
+    <img src="images/Project_HAL/problem1.gif" alt="Project_HAL 문제 해결 경험 1" width="25%">   
   </div>
   
 - **문제 원인**   
@@ -147,23 +147,19 @@ public IEnumerator Attack(Animator animator)
 }
 ```
 - **결과**   
-  애니메이션이 정상적으로 재생되지 않던 문제를 해결
+  애니메이션이 정상적으로 재생되지 않던 문제 해결   
+  애니메이션 상태 전환에서 안정성을 확보함으로써 추후 애니메이션의 후딜레이를 캔슬하는 기능으로 확장해 조작감과 전투 흐름을 개선
   <div align="center">
-    <img src="images/Project_HAL/problem2.gif" alt="Project_HAL 문제 해결 경험 2" width="85%">
-  </div>
-  애니메이션 상태 전환에서 안정성을 확보   
-  애니메이션의 후딜레이를 캔슬하는 기능으로 확장해 조작감과 전투 흐름을 개선
-  <div align="center">
-    <img src="images/Project_HAL/problem3.gif" alt="Project_HAL 문제 해결 경험 3" width="85%">
+    <img src="images/Project_HAL/problem3.gif" alt="Project_HAL 문제 해결 경험 3" width="25%">   
   </div>
 
 <br>
 
-## 🎮 프로젝트 시연   
+## 🎮 데모 플레이   
 - **플레이 방법**   
   - [구글 드라이브](https://drive.google.com/file/d/1hhAQobi0zfsc5SucmJjASzMnFuvB9EYg/view?usp=sharing)에서 Project_HAL_Demo.zip 파일을 다운로드 받고, 압축 해제합니다.   
   - HALNENG.exe 파일을 실행합니다.   
-- **데모 플레이 영상**   
+- **플레이 영상**   
   - 아래 썸네일을 클릭하면 YouTube 데모 영상으로 이동합니다.
     <div align="center">
       <a href="https://www.youtube.com/watch?v=RwQ4D90kwPk">
@@ -195,27 +191,15 @@ public IEnumerator Attack(Animator animator)
 - **개발 환경**   
   Unreal 5.2.1   
   Windows 10 (64bit)
-- **설명**   
-  Unreal Engine 5를 활용하여 제작한 리슨 서버 기반의 3D 멀티플레이 게임.
-  두 명의 플레이어는 돌아가며 랜덤한 세 개의 단어 중 하나를 골라 다른 플레이어에게 행동과 주변의 사물로 설명해 제시어를 맞추는 것을 목표로 한다.
+- **프로젝트 개요** 
+  3D 멀티플레이 캐주얼 게임
+  두 명의 플레이어가 번갈아 제시어를 행동이나 사물로 표현하고, 상대가 이를 추리해 맞춤   
 - **프로젝트 목적**   
-  Unreal Engine 5 프레임워크를 이해하고, 네트워크 프로그래밍을 적용해 클라이언트-서버 구조의 게임을 개발한다.   
-  제작된 게임은 패키징 및 배포 과정을 거쳐 실제 서비스로 제공하며, 유저들에게 피드백을 받아 게임을 개선하는 경험도 포함한다.
+  Unreal Engine 5 프레임워크 이해 및 클라이언트-서버 네트워크 게임 개발   
+  게임 패키징·배포 및 유저 피드백 기반 개선 경험   
 - **멤버 구성**
   - 기획 및 레벨 디자인 1명   
-  - 프로그래밍 1명   
-
-## 🎮 데모 플레이
-- **플레이 방법**
-  - [Steam](https://store.steampowered.com/app/3634090/The_First_Foreigner/)에서 게임을 다운로드 받고, 실행합니다.
-- **YouTube 링크**
-  - 아래 썸네일을 클릭하면 YouTube 데모 영상으로 이동합니다.   
-  [![The First Foreigner 데모 영상](https://img.youtube.com/vi/AIy8zwr5r8M/0.jpg)](https://www.youtube.com/watch?v=AIy8zwr5r8M)
-
-### 참고 서적
-- Multiplayer Game Development with Unreal Engine 5 – Maro Secchi  
-- 이득우의 언리얼 C++ 게임 개발의 정석 – 이득우  
-
+  - 프로그래밍 1명
 
 - **담당 업무**
   - Replication 및 RPC를 통해 클라이언트-서버 간 데이터 동기화 및 명령 전파를 구현   
@@ -241,6 +225,17 @@ public IEnumerator Attack(Animator animator)
     
   - 게임 흐름 제어와 데이터 동기화   
     <img src="images/Squire/features3.gif" alt="Squire 이미지1" width="85%">
+
+## 🎮 데모 플레이
+- **플레이 방법**
+  - [Steam](https://store.steampowered.com/app/3634090/The_First_Foreigner/)에서 게임을 다운로드 받고, 실행합니다.
+- **YouTube 링크**
+  - 아래 썸네일을 클릭하면 YouTube 데모 영상으로 이동합니다.   
+  [![The First Foreigner 데모 영상](https://img.youtube.com/vi/AIy8zwr5r8M/0.jpg)](https://www.youtube.com/watch?v=AIy8zwr5r8M)
+
+### 참고 서적
+- Multiplayer Game Development with Unreal Engine 5 – Maro Secchi  
+- 이득우의 언리얼 C++ 게임 개발의 정석 – 이득우  
 
 ### More
   - 이 프로젝트에 대해 더 자세한 내용과 구현 방법은 [여기](https://github.com/pwdab/Squire)에서 보실 수 있습니다.

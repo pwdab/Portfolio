@@ -70,9 +70,9 @@ C++ 게임 클라이언트 프로그래밍
 </div>
 
 <p align="center">
-    <img src="images/Project_HAL/features4.gif" width="33%">
-    <img src="images/Project_HAL/features5.gif" width="33%">
-    <img src="images/Project_HAL/features6.gif" width="33%">
+    <img src="images/Project_HAL/features4.gif" width="32%">
+    <img src="images/Project_HAL/features5.gif" width="32%">
+    <img src="images/Project_HAL/features6.gif" width="32%">
   </p>
 
 <br>

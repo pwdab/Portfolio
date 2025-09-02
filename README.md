@@ -192,64 +192,216 @@ public IEnumerator Attack(Animator animator)
 
 # <a id="The First Foreigner"></a> [3-2. The First Foreigner](#index)     
 <div align="center">
-  <img src="images/The First Foreigner.png" alt="The First Foreigner" width="75%">
+  <img src="images/The First Foreigner.jpg" alt="The First Foreigner">
 </div>
+
+<br>
 
 ## 📌 프로젝트 소개
 - **개발 기간**   
-  2024.09.10 ~ 2024.12.06   
-  2025.05.19 Steam 업로드 완료
+  2024.09.10 ~ 2024.12.06 : 리슨 서버 기반 빌드 개발 완료   
+  2025.05.17 ~ 2025.06.09 : EOS(Epic OnlineSubsystem) 기반 리팩토링 및 Steam 업로드 완료   
+- **개발 상태**   
+  Steam 게시 완료 (개발 종료)   
 - **개발 환경**   
   Unreal 5.2.1   
   Windows 10 (64bit)
-- **프로젝트 개요** 
-  3D 멀티플레이 캐주얼 게임
-  두 명의 플레이어가 번갈아 제시어를 행동이나 사물로 표현하고, 상대가 이를 추리해 맞춤   
+- **프로젝트 개요**   
+  3D 멀티플레이 캐주얼 게임   
+  두 명의 플레이어가 번갈아 제시어를 행동이나 사물로 표현하고, 상대가 이를 추리해 맞추는 방식
 - **프로젝트 목적**   
-  Unreal Engine 5 프레임워크 이해 및 클라이언트-서버 네트워크 게임 개발   
-  게임 패키징·배포 및 유저 피드백 기반 개선 경험   
+  Unreal Engine 5 프레임워크 학습 및 클라이언트-서버 기반 네트워크 게임 개발   
+  패키징·배포 및 유저 피드백을 통한 개선 경험   
 - **멤버 구성**
   - 기획 및 레벨 디자인 1명   
   - 프로그래밍 1명
 
-- **담당 업무**
-  - Replication 및 RPC를 통해 클라이언트-서버 간 데이터 동기화 및 명령 전파를 구현   
-  - Animation Blueprint, Montage, AnimNotify를 사용하여 애니메이션 전환을 제어   
-  - Interface 및 Actor Component를 활용하여 유연하고 재사용 가능한 시스템을 설계   
-  - Widget Blueprint를 활용하여 게임 로직과 연동된 동적 UI 시스템을 구현
-  - Steamworks API를 활용하여 Steam과 연동 및 게임 매칭 시스템 구현
-- **주요 기술 및 도구**   
-  - **Framework**   
-    - Unreal (C++, Blueprint)
-    - Steamworks
-  - **Network**   
-    - Replication, RPC, OnlineSubsystem   
-  - **UI**   
-    - UMG   
+<br>
 
-### **주요 기능 및 이미지**
-  - 게임 Session 생성 및 참가   
-    <img src="images/Squire/features1.gif" alt="Squire 이미지1" width="85%">
-    
-  - 캐릭터 시선 처리   
-    <img src="images/Squire/features2.gif" alt="Squire 이미지1" width="85%">
-    
-  - 게임 흐름 제어와 데이터 동기화   
-    <img src="images/Squire/features3.gif" alt="Squire 이미지1" width="85%">
+## 🎯 담당 업무
+- Unreal Gameplay Framework 기반 게임 플레이 로직 구현   
+- Replication·RPC 기반 클라이언트–서버 데이터 동기화 및 명령 처리   
+- Animation Blueprint·AnimInstance·State Machine 기반 캐릭터 애니메이션 제어   
+- Widget Blueprint 기반 동적 UI 제작 및 데이터 연동
+- Steamworks API·OnlineSubsystem 기반 Steam 연동 및 세션 관리
+
+<br>
+
+## 🛠 문제 해결 사례   
+### 캐릭터의 시선 Rotator 처리   
+- **문제**   
+  호스트 캐릭터는 시선 Rotator에 따라 정상적으로 회전   
+  하지만 로컬 캐릭터는 시선 Rotator가 적용되지 않고 초기값으로 되돌아가는 현상이 발생   
+  <div align="center">
+    <img src="images/The First Foreigner/issues1-1.gif" width="50%">   
+  </div>
+  
+- **원인**   
+  AnimInstance::NativeUpdateAnimation()에서 캐릭터 시선의 Rotator를 직접 계산하고 Bone을 회전한 것이 문제   
+  AnimInstance 멤버 변수는 동기화 되지 않으므로 로컬에서 변경된 시선 Rotator가 다른 로컬에 전파되지 않음   
+```C++
+// Before
+void UPS_AnimInstance::NativeUpdateAnimation(float DeltaSeconds)
+{
+  ︙
+    // AnimInstance에서 ControlRotation을 직접 계산
+    ControlRotation.Roll = -Character->GetControlRotation().Pitch + 90.0f;
+    if (ControlRotation.Roll < 0)
+    {
+      ControlRotation.Roll += 360.0f;
+    }
+    ControlRotation.Roll = FMath::Clamp(ControlRotation.Roll, 90 - MAX_ROTATION_ROLL, 90 - MIN_ROTATION_ROLL);
+    ControlRotation.Yaw = Character->GetControlRotation().Yaw - 90.0f - Character->GetActorRotation().Yaw;
+  ︙
+}
+```
+- **해결**   
+  로컬 캐릭터의 시선 Rotator가 변경되면 RPC를 통해 서버에 전달하고, 서버가 NetMulticast로 모든 클라이언트에 전파하도록 구조를 변경   
+```C#
+// After
+void APS_Character::SetHeadRotator(FRotator NewRotator)
+{
+  // 로컬에서 서버로 RPC 요청
+	SetHeadRotator_Server(NewRotator);
+}
+
+UFUNCTION(Server, Reliable)
+void SetHeadRotator_Server(FRotator NewRotator);
+
+void APS_Character::SetHeadRotator_Server_Implementation(FRotator NewRotator)
+{
+  // 서버에서 모든 클라이언트로 전파
+	SetHeadRotator_Client(NewRotator);
+}
+
+UFUNCTION(NetMulticast, Reliable)
+void SetHeadRotator_Client(FRotator NewRotator);
+
+void APS_Character::SetHeadRotator_Client_Implementation(FRotator NewRotator)
+{
+	PS_AnimInstance->SetControlRotation(NewRotator);
+}
+```
+- **결과**   
+  캐릭터의 시선 Rotator가 호스트와 모든 로컬 클라이언트에서 동일하게 동기화되어 자연스러운 시선 처리를 연출   
+  <div align="center">
+    <img src="images/The First Foreigner/features2.gif" width="50%">
+  </div>
+
+### 리팩토링   
+- **문제**   
+  Listen Server 기반으로 개발되어 같은 네트워크 상에 있지 않으면 같이 플레이가 불가능   
+- **원인**   
+```C++
+```
+- **해결**   
+  Epic Games의 OnlineSubsystem과 Steam API를 이용해 
+```C++
+```
+- **결과**   
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" width="15" align="absmiddle"/> [Steam](https://store.steampowered.com/app/3634090/The_First_Foreigner/)에 성공적으로 게시   
+  <div align="center">
+    <img src="images/The First Foreigner/issues2.png" width="50%">  
+  </div>
+
+### 호스트 종료 시 클라이언트 세션이 초기화되지 않는 버그   
+- **문제**   
+  호스트가 세션을 종료하면, 클라이언트의 세션이 정상적으로 종료되지 않아 존재하지 않는 세션에 접근하는 문제 발생
+  이로 인해 클라이언트는 Find Session 목록을 갱신하지 못하고, 강제로 Host Game을 실행해야만 정상적으로 출력됨
+  <div align="center">
+    <img src="images/The First Foreigner/issues3-1.gif" width="50%">   
+  </div>
+  
+- **원인**   
+  호스트가 클라이언트보다 먼저 세션을 종료해 클라이언트에서는 이미 없는 세션을 참조하는 상태가 됨   
+```C++
+// Before
+void UPS_GameInstance::OnEndSessionComplete(FName SessionName, bool bWasSuccessful)
+{
+  ︙
+    // 클라이언트 세션 종료 없이 호스트가 먼저 세션을 종료
+    OnDestroySessionCompleteDelegateHandle = SessionInterface->AddOnDestroySessionCompleteDelegate_Handle(OnDestroySessionCompleteDelegate);
+    SessionInterface->DestroySession(CurrentSessionName);
+  ︙
+}
+```
+- **해결**   
+  호스트가 세션을 종료하기 전에 모든 클라이언트를 순회하며 RPC를 통해 세션 종료를 요청하도록 변경   
+  각 클라이언트는 GameInstance::LeaveSession()을 호출해 스스로 세션을 종료   
+```C++
+// After
+void UPS_GameInstance::OnEndSessionComplete(FName SessionName, bool bWasSuccessful)
+{
+  ︙
+    // 호스트 종료 전 모든 클라이언트에게 세션 종료 요청
+    for (FConstPlayerControllerIterator It = World->GetPlayerControllerIterator(); It; ++It)
+    {
+        APS_PlayerController* PC = Cast<APS_PlayerController>(It->Get());
+        if (PC && !PC->IsLocalController())
+        {
+            PC->Client_OnHostEndSession();
+        }
+    }
+  ︙
+}
+
+UFUNCTION(Client, Reliable)
+void Client_OnHostEndSession();
+
+void APS_PlayerController::Client_OnHostEndSession_Implementation()
+{
+    if (UPS_GameInstance* PS_GameInstance = Cast<UPS_GameInstance>(GetGameInstance()))
+    {
+        // 클라이언트 세션 종료
+        PS_GameInstance->LeaveSession();
+    }
+}
+```
+- **결과**   
+  모든 클라이언트의 세션이 항상 정상적으로 종료되어 Find Session 목록이 정상적으로 출력됨   
+  <div align="center">
+    <img src="images/The First Foreigner/issues3-2.gif" width="50%">   
+  </div>
+
+### 유저의 Steam 닉네임이 비정상적으로 출력되는 현상   
+- **문제**   
+  <div align="center">
+    <img src="images/The First Foreigner/issues1.gif" width="25%">   
+  </div>
+  
+- **원인**   
+```C#
+```
+- **해결**   
+```C#
+```
+- **결과**   
+  <div align="center">
+    <img src="images/The First Foreigner/issues3.gif" width="25%">   
+  </div>
+
+<br>
 
 ## 🎮 데모 플레이
 - **플레이 방법**
-  - [Steam](https://store.steampowered.com/app/3634090/The_First_Foreigner/)에서 게임을 다운로드 받고, 실행합니다.
+  - <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" width="15" align="absmiddle"/> [Steam](https://store.steampowered.com/app/3634090/The_First_Foreigner/)에서 게임 다운로드 후 실행
 - **YouTube 링크**
-  - 아래 썸네일을 클릭하면 YouTube 데모 영상으로 이동합니다.   
-  [![The First Foreigner 데모 영상](https://img.youtube.com/vi/AIy8zwr5r8M/0.jpg)](https://www.youtube.com/watch?v=AIy8zwr5r8M)
+  - 아래 썸네일을 클릭하면 <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="15" align="absmiddle"/> YouTube로 이동합니다.
+    <div align="center">
+      <a href="[https://youtu.be/5klQiKKPS54](https://www.youtube.com/watch?v=AIy8zwr5r8M)">
+        <img src="https://img.youtube.com/vi/AIy8zwr5r8M/0.jpg" width="50%">
+      </a>
+    </div>
 
-### 참고 서적
-- Multiplayer Game Development with Unreal Engine 5 – Maro Secchi  
-- 이득우의 언리얼 C++ 게임 개발의 정석 – 이득우  
+## 📖 참고 자료
+- Secchi, M. (2023). *Multiplayer Game Development with Unreal Engine 5*. Packt Publishing.
+- 이득우. (2019). 이득우의 언리얼 C++ 게임 개발의 정석. 에이콘.
+- Unreal Official Documentation
 
-### More
-  - 이 프로젝트에 대해 더 자세한 내용과 구현 방법은 [여기](https://github.com/pwdab/Squire)에서 보실 수 있습니다.
+## 🔗 추가 정보
+- 상세 내용 및 구현 코드는 <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="15" /> [GitHub Repository](https://github.com/pwdab/Squire)에서 확인 가능합니다.
+
+<br>
 
 ---
 

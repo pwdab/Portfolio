@@ -41,16 +41,16 @@ C++ 게임 클라이언트 프로그래밍
 <br>
 
 # <a id="technical-stacks"> [2. 💻 Technical Stacks](#index) 
-### <img src="images/unreal_logo.png" width="20" align="absmiddle"/> Unreal Engine 5
+### <img src="images/unreal_logo(w).png" width="20" align="absmiddle"/> Unreal Engine 5
 
 - Listen Server 기반 3D 멀티플레이 게임 개발 및 출시
 - Unreal Gameplay Framework 이해 및 C++ API 활용
-- Replication·RPC를 활용한 네트워크 동기화 및 클라이언트·서버 상호작용 구현
+- Replication·RPC를 활용한 네트워크 동기화 및 클라이언트·서버 상호작용 구현   
 - Animation Blueprint·State Machine·Montage를 활용한 애니메이션 제어
 - Actor Component·Delegate·Notify를 활용한 모듈형·이벤트 중심 시스템 설계
 - UMG를 활용한 동적 UI 제작 및 데이터 연동
 - Steamworks API·OnlineSubsystem를 활용한 세션 생성 및 관리
-### <img src="images/unity_logo.png" width="20" align="absmiddle"/> Unity 
+### <img src="https://cdn.sanity.io/images/fuvbjjlp/production/aa5ce86e0add266e09ffa222609af4cc94befc7b-250x282.png" width="20" align="absmiddle"/> Unity 
 - 2D 싱글플레이 게임 개발 경험
 - Unity Entity-Component 구조 이해
 - Sprite·Animator Controller를 활용한 애니메이션 전환 구현
@@ -70,16 +70,18 @@ C++ 게임 클라이언트 프로그래밍
 </div>
 
 <p align="center">
-    <img src="images/Project_HAL/features3.gif" width="33%">
     <img src="images/Project_HAL/features4.gif" width="33%">
     <img src="images/Project_HAL/features5.gif" width="33%">
+    <img src="images/Project_HAL/features6.gif" width="33%">
   </p>
+
+<br>
 
 ## 📌 프로젝트 소개
 - **개발 기간**   
   2024.03.09 ~ 2024.06.24
 - **개발 상태**   
-  데모 빌드 배포 완료 (개발 중단)   
+  데모 빌드 배포 완료 (개발 종료)   
 - **개발 환경**   
   Unity 2022.3.21f   
   Windows 10 (64bit)
@@ -103,13 +105,13 @@ C++ 게임 클라이언트 프로그래밍
 
 ## 🛠 문제 해결 사례   
 ### 캐릭터 애니메이션 전환 로직 개선   
-- **문제 인식**   
+- **문제**   
   간헐적으로 캐릭터의 애니메이션(ex. 공격)이 재생되지 않는 현상 발생
   <div align="center">
-    <img src="images/Project_HAL/problem1.gif" alt="Project_HAL 문제 해결 경험 1" width="25%">   
+    <img src="images/Project_HAL/issues1.gif" width="25%">   
   </div>
   
-- **문제 원인**   
+- **원인**   
   루프로 설정된 Idle 애니메이션의 진행도(normalizedTime) 값이 1.0f를 넘어 누적   
   Animator의 상태가 실제로 전환되기도 전에 애니메이션 종료 조건이 먼저 충족되어 다음 루틴이 실행되지 않음
 ```C#
@@ -131,7 +133,7 @@ public IEnumerator Attack(Animator animator)
   ︙
 }
 ```
-- **해결 전략**   
+- **해결**   
   Animator의 상태가 확실히 바뀌도록 대기하는 로직을 추가
 ```C#
 // After
@@ -158,22 +160,23 @@ public IEnumerator Attack(Animator animator)
   애니메이션이 정상적으로 재생되지 않던 문제 해결   
   애니메이션 상태 전환에서 안정성을 확보함으로써 추후 애니메이션의 후딜레이를 캔슬하는 기능으로 확장해 조작감과 전투 흐름을 개선
   <div align="center">
-    <img src="images/Project_HAL/problem3.gif" alt="Project_HAL 문제 해결 경험 3" width="25%">   
+    <img src="images/Project_HAL/issues3.gif" width="25%">   
   </div>
 
 <br>
 
 ## 🎮 데모 플레이   
 - **플레이 방법**   
-  - [구글 드라이브](https://drive.google.com/file/d/1hhAQobi0zfsc5SucmJjASzMnFuvB9EYg/view?usp=sharing)에서 Project_HAL_Demo.zip 파일을 다운로드 받고, 압축 해제합니다.   
-  - HALNENG.exe 파일을 실행합니다.   
+  - <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg" width="15" align="absmiddle"/> [구글 드라이브](https://drive.google.com/file/d/1hhAQobi0zfsc5SucmJjASzMnFuvB9EYg/view?usp=sharing)에서 Project_HAL_Demo.zip 파일을 다운로드 후 압축 해제   
+  - HALNENG.exe 파일 실행   
 - **플레이 영상**   
-  - 아래 썸네일을 클릭하면 YouTube 데모 영상으로 이동합니다.
+  - 아래 썸네일을 클릭하면 <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="15" align="absmiddle"/> YouTube로 이동합니다.
     <div align="center">
-      <a href="https://www.youtube.com/watch?v=RwQ4D90kwPk">
-        <img src="https://img.youtube.com/vi/RwQ4D90kwPk/0.jpg" alt="Project HAL Demo 영상" width="50%">
+      <a href="https://youtu.be/5klQiKKPS54">
+        <img src="https://img.youtube.com/vi/5klQiKKPS54/0.jpg" width="50%">
       </a>
     </div>
+    
 <br>
 
 ## 📖 참고 자료
@@ -183,7 +186,7 @@ public IEnumerator Attack(Animator animator)
 <br>
 
 ## 🔗 추가 정보
-- 상세 내용 및 구현 코드는 [GitHub Repository](https://github.com/pwdab/Project_HAL)에서 확인 가능합니다.
+- 상세 내용 및 구현 코드는 <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="15" /> [GitHub Repository](https://github.com/pwdab/Project_HAL)에서 확인 가능합니다.
 
 <br>
 

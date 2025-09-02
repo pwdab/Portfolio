@@ -69,15 +69,23 @@ C++ 게임 클라이언트 프로그래밍
   <img src="images/Project_HAL.png" alt="Project_HAL" width="75%">
 </div>
 
+<p align="center">
+    <img src="images/Project_HAL/features3.gif" width="33%">
+    <img src="images/Project_HAL/features4.gif" width="33%">
+    <img src="images/Project_HAL/features5.gif" width="33%">
+  </p>
+
 ## 📌 프로젝트 소개
 - **개발 기간**   
   2024.03.09 ~ 2024.06.24
+- **개발 상태**   
+  데모 빌드 배포 완료 (개발 중단)   
 - **개발 환경**   
   Unity 2022.3.21f   
   Windows 10 (64bit)
 - **프로젝트 개요**   
   탑뷰 2D 싱글플레이 어드벤처 게임   
-  플레이어는 기본 공격과 카드 드로우 기반 스킬으로 몬스터를 처치하고 스테이지를 클리어
+  플레이어는 기본 공격과 카드 드로우 기반 스킬로 몬스터를 처치하고 스테이지를 클리어
 - **프로젝트 목적**   
   Unity 프레임워크 학습 및 2D 게임 개발 워크플로우 이해  
 - **멤버 구성**   

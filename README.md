@@ -65,7 +65,7 @@
   - HALNENG.exe 파일을 실행합니다.   
 - **YouTube 링크**
   - 아래 썸네일을 클릭하면 YouTube 데모 영상으로 이동합니다.   
-  [![Project HAL Demo 영상](https://img.youtube.com/vi/RwQ4D90kwPk/0.jpg)](https://www.youtube.com/watch?v=RwQ4D90kwPk)
+  [![Project HAL Demo 영상](https://img.youtube.com/vi/5klQiKKPS54/0.jpg)](https://youtu.be/5klQiKKPS54)
 
 
 ### 프로젝트 소개

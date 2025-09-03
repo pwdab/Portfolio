@@ -238,7 +238,7 @@ C++ 게임 클라이언트 프로그래밍
   </div>
 </details>
 
-## 🎮 데모 플레이   
+## 🎮 게임 플레이   
 - **플레이 방법**   
   - <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg" width="15" align="absmiddle"/> [구글 드라이브](https://drive.google.com/file/d/1hhAQobi0zfsc5SucmJjASzMnFuvB9EYg/view?usp=sharing)에서 Project_HAL_Demo.zip 파일을 다운로드 후 압축 해제   
   - HALNENG.exe 파일 실행   
@@ -525,7 +525,7 @@ Unity Official Documentation (Unity Manual & Scripting API)
   </div>
 </details>
 
-## 🎮 데모 플레이
+## 🎮 게임 플레이
 - **플레이 방법**
   - <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" width="15" align="absmiddle"/> [Steam](https://store.steampowered.com/app/3634090/The_First_Foreigner/)에서 게임 다운로드 후 실행
 - **YouTube 링크**

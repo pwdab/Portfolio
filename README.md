@@ -201,7 +201,7 @@ C++ 게임 클라이언트 프로그래밍
 - **결과**: 한글 포함 모든 닉네임이 정상 출력 
 
 ## 🔗 추가 정보
-상세 내용 및 구현 코드는 <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="15" /> [GitHub Repository](https://github.com/pwdab/Squire)에서 확인 가능합니다.
+상세 내용 및 구현 코드는 <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="15" /> [GitHub Repository](https://github.com/pwdab/The-First-Foreigner)에서 확인 가능합니다.
 
 <br>
 

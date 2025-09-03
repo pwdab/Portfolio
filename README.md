@@ -94,18 +94,6 @@ C++ 게임 클라이언트 프로그래밍
 	<img src="images/Project_HAL/features6.gif" width="32%">
 </p>
 
-## 🎮 게임 플레이   
-- **직접 플레이**   
-  - <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg" width="15" align="absmiddle"/> [구글 드라이브](https://drive.google.com/file/d/1hhAQobi0zfsc5SucmJjASzMnFuvB9EYg/view?usp=sharing)에서 Project_HAL_Demo.zip 파일을 다운로드 후 압축 해제   
-  - HALNENG.exe 파일 실행   
-- **플레이 영상**   
-  - 아래 썸네일을 클릭하면 <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="15" align="absmiddle"/> YouTube로 이동합니다.
-    <div align="center">
-      <a href="https://youtu.be/5klQiKKPS54">
-        <img src="https://img.youtube.com/vi/5klQiKKPS54/0.jpg" width="50%">
-      </a>
-    </div>
-
 ## 📌 프로젝트 소개
 - **프로젝트 개요**   
   Unity로 제작한 탑뷰 2D 싱글플레이 어드벤처 게임\
@@ -133,6 +121,18 @@ C++ 게임 클라이언트 프로그래밍
 - **해결**: 애니메이션 상태 전환이 확정될 때까지 대기하는 로직 추가  
 - **결과**: 애니메이션이 안정적으로 재생되고 상태 전환이 일관되게 이루어져 조작감과 전투 흐름이 개선됨  
 
+## 🎮 게임 플레이   
+- **직접 플레이**   
+  - <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg" width="15" align="absmiddle"/> [구글 드라이브](https://drive.google.com/file/d/1hhAQobi0zfsc5SucmJjASzMnFuvB9EYg/view?usp=sharing)에서 Project_HAL_Demo.zip 파일을 다운로드 후 압축 해제   
+  - HALNENG.exe 파일 실행   
+- **플레이 영상**   
+  - 아래 썸네일을 클릭하면 <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="15" align="absmiddle"/> YouTube로 이동합니다.
+    <div align="center">
+      <a href="https://youtu.be/5klQiKKPS54">
+        <img src="https://img.youtube.com/vi/5klQiKKPS54/0.jpg" width="50%">
+      </a>
+    </div>
+	
 ## 🔗 추가 정보
 상세 내용 및 구현 코드는 <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="15" /> [GitHub Repository](https://github.com/pwdab/Project_HAL)에서 확인 가능합니다.
 
@@ -146,17 +146,6 @@ C++ 게임 클라이언트 프로그래밍
 	<img src="images/The First Foreigner/features5.gif" width="32%">
 	<img src="images/The First Foreigner/features6.gif" width="32%">
 </p>
-
-## 🎮 게임 플레이
-- **직접 플레이**
-  - <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" width="15" align="absmiddle"/> [Steam](https://store.steampowered.com/app/3634090/The_First_Foreigner/)에서 게임 다운로드 후 실행
-- **플레이 영상**
-  - 아래 썸네일을 클릭하면 <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="15" align="absmiddle"/> YouTube로 이동합니다.
-<div align="center">
-  <a href="https://www.youtube.com/watch?v=AIy8zwr5r8M">
-    <img src="https://img.youtube.com/vi/AIy8zwr5r8M/0.jpg" width="50%">
-  </a>
-</div>
 
 ## 📌 프로젝트 소개
 - **프로젝트 개요**   
@@ -199,6 +188,17 @@ C++ 게임 클라이언트 프로그래밍
 - **원인**: Online Subsystem의 ASCII 직렬화 과정에서 손실 발생
 - **해결**: 세션 생성 시 UTF-16 → UTF-8 → Base64 인코딩 후 전송 및 수신 측에서 Base64 → UTF-8 → UTF-16으로 복원  
 - **결과**: 한글 포함 모든 닉네임이 정상 출력 
+
+## 🎮 게임 플레이
+- **직접 플레이**
+  - <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" width="15" align="absmiddle"/> [Steam](https://store.steampowered.com/app/3634090/The_First_Foreigner/)에서 게임 다운로드 후 실행
+- **플레이 영상**
+  - 아래 썸네일을 클릭하면 <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="15" align="absmiddle"/> YouTube로 이동합니다.
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=AIy8zwr5r8M">
+    <img src="https://img.youtube.com/vi/AIy8zwr5r8M/0.jpg" width="50%">
+  </a>
+</div>
 
 ## 🔗 추가 정보
 상세 내용 및 구현 코드는 <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="15" /> [GitHub Repository](https://github.com/pwdab/The-First-Foreigner)에서 확인 가능합니다.

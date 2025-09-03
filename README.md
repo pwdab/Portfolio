@@ -279,8 +279,14 @@ Unity Official Documentation (Unity Manual & Scripting API)
 # [3-2. The First Foreigner](#index)
 
 <div align="center">
-  <img src="images/The First Foreigner.jpg" alt="The First Foreigner">
+  <img src="images/The First Foreigner.jpg" alt="The First Foreigner" width="75%">>
 </div> 
+
+<p align="center">
+	<img src="images/The First Foreigner/features4.gif" width="32%">
+	<img src="images/The First Foreigner/features5.gif" width="32%">
+	<img src="images/The First Foreigner/features6.gif" width="32%">
+</p>
 
 <details>
 	<summary> <strong><em>내용 펼치기/접기</em></strong>

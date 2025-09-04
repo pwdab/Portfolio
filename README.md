@@ -105,7 +105,7 @@ C++ 게임 클라이언트 프로그래밍
 <a id="project_hal"></a>
 # [3-1. Project_HAL](#index) <img src="https://img.shields.io/badge/Unity-222222?style=for-the-badge&logo=unity&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" align="absmiddle"/>
 
-플레이어는 기본 공격과 카드 드로우 기반 스킬로 몬스터를 처치하고 스테이지를 클리어
+<div align="center"><h3><strong><em>공격과 카드 드로우로 펼쳐지는 무한 액션! 빠른 템포의 전투 속에서 화려한 액션을 즐겨보세요!</em></strong></h3></div>
 
 <p align="center">
 	<img src="images/Project_HAL.png" alt="Project_HAL" width="75%">
@@ -143,7 +143,7 @@ C++ 게임 클라이언트 프로그래밍
 <a id="the-first-foreigner"></a>
 # [3-2. The First Foreigner](#index) <img src="https://img.shields.io/badge/Unreal%20Engine-0E1128?style=for-the-badge&logo=unrealengine&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/Steam-000000?style=for-the-badge&logo=steam&logoColor=white" align="absmiddle"/>
 
-두 명의 플레이어가 번갈아 제시어를 행동이나 사물로 표현하고, 상대가 이를 추리해 맞추는 방식
+<div align="center"><h3><strong><em>제한된 시간, 끊어진 언어, 엉뚱한 오해와 기발한 설명 속에서 진짜 외국인과 마주친 듯한 혼돈의 소통을 즐겨보세요!</em></strong></h3></div>
 
 <p align="center">
 	<img src="images/The First Foreigner.jpg" alt="The First Foreigner" width="75%">>
@@ -187,7 +187,7 @@ C++ 게임 클라이언트 프로그래밍
 <a id="project_x"></a>
 # [4-1. Project_X](#index) <img src="https://img.shields.io/badge/Unreal%20Engine-0E1128?style=for-the-badge&logo=unrealengine&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" align="absmiddle"/>
 
-데디케이트 서버 구조를 적용, TPS 장르의 템플릿 제작을 목표로 개발 중
+<div align="center"><h3><strong><em>구현을 넘어 설계와 구조로, 나만의 TPS 멀티플레이 템플릿을 만들어 갑니다</em></strong></h3></div>
 
 ## 📌 프로젝트 소개
 - **게임 장르**: TPS

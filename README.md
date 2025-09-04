@@ -18,7 +18,6 @@
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#the-first-foreigner"> 3-2. The First Foreigner </a><br>
       &nbsp;&nbsp;<a href="#personal-projects"> 4. Personal Projects </a><br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#project_x"> 4-1. Project_X </a><br>
-      &nbsp;&nbsp;<a href="#contact"> 5. Contact </a><br>
     </td>
   </tr>
 </table>
@@ -38,7 +37,7 @@
 
 <br>
 
-개발 과정에서 세션 잔존, 인코딩, 데이터 동기화 등 다양한 **실전 이슈**를 해결하며 **안정적인 게임플레이 환경**을 구축했습니다.  
+개발 과정에서 세션 종료 처리, 닉네임 인코딩, 캐릭터 동기화 등 다양한 **실전 이슈**를 해결하며 **안정적인 게임플레이 환경**을 구축했습니다.  
 
 이러한 경험을 바탕으로 제작한 프로젝트를 **Steam**에 게시하여 **2,000회 이상 다운로드**를 기록하기도 했습니다.  
 
@@ -81,17 +80,17 @@ C++ 게임 클라이언트 프로그래밍
 
 ### <img src="images/unreal_logo(w).png" width="20" align="absmiddle"/> Unreal Engine 5
 - 3D 멀티플레이 게임 개발 및 출시
-- Replication·RPC 기반 네트워크 동기화 및 클라이언트·서버 상호작용 설계
+- Replication·RPC 기반 네트워크 동기화 및 클라이언트·서버 상호작용 구현
 - AnimBP·State Machine·Montage기반 애니메이션 제어
 - Delegate·Notify 기반 이벤트 시스템 구현
-- UMG 위젯 데이터 바인딩 및 동적 UI 제작
-- Online Subsystem 기반 세션 관리
+- UMG 위젯 데이터 바인딩 및 동적 UI 구현
+- Online Subsystem 기반 세션 관리 구현
 
 ### <img src="https://cdn.sanity.io/images/fuvbjjlp/production/aa5ce86e0add266e09ffa222609af4cc94befc7b-250x282.png" width="20" align="absmiddle"/> Unity 
 - 2D 싱글플레이 게임 개발
 - Sprite·Controller 기반 애니메이션 제어
-- Collider2D 기반 상호작용 처리
-- Canvas 기반 동적 UI 제작
+- Collider2D 기반 상호작용 구현
+- Canvas 기반 동적 UI 구현
 
 ### <img src="images/C++_logo.png" width="20" align="absmiddle"/> C/C++   
 - OpenGL 기반 3D 카메라 Viewing System 구현
@@ -129,17 +128,15 @@ C++ 게임 클라이언트 프로그래밍
 - 아이템 획득·폐기·이동이 가능한 **인벤토리 시스템** 구현
 
 ## 🛠 주요 이슈
-### 캐릭터 애니메이션 전환 오류
-- Idle 애니메이션의 normalizedTime 누적으로 애니메이션 전환이 무시 → 애니메이션 전환 대기 로직을 추가
+- normalizedTime 누적으로 애니메이션 전환 무시 → 애니메이션 전환 대기 로직 추가
 	
 ## 🔗 추가 정보
-### 상세 내용 및 구현 코드
-- <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="15" /> [GitHub Repository](https://github.com/pwdab/Project_HAL)에서 확인 가능합니다.
-### 🎮 게임 플레이   
-- **직접 플레이**   
-  - <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg" width="15" align="absmiddle"/> [구글 드라이브](https://drive.google.com/file/d/1hhAQobi0zfsc5SucmJjASzMnFuvB9EYg/view?usp=sharing)에서 Project_HAL_Demo.zip 파일을 다운로드 후 **HALNENG.exe** 파일 실행   
-- **플레이 영상**   
-  - <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="15" align="absmiddle"/> [YouTube](https://youtu.be/5klQiKKPS54)에서 플레이 영상을 시청할 수 있습니다.
+- **상세 내용 및 구현 코드**   
+	<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="15" /> [GitHub Repository](https://github.com/pwdab/Project_HAL)에서 확인 가능합니다.
+- **게임 플레이**   
+	<img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg" width="15" align="absmiddle"/> [구글 드라이브](https://drive.google.com/file/d/1hhAQobi0zfsc5SucmJjASzMnFuvB9EYg/view?usp=sharing)에서 Project_HAL_Demo.zip 파일을 다운로드 후 **HALNENG.exe** 파일 실행   
+- **플레이 영상**      
+	<img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="15" align="absmiddle"/> [YouTube](https://youtu.be/5klQiKKPS54)에서 플레이 영상을 시청할 수 있습니다.
 
 <br>
 
@@ -170,19 +167,17 @@ C++ 게임 클라이언트 프로그래밍
 - Online Subsystem 기반 **세션 관리** 및 **Steam 게시**
 
 ## 🛠 주요 이슈 
-- **캐릭터 시선 Rotator 불일치**   
-	AnimInstance의 로컬 계산이 네트워크에 반영되지 않음 → 서버 RPC와 NetMulticast로 모든 클라이언트에 동기화
-- **클라이언트 세션이 초기화되지 않는 현상**   
-	종료된 세션에 접근 → 호스트 종료 전 RPC로 클라이언트가 세션을 먼저 종료하도록 변경
-- **Steam 닉네임이 비정상적으로 출력**   
-	ASCII 이외의 문자가 포함된 닉네임이 깨짐 → Base64 인코딩·복호화
+- 캐릭터 시선 Rotator 불일치 → 서버 RPC와 NetMulticast로 모든 클라이언트에 동기화
+- 클라이언트 세션 종료 오류 → 호스트 종료 전 RPC로 클라이언트 먼저 종료
+- Steam 닉네임 깨짐 → Base64 인코딩·복호화 방식 적용
 
 ## 🔗 추가 정보
-- **상세 내용 및 구현 코드**
-	- <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="15" /> [GitHub Repository](https://github.com/pwdab/The-First-Foreigner)에서 확인 가능합니다.
-- **게임 플레이**
-	- <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" width="15" align="absmiddle"/> [Steam](https://store.steampowered.com/app/3634090/The_First_Foreigner/)에서 게임 다운로드 후 실행
-	- <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="15" align="absmiddle"/> [YouTube](https://www.youtube.com/watch?v=AIy8zwr5r8M)에서 플레이 영상을 시청할 수 있습니다.
+- **상세 내용 및 구현 코드**   
+	<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="15" /> [GitHub Repository](https://github.com/pwdab/The-First-Foreigner)에서 확인 가능합니다.
+- **게임 플레이**   
+	<img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" width="15" align="absmiddle"/> [Steam](https://store.steampowered.com/app/3634090/The_First_Foreigner/)에서 게임 다운로드 후 실행
+- **플레이 영상**   
+	<img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="15" align="absmiddle"/> [YouTube](https://www.youtube.com/watch?v=AIy8zwr5r8M)에서 플레이 영상을 시청할 수 있습니다.
 
 <br>
 
@@ -220,12 +215,11 @@ C++ 게임 클라이언트 프로그래밍
 - **결과**: 결과 1
 
 ## 🔗 추가 정보
-### 구현 코드
-### 개발 일지
-구현 코드는 <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="15"/> [GitHub Repository](https://github.com/pwdab/Project_X)에서, 개발 일지는 <img src="https://pbs.twimg.com/profile_images/1228368893321736193/Ov0og7E8_400x400.jpg" width="15"/> [Velog](https://velog.io/@pwdab/series/Project-X)에서 확인 가능합니다.
+- **구현 코드**   
+	<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="15"/> [GitHub Repository](https://github.com/pwdab/Project_X)에서 확인 가능합니다.
+- **개발 일지**   
+	<img src="https://pbs.twimg.com/profile_images/1228368893321736193/Ov0og7E8_400x400.jpg" width="15"/> [Velog](https://velog.io/@pwdab/series/Project-X)에서 확인 가능합니다.
 
 <br>
-
-<a id="contact"></a>
 
 

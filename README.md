@@ -64,7 +64,7 @@ C++ 게임 클라이언트 프로그래밍
 2025.02.07 ~ 2025.02.10\
 메이플 대학생 게임 커리어 캠프, 메토링 2기 수료
 
-## 🌐 Contact
+## 🌐 연락처
 
 <p>
 	<a href="mailto:soundno07@naver.com"><img src="https://img.shields.io/badge/Email-red?style=for-the-badge&logo=gmail&logoColor=white"/></a>

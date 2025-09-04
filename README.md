@@ -78,7 +78,7 @@ C++ 게임 클라이언트 프로그래밍
 <a id="technical-stacks"></a>
 # [💻 2. Technical Stacks](#index)
 
-### <img src="images/unreal_logo(w).png" width="20" align="absmiddle"/> Unreal Engine 5
+### <img src="images/logo/unreal_logo.png" width="20" align="absmiddle"/> Unreal Engine 5
 - 3D 멀티플레이 게임 개발 및 출시
 - Replication·RPC 기반 네트워크 동기화 및 클라이언트·서버 상호작용 구현
 - AnimBP·State Machine·Montage기반 애니메이션 제어
@@ -92,7 +92,7 @@ C++ 게임 클라이언트 프로그래밍
 - Collider2D 기반 상호작용 구현
 - Canvas 기반 동적 UI 구현
 
-### <img src="images/C++_logo.png" width="20" align="absmiddle"/> C/C++   
+### <img src="images/logo/C++_logo.png" width="20" align="absmiddle"/> C/C++   
 - OpenGL 기반 3D 카메라 Viewing System 구현
 - PintOS에서 User Stack 구조 및 Thread Scheduling 구현
 - Linux에서 프로세스 통신 기반 멀티스레드 프로그램의 동시성 문제 해결
@@ -108,10 +108,10 @@ C++ 게임 클라이언트 프로그래밍
 <div align="center"><h3><strong><em>공격과 카드 드로우로 펼쳐지는 무한 액션! 빠른 템포의 전투 속에서 화려한 액션을 즐겨보세요!</em></strong></h3></div>
 
 <p align="center">
-	<img src="images/Project_HAL.png" alt="Project_HAL" width="75%">
-	<img src="images/Project_HAL/features4.gif" width="32%">
-	<img src="images/Project_HAL/features5.gif" width="32%">
-	<img src="images/Project_HAL/features6.gif" width="32%">
+	<img src="images/Project_HAL/Project_HAL.png" alt="Project_HAL" width="75%">
+	<img src="images/Project_HAL/features1.gif" width="32%">
+	<img src="images/Project_HAL/features2.gif" width="32%">
+	<img src="images/Project_HAL/features3.gif" width="32%">
 </p>
 
 ## 📌 프로젝트 소개
@@ -146,10 +146,10 @@ C++ 게임 클라이언트 프로그래밍
 <div align="center"><h3><strong><em>제한된 시간, 끊어진 언어, 엉뚱한 오해와 기발한 설명 속에서 진짜 외국인과 마주친 듯한 혼돈의 소통을 즐겨보세요!</em></strong></h3></div>
 
 <p align="center">
-	<img src="images/The First Foreigner.jpg" alt="The First Foreigner" width="75%">>
-	<img src="images/The First Foreigner/features4.gif" width="32%">
-	<img src="images/The First Foreigner/features5.gif" width="32%">
-	<img src="images/The First Foreigner/features6.gif" width="32%">
+	<img src="images/The First Foreigner/The First Foreigner.png" alt="The First Foreigner" width="75%">>
+	<img src="images/The First Foreigner/features1.gif" width="32%">
+	<img src="images/The First Foreigner/features2.gif" width="32%">
+	<img src="images/The First Foreigner/features3.gif" width="32%">
 </p>
 
 ## 📌 프로젝트 소개

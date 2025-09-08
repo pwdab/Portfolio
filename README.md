@@ -99,7 +99,7 @@ C++ 게임 클라이언트 프로그래밍
 <br>
 
 <a id="projects"></a>
-#  [💼 3. Projects](#index)
+#  [🚀 3. Projects](#index)
 
 <a id="project_hal"></a>
 # [3-1. Project_HAL](#index) <img src="https://img.shields.io/badge/Unity-222222?style=for-the-badge&logo=unity&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" align="absmiddle"/>

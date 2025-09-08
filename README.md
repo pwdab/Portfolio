@@ -123,7 +123,6 @@ C++ 게임 클라이언트 프로그래밍
 
 ## 🎯 담당 업무
 - Sprite Atlas 기반 2D **애니메이션** 생성 및 Animator Controller **상태 전환** 구현   
-- Canvas 기반 **동적 UI** 구현 및 **데이터 연동**   
 - Collider2D 기반 **캐릭터-오브젝트 상호작용** 처리   
 - 아이템 획득·폐기·이동이 가능한 **인벤토리 시스템** 구현
 
@@ -164,7 +163,7 @@ C++ 게임 클라이언트 프로그래밍
 - Replication·RPC 기반 클라이언트–서버 **데이터 동기화 및 명령 처리**   
 - Animation Blueprint·AnimInstance·State Machine 기반 캐릭터 **애니메이션 제어**   
 - Widget Blueprint 기반 **동적 UI** 제작 및 **데이터 연동**
-- Online Subsystem 기반 **세션 관리** 및 **Steam 게시**
+- Online Subsystem 기반 **세션 관리**
 
 ## 🛠 주요 이슈 
 - 캐릭터 시선 Rotator 불일치 → 서버 RPC와 NetMulticast로 모든 클라이언트에 동기화

@@ -13,11 +13,10 @@
       <b><a id="index"></a> 목차</b><br>
       &nbsp;&nbsp;<a href="#introduction"> 1. Introduction </a><br>
       &nbsp;&nbsp;<a href="#technical-stacks"> 2. Technical Stacks </a><br>
-      &nbsp;&nbsp;<a href="#team-projects"> 3. Team Projects </a><br>
+      &nbsp;&nbsp;<a href="#projects"> 3. Projects </a><br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#project_hal"> 3-1. Project_HAL </a><br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#the-first-foreigner"> 3-2. The First Foreigner </a><br>
-      &nbsp;&nbsp;<a href="#personal-projects"> 4. Personal Projects </a><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#project_x"> 4-1. Project_X </a><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#project_x"> 3-3. Project_X </a><br>
     </td>
   </tr>
 </table>
@@ -31,9 +30,9 @@
 
 <br>
 
-특히 **네트워크 프로그래밍**에 관심을 가지고 있으며,
+특히 **네트워크 프로그래밍**에 관심이 있으며,
 
-**Replication/RPC** 기반 데이터 동기화, **AnimBP** 기반 애니메이션 제어, **Online Subsystem** 기반 세션 관리 경험을 보유하고 있습니다.  
+**Replication/RPC** 기반 데이터 동기화, **AnimBP** 기반 애니메이션 제어, **Online Subsystem** 기반 세션 관리 경험을 보유하고 있습니다.   
 
 <br>
 
@@ -43,9 +42,9 @@
 
 <br>
 
-최근에는 개인 프로젝트를 통해 구현을 넘어 **설계와 모듈화**의 중요성을 체감하고 있으며, 모던 C++ 학습을 통해 구조적 사고를 확장해 나가고 있습니다.  
+최근에는 단순한 구현을 넘어 **설계와 모듈화**의 중요성을 체감하고 있으며, 모던 C++ 학습을 통해 구조적 사고를 확장해 나가고 있습니다.  
 
-앞으로도 꾸준히 배우고 성장하여, 더 많은 플레이어들에게 **안정적이고 즐거운 게임 경험**을 제공하는 클라이언트 프로그래머로 발전해 나가겠습니다.
+앞으로도 꾸준히 배우고 성장하여, 더 많은 플레이어들에게 **안정적이고 즐거운 게임 경험**을 제공하는 클라이언트 프로그래머로 발전하겠습니다.
 
 ## 🏷️ 이름
 김윤성 (Kim Youn Sung)   
@@ -69,7 +68,7 @@ C++ 게임 클라이언트 프로그래밍
 <p>
 	<a href="mailto:soundno07@naver.com"><img src="https://img.shields.io/badge/Email-red?style=for-the-badge&logo=gmail&logoColor=white"/></a>
 	<a href="https://github.com/pwdab"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/></a>
-	<a href="https://www.youtube.com/@%ED%8F%89%EB%8B%A4%EB%B2%94"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"/>
+	<a href="https://www.youtube.com/@%ED%8F%89%EB%8B%A4%EB%B2%94"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"/></a>
 	<a href="https://velog.io/@pwdab/posts"><img src="https://img.shields.io/badge/Velog-20C997?style=for-the-badge&logo=velog&logoColor=white"/></a>
 </p>
 
@@ -80,17 +79,17 @@ C++ 게임 클라이언트 프로그래밍
 
 ### <img src="images/logo/unreal_logo.png" width="20" align="absmiddle"/> Unreal Engine 5
 - 3D 멀티플레이 게임 개발 및 출시
-- Replication·RPC 기반 네트워크 동기화 및 클라이언트·서버 상호작용 구현
-- AnimBP·State Machine·Montage기반 애니메이션 제어
-- Delegate·Notify 기반 이벤트 시스템 구현
+- Replication·RPC 기반 네트워크 동기화
+- AnimBP·State Machine 기반 애니메이션 제어
+- Delegate·Notify 기반 이벤트 처리
 - UMG 위젯 데이터 바인딩 및 동적 UI 구현
-- Online Subsystem 기반 세션 관리 구현
+- Online Subsystem 기반 세션 관리
 
 ### <img src="https://cdn.sanity.io/images/fuvbjjlp/production/aa5ce86e0add266e09ffa222609af4cc94befc7b-250x282.png" width="20" align="absmiddle"/> Unity 
 - 2D 싱글플레이 게임 개발
 - Sprite·Controller 기반 애니메이션 제어
-- Collider2D 기반 상호작용 구현
-- Canvas 기반 동적 UI 구현
+- Collider2D 기반 상호작용 처리
+- Canvas 기반 동적 UI 제작
 
 ### <img src="images/logo/C++_logo.png" width="20" align="absmiddle"/> C/C++   
 - OpenGL 기반 3D 카메라 Viewing System 구현
@@ -99,8 +98,8 @@ C++ 게임 클라이언트 프로그래밍
 
 <br>
 
-<a id="team-projects"></a>
-#  [👥 3. Team Projects](#index)
+<a id="projects"></a>
+#  [💼 3. Projects](#index)
 
 <a id="project_hal"></a>
 # [3-1. Project_HAL](#index) <img src="https://img.shields.io/badge/Unity-222222?style=for-the-badge&logo=unity&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" align="absmiddle"/>
@@ -118,7 +117,7 @@ C++ 게임 클라이언트 프로그래밍
 - **게임 장르**: 탑뷰 2D 싱글플레이 어드벤처 게임
 - **개발 기간**: 2024.03 ~ 2024.06
 - **개발 환경**: Unity 2022.3.21f, Windows 10
-- **멤버 구성**: 프로그래밍 4명
+- **멤버 구성**: 팀 프로젝트(프로그래밍 4명)
 - **주요 기술**: Unity, C#
 
 ## 🎯 담당 업무
@@ -155,7 +154,7 @@ C++ 게임 클라이언트 프로그래밍
 - **게임 장르**: 3D 멀티플레이 캐주얼 게임
 - **개발 기간**: 2024.09 ~ 2024.12, 2025.05 ~ 2025.06
 - **개발 환경**: Unreal 5.2.1, Windows 10
-- **멤버 구성**: 기획 및 레벨 디자인 1명, 프로그래밍 1명
+- **멤버 구성**: 팀 프로젝트(기획 및 레벨 디자인 1명, 프로그래밍 1명)
 - **주요 기술**: Unreal Engine 5, C++
 
 ## 🎯 담당 업무
@@ -180,11 +179,8 @@ C++ 게임 클라이언트 프로그래밍
 
 <br>
 
-<a id="personal-projects"></a>
-#  [👤 4. Personal Projects](#index)
-
 <a id="project_x"></a>
-# [4-1. Project_X](#index) <img src="https://img.shields.io/badge/Unreal%20Engine-0E1128?style=for-the-badge&logo=unrealengine&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" align="absmiddle"/>
+# [3-3. Project_X](#index) <img src="https://img.shields.io/badge/Unreal%20Engine-0E1128?style=for-the-badge&logo=unrealengine&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" align="absmiddle"/>
 
 <div align="center"><h3><strong><em>구현을 넘어 설계와 구조로, 나만의 TPS 멀티플레이 템플릿을 만들어 갑니다</em></strong></h3></div>
 
@@ -192,6 +188,7 @@ C++ 게임 클라이언트 프로그래밍
 - **게임 장르**: TPS
 - **개발 기간**: 2025.04.11 ~ 진행 중
 - **개발 환경**: Unreal 5.4.4, Windows 10
+- **멤버 구성**: 개인 프로젝트
 - **주요 기술**: Unreal Engine 5, C++
 
 ## 🎯 개발 목표

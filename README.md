@@ -184,6 +184,14 @@ C++ 게임 클라이언트 프로그래밍
 
 <div align="center"><h3><strong><em>구현을 넘어 설계와 구조로, 나만의 TPS 멀티플레이 템플릿을 만들어 갑니다</em></strong></h3></div>
 
+<p align="center">
+	<img src="images/Project_X/Project_X.png" alt="Project_X" width="75%">
+	<img src="images/Project_X/features1.gif" width="40%">
+	<img src="images/Project_X/features2.gif" width="39%">
+	<img src="images/Project_X/features3.gif" width="20%">
+</p>
+
+
 ## 📌 프로젝트 소개
 - **게임 장르**: TPS
 - **개발 기간**: 2025.04.11 ~ 진행 중
@@ -191,15 +199,11 @@ C++ 게임 클라이언트 프로그래밍
 - **멤버 구성**: 개인 프로젝트
 - **주요 기술**: Unreal Engine 5, C++
 
-## 🎯 개발 목표
-- [x] 이동 시스템
-- [ ] UI
-- [ ] 인벤토리
-- [ ] 오브젝트
-- [x] 공격 시스템
-- [ ] 스킬
-- [ ] 채팅
-- [ ] 최적화
+## 🎯 담당 업무
+- 프로젝트를 Client·Server·Common 구조로 분리하여 공용 로직을 모듈화하고 유지보수성과 확장성 확보   
+- 단일 책임 원칙을 적용해 클래스를 설계하고 공용 기능을 Actor Component로 모듈화하여 재사용성과 확장성 강화   
+- 목적에 따라 State Machine을 분리 설계하고 최종 Pose 블렌딩 파이프라인 구현   
+- Aim Offset을 적용하여 컨트롤러 조준 값에 맞춰 상체 방향을 일치   
 
 ## 🛠 이슈 및 해결 과정   
 ### 이슈 1

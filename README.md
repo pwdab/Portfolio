@@ -1,10 +1,10 @@
 # 김윤성의 포트폴리오
 
 <p>
-  <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Unreal%20Engine-0E1128?style=for-the-badge&logo=unrealengine&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Unity-222222?style=for-the-badge&logo=unity&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Game%20Client%20Programming-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/C++-00599C?style=flat&logo=cplusplus&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Unreal%20Engine-0E1128?style=flat&logo=unrealengine&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Unity-222222?style=flat&logo=unity&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Game%20Client%20Programming-blue?style=flat"/>
 </p>
 
 <table>
@@ -66,10 +66,10 @@ C++ 게임 클라이언트 프로그래밍
 ## 🌐 연락처
 
 <p>
-	<a href="mailto:soundno07@naver.com"><img src="https://img.shields.io/badge/Email-red?style=for-the-badge&logo=gmail&logoColor=white"/></a>
-	<a href="https://github.com/pwdab"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/></a>
-	<a href="https://www.youtube.com/@%ED%8F%89%EB%8B%A4%EB%B2%94"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"/></a>
-	<a href="https://velog.io/@pwdab/posts"><img src="https://img.shields.io/badge/Velog-20C997?style=for-the-badge&logo=velog&logoColor=white"/></a>
+	<a href="mailto:soundno07@naver.com"><img src="https://img.shields.io/badge/Email-red?style=flat&logo=gmail&logoColor=white"/></a>
+	<a href="https://github.com/pwdab"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white"/></a>
+	<a href="https://www.youtube.com/@%ED%8F%89%EB%8B%A4%EB%B2%94"><img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white"/></a>
+	<a href="https://velog.io/@pwdab/posts"><img src="https://img.shields.io/badge/Velog-20C997?style=flat&logo=velog&logoColor=white"/></a>
 </p>
 
 <br>
@@ -102,7 +102,7 @@ C++ 게임 클라이언트 프로그래밍
 #  [🚀 3. Projects](#index)
 
 <a id="project_hal"></a>
-# [3-1. Project_HAL](#index) <img src="https://img.shields.io/badge/Team-6aa84f?style=for-the-badge" align="absmiddle"/> <img src="https://img.shields.io/badge/Unity-222222?style=for-the-badge&logo=unity&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" align="absmiddle"/>
+# [3-1. Project_HAL](#index) <img src="https://img.shields.io/badge/Team-6aa84f?style=flat" align="absmiddle"/> <img src="https://img.shields.io/badge/Unity-222222?style=flat&logo=unity&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C%23-239120?style=flat&logo=csharp&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" align="absmiddle"/>
 
 <div align="center"><h3><strong><em>공격과 카드 드로우로 펼쳐지는 전투! 빠른 템포 속에서 화려한 액션을 즐겨보세요!</em></strong></h3></div>
 
@@ -143,9 +143,9 @@ C++ 게임 클라이언트 프로그래밍
 <br>
 
 <a id="the-first-foreigner"></a>
-# [3-2. The First Foreigner](#index) <img src="https://img.shields.io/badge/Team-6aa84f?style=for-the-badge" align="absmiddle"/> <img src="https://img.shields.io/badge/Unreal%20Engine-0E1128?style=for-the-badge&logo=unrealengine&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/Steam-000000?style=for-the-badge&logo=steam&logoColor=white" align="absmiddle"/>
+# [3-2. The First Foreigner](#index) <img src="https://img.shields.io/badge/Team-6aa84f?style=flat" align="absmiddle"/> <img src="https://img.shields.io/badge/Unreal%20Engine-0E1128?style=flat&logo=unrealengine&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C++-00599C?style=flat&logo=cplusplus&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/Steam-000000?style=flat&logo=steam&logoColor=white" align="absmiddle"/>
 
-<div align="center"><h3><strong><em>제한된 시간, 끊어진 언어, 엉뚱한 오해와 기발한 설명 속에서 진짜 외국인을 마주한 듯한 혼돈의 소통을 즐겨보세요!</em></strong></h3></div>
+<div align="center"><h3><strong><em>제한된 시간, 끊어진 언어, 오해와 설명 속에서 외국인을 마주한 듯한 혼돈의 소통을 즐겨보세요!</em></strong></h3></div>
 
 <p align="center">
 	<img src="images/The First Foreigner/The First Foreigner.png" alt="The First Foreigner" width="75%">>
@@ -188,7 +188,7 @@ C++ 게임 클라이언트 프로그래밍
 <br>
 
 <a id="project_x"></a>
-# [3-3. Project_X](#index) <img src="https://img.shields.io/badge/Solo-3c78d8?style=for-the-badge" align="absmiddle"/> <img src="https://img.shields.io/badge/Unreal%20Engine-0E1128?style=for-the-badge&logo=unrealengine&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" align="absmiddle"/>
+# [3-3. Project_X](#index) <img src="https://img.shields.io/badge/Solo-3c78d8?style=flat" align="absmiddle"/> <img src="https://img.shields.io/badge/Unreal%20Engine-0E1128?style=flat&logo=unrealengine&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C++-00599C?style=flat&logo=cplusplus&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" align="absmiddle"/>
 
 <div align="center"><h3><strong><em>구현을 넘어 설계와 구조로, 나만의 TPS 멀티플레이 템플릿을 만들어 갑니다</em></strong></h3></div>
 
@@ -218,8 +218,8 @@ C++ 게임 클라이언트 프로그래밍
 - **Aim Offset** 적용으로 컨트롤러 조준 방향과 캐릭터 상체 회전 일치   
 
 ## 🛠 주요 이슈 
-- BeginAim()이 한 번만 호출되어 AimProgress 누적 불가 → TimelineComponent·FCurve로 프레임 낭비 없이 AimProgress 제어
-- 투사체가 캐릭터 Forward 기준으로 발사되어 컨트롤러 방향과 불일치 → 컨트롤러 방향을 서버에 전달해 정확한 투사체 발사 구현
+- BeginAim()이 한 번만 호출되어 AimProgress 누적 불가 → TimelineComponent·FCurve로 프레임 낭비 없이 제어
+- 화살이 캐릭터 정면으로 발사되어 조준 방향과 불일치 → 조준 방향을 서버에 전달해 정확한 화살 발사 구현
 
 ## 🔗 추가 정보
 - **구현 코드**   

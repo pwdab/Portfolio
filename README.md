@@ -30,21 +30,21 @@
 
 <br>
 
-특히 **네트워크 프로그래밍**에 관심이 있으며,
+특히 **네트워크 프로그래밍**에 큰 관심이 있으며,
 
-**Replication/RPC** 기반 데이터 동기화, **AnimBP** 기반 애니메이션 제어, **Online Subsystem** 기반 세션 관리 경험을 보유하고 있습니다.   
-
-<br>
-
-개발 과정에서 세션 종료 처리, 닉네임 인코딩, 캐릭터 동기화 등 다양한 **실전 이슈**를 해결하며 **안정적인 게임플레이 환경**을 구축했습니다.  
-
-이러한 경험을 바탕으로 제작한 프로젝트를 **Steam**에 게시하여 **2,000회 이상 다운로드**를 기록하기도 했습니다.  
+**Replication/RPC**를 활용한 데이터 동기화, **AnimBP** 기반 애니메이션 제어 경험을 보유하고 있습니다.   
 
 <br>
 
-최근에는 단순한 구현을 넘어 **설계와 모듈화**의 중요성을 체감하고 있으며, 모던 C++ 학습을 통해 구조적 사고를 확장해 나가고 있습니다.  
+개발 과정에서 세션 종료 처리, 닉네임 인코딩, 캐릭터 동기화 등 다양한 **실전 이슈**를 해결하며 **안정적인 게임플레이 환경**을 구현했습니다.  
 
-앞으로도 꾸준히 배우고 성장하여, 더 많은 플레이어들에게 **안정적이고 즐거운 게임 경험**을 제공하는 클라이언트 프로그래머로 발전하겠습니다.
+이러한 경험을 바탕으로 제작한 프로젝트를 **Steam**에 출시하여 **2,000회 이상 다운로드**를 기록하기도 했습니다.  
+
+<br>
+
+최근에는 단순한 기능 구현을 넘어 **설계와 모듈화**의 중요성을 체감하고 있으며, 모던 C++ 학습을 통해 구조적 사고를 확장해 나가고 있습니다.  
+
+앞으로도 꾸준히 배우고 성장하여, 더 많은 플레이어들에게 **안정적이고 즐거운 경험**을 제공하는 클라이언트 프로그래머로 발전하겠습니다.
 
 ## 🏷️ 이름
 김윤성 (Kim Youn Sung)   
@@ -80,9 +80,9 @@ C++ 게임 클라이언트 프로그래밍
 ### <img src="images/logo/unreal_logo.png" width="20" align="absmiddle"/> Unreal Engine 5
 - 3D 멀티플레이 게임 개발 및 출시
 - Replication·RPC 기반 네트워크 동기화
-- AnimBP·State Machine 기반 애니메이션 제어
+- AnimBP·AnimInstance·State Machine 기반 애니메이션 제어
 - Delegate·Notify 기반 이벤트 처리
-- UMG 위젯 데이터 바인딩 및 동적 UI 구현
+- UMG 기반 UI 데이터 바인딩 및 동적 UI 구현
 - Online Subsystem 기반 세션 관리
 
 ### <img src="https://cdn.sanity.io/images/fuvbjjlp/production/aa5ce86e0add266e09ffa222609af4cc94befc7b-250x282.png" width="20" align="absmiddle"/> Unity 
@@ -94,7 +94,7 @@ C++ 게임 클라이언트 프로그래밍
 ### <img src="images/logo/C++_logo.png" width="20" align="absmiddle"/> C/C++   
 - OpenGL 기반 3D 카메라 Viewing System 구현
 - PintOS에서 User Stack 구조 및 Thread Scheduling 구현
-- Linux에서 프로세스 통신 기반 멀티스레드 프로그램의 동시성 문제 해결
+- Linux 환경에서 프로세스 통신 기반 멀티스레드 동시성 문제 해결
 
 <br>
 
@@ -102,9 +102,9 @@ C++ 게임 클라이언트 프로그래밍
 #  [🚀 3. Projects](#index)
 
 <a id="project_hal"></a>
-# [3-1. Project_HAL](#index) <img src="https://img.shields.io/badge/Unity-222222?style=for-the-badge&logo=unity&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" align="absmiddle"/>
+# [3-1. Project_HAL](#index) <img src="https://img.shields.io/badge/Team-6aa84f?style=for-the-badge" align="absmiddle"/> <img src="https://img.shields.io/badge/Unity-222222?style=for-the-badge&logo=unity&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" align="absmiddle"/>
 
-<div align="center"><h3><strong><em>공격과 카드 드로우로 펼쳐지는 무한 액션! 빠른 템포의 전투 속에서 화려한 액션을 즐겨보세요!</em></strong></h3></div>
+<div align="center"><h3><strong><em>공격과 카드 드로우로 펼쳐지는 전투! 빠른 템포 속에서 화려한 액션을 즐겨보세요!</em></strong></h3></div>
 
 <p align="center">
 	<img src="images/Project_HAL/Project_HAL.png" alt="Project_HAL" width="75%">
@@ -114,19 +114,21 @@ C++ 게임 클라이언트 프로그래밍
 </p>
 
 ## 📌 프로젝트 소개
-- **게임 장르**: 탑뷰 2D 싱글플레이 어드벤처 게임
+- **프로젝트 유형**: 팀 프로젝트 게임 개발 (프로그래밍 4명)
+- **프로젝트 목적**: 첫 게임 개발 프로젝트로, 게임 개발의 전반적인 과정을 경험하고 이해하는 것을 목표로 함
+- **본인 역할**: 프로그래밍
+- **게임 장르**: 탑뷰 2D 싱글플레이 어드벤처
 - **개발 기간**: 2024.03 ~ 2024.06
 - **개발 환경**: Unity 2022.3.21f, Windows 10
-- **멤버 구성**: 팀 프로젝트(프로그래밍 4명)
 - **주요 기술**: Unity, C#
 
 ## 🎯 담당 업무
-- Sprite Atlas 기반 2D **애니메이션** 생성 및 Animator Controller **상태 전환** 구현   
+- Sprite Atlas 기반 2D 애니메이션 생성 및 Animator Controller **전환** 로직 구현   
 - Collider2D 기반 **캐릭터-오브젝트 상호작용** 처리   
 - 아이템 획득·폐기·이동이 가능한 **인벤토리 시스템** 구현
 
 ## 🛠 주요 이슈
-- normalizedTime 누적으로 애니메이션 전환 무시 → 애니메이션 전환 대기 로직 추가
+- normalizedTime 누적으로 애니메이션 전환 무시 → 전환 대기 로직 추가로 해결
 	
 ## 🔗 추가 정보
 - **상세 내용 및 구현 코드**   
@@ -139,9 +141,9 @@ C++ 게임 클라이언트 프로그래밍
 <br>
 
 <a id="the-first-foreigner"></a>
-# [3-2. The First Foreigner](#index) <img src="https://img.shields.io/badge/Unreal%20Engine-0E1128?style=for-the-badge&logo=unrealengine&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/Steam-000000?style=for-the-badge&logo=steam&logoColor=white" align="absmiddle"/>
+# [3-2. The First Foreigner](#index) <img src="https://img.shields.io/badge/Team-6aa84f?style=for-the-badge" align="absmiddle"/> <img src="https://img.shields.io/badge/Unreal%20Engine-0E1128?style=for-the-badge&logo=unrealengine&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/Steam-000000?style=for-the-badge&logo=steam&logoColor=white" align="absmiddle"/>
 
-<div align="center"><h3><strong><em>제한된 시간, 끊어진 언어, 엉뚱한 오해와 기발한 설명 속에서 진짜 외국인과 마주친 듯한 혼돈의 소통을 즐겨보세요!</em></strong></h3></div>
+<div align="center"><h3><strong><em>제한된 시간, 끊어진 언어, 엉뚱한 오해와 기발한 설명 속에서 진짜 외국인을 마주한 듯한 혼돈의 소통을 즐겨보세요!</em></strong></h3></div>
 
 <p align="center">
 	<img src="images/The First Foreigner/The First Foreigner.png" alt="The First Foreigner" width="75%">>
@@ -151,23 +153,25 @@ C++ 게임 클라이언트 프로그래밍
 </p>
 
 ## 📌 프로젝트 소개
-- **게임 장르**: 3D 멀티플레이 캐주얼 게임
+- **프로젝트 유형**: 팀 프로젝트 게임 개발 (기획·레벨 디자인 1명, 프로그래밍 1명)
+- **프로젝트 목적**: 네트워크 게임의 전반적인 작동 원리를 학습하고, 게임 출시를 통해 피드백을 받아보는 것을 목표로 함
+- **본인 역할**: 프로그래밍
+- **게임 장르**: 3D 멀티플레이 캐주얼
 - **개발 기간**: 2024.09 ~ 2024.12, 2025.05 ~ 2025.06
 - **개발 환경**: Unreal 5.2.1, Windows 10
-- **멤버 구성**: 팀 프로젝트(기획 및 레벨 디자인 1명, 프로그래밍 1명)
 - **주요 기술**: Unreal Engine 5, C++
 
 ## 🎯 담당 업무
 - Unreal Gameplay Framework 기반 **게임 플레이 로직** 구현   
-- Replication·RPC 기반 클라이언트–서버 **데이터 동기화 및 명령 처리**   
-- Animation Blueprint·AnimInstance·State Machine 기반 캐릭터 **애니메이션 제어**   
+- Replication·RPC 기반 **데이터 동기화 및 명령 처리**   
+- AnimBP·AnimInstance·State Machine 기반 **애니메이션 제어**
 - Widget Blueprint 기반 **동적 UI** 제작 및 **데이터 연동**
 - Online Subsystem 기반 **세션 관리**
 
 ## 🛠 주요 이슈 
-- 캐릭터 시선 Rotator 불일치 → 서버 RPC와 NetMulticast로 모든 클라이언트에 동기화
-- 클라이언트 세션 종료 오류 → 호스트 종료 전 RPC로 클라이언트 먼저 종료
-- Steam 닉네임 깨짐 → Base64 인코딩·복호화 방식 적용
+- 클라이언트 간 캐릭터 시선 불일치 → 서버 RPC와 NetMulticast 동기화로 해결
+- 클라이언트 세션 종료 오류 → 호스트 종료 전 Client RPC 호출로 클라이언트 세션 정상 종료
+- Steam 닉네임 깨짐 → Base64 인코딩·복호화 적용 후 정상 출력
 
 ## 🔗 추가 정보
 - **상세 내용 및 구현 코드**   
@@ -180,37 +184,36 @@ C++ 게임 클라이언트 프로그래밍
 <br>
 
 <a id="project_x"></a>
-# [3-3. Project_X](#index) <img src="https://img.shields.io/badge/Unreal%20Engine-0E1128?style=for-the-badge&logo=unrealengine&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" align="absmiddle"/>
+# [3-3. Project_X](#index) <img src="https://img.shields.io/badge/Solo-3c78d8?style=for-the-badge" align="absmiddle"/> <img src="https://img.shields.io/badge/Unreal%20Engine-0E1128?style=for-the-badge&logo=unrealengine&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" align="absmiddle"/>
 
 <div align="center"><h3><strong><em>구현을 넘어 설계와 구조로, 나만의 TPS 멀티플레이 템플릿을 만들어 갑니다</em></strong></h3></div>
 
 <p align="center">
 	<img src="images/Project_X/Project_X.png" alt="Project_X" width="75%">
 	<img src="images/Project_X/features1.gif" width="40%">
-	<img src="images/Project_X/features2.gif" width="39%">
+	<img src="images/Project_X/features2.gif" width="35%">
 	<img src="images/Project_X/features3.gif" width="20%">
 </p>
 
 
 ## 📌 프로젝트 소개
-- **게임 장르**: TPS
+- **프로젝트 유형**: 개인 프로젝트 게임 개발 (프로그래밍 1명)
+- **프로젝트 목적**: 단순 기능 구현보다 깔끔하고 가독성 좋은 코드, 설계와 구조화에 집중하는 것을 목표로 함
+- **본인 역할**: 프로그래밍
+- **게임 장르**: 3D 멀티플레이 TPS
 - **개발 기간**: 2025.04.11 ~ 진행 중
 - **개발 환경**: Unreal 5.4.4, Windows 10
-- **멤버 구성**: 개인 프로젝트
 - **주요 기술**: Unreal Engine 5, C++
 
 ## 🎯 담당 업무
-- 프로젝트를 Client·Server·Common 구조로 분리하여 공용 로직을 **모듈화**하고 **유지보수성**과 **확장성** 확보   
-- **단일 책임 원칙**을 적용해 클래스를 설계하고 공용 기능을 **Actor Component**로 모듈화하여 **재사용성**과 **확장성** 강화   
-- 목적에 따라 State Machine을 **분리 설계**하고 최종 **Pose 블렌딩** 파이프라인 구현   
-- **Aim Offset**을 적용하여 컨트롤러 조준 값에 맞춰 상체 방향을 일치   
+- 프로젝트를 Client·Server·Common 구조로 분리해 **모듈화**·**유지보수성**·**확장성** 강화
+- **단일 책임 원칙** 기반 클래스 설계 및 **Actor Component** 모듈화로 **재사용성** 확보
+- 목적에 따라 State Machine **분리 설계** 및 최종 **Pose 블렌딩** 파이프라인 구현   
+- **Aim Offset** 적용으로 컨트롤러 조준 방향과 캐릭터 상체 회전 일치   
 
-## 🛠 이슈 및 해결 과정   
-### 이슈 1
-- **문제**: 문제 1  
-- **원인**: 원인 1
-- **해결**: 해결 1
-- **결과**: 결과 1
+## 🛠 주요 이슈 
+- BeginAim()이 한 번만 호출되어 AimProgress 누적 불가 → TimelineComponent·FCurve로 프레임 낭비 없이 AimProgress 제어
+- 투사체가 캐릭터 Forward 기준으로 발사되어 컨트롤러 방향과 불일치 → 컨트롤러 방향을 서버에 전달해 정확한 투사체 발사 구현
 
 ## 🔗 추가 정보
 - **구현 코드**   

@@ -91,11 +91,6 @@ C++ 게임 클라이언트 프로그래밍
 - Collider2D 기반 상호작용 처리
 - Canvas 기반 동적 UI 제작
 
-### <img src="images/logo/C++_logo.png" width="20" align="absmiddle"/> C/C++   
-- OpenGL 기반 3D 카메라 Viewing System 구현
-- PintOS에서 User Stack 구조 및 Thread Scheduling 구현
-- Linux 환경에서 프로세스 통신 기반 멀티스레드 동시성 문제 해결
-
 <br>
 
 <a id="projects"></a>

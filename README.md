@@ -200,8 +200,8 @@
 - **주요 기술**: Unreal Engine 5, C++
 
 ## 🎯 담당 업무
-- 프로젝트를 Client·Server·Common 구조로 분리해 **모듈화**·**유지보수성**·**확장성** 강화
-- **단일 책임 원칙** 기반 클래스 설계 및 **Actor Component** 모듈화로 **재사용성** 확보
+- 프로젝트를 Client·Server·Common 구조로 분리해 **유지보수성** 강화
+- **단일 책임 원칙** 기반 클래스 설계 및 **Actor Component**로 **재사용성** 확보
 - 목적에 따라 State Machine **분리 설계** 및 최종 **Pose 블렌딩** 파이프라인 구현   
 - **Aim Offset** 적용으로 컨트롤러 조준 방향과 캐릭터 상체 회전 일치   
 

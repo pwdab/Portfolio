@@ -4,24 +4,24 @@
   <tr>
     <td>
       <a id="index"></a>
-      &nbsp;&nbsp;<a href="#introduction"> Introduction </a><br>
-      &nbsp;&nbsp;<a href="#project-summary"> Project Summary </a><br>
-      &nbsp;&nbsp;<a href="#projects"> Projects </a><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#action-system"> Action 기반 멀티플레이 행동 처리 시스템 </a><br>
+      &nbsp;&nbsp;<a href="#introduction"> 1. Introduction </a><br>
+      &nbsp;&nbsp;<a href="#project-summary"> 2. Project Summary </a><br>
+      &nbsp;&nbsp;<a href="#projects"> 3. Projects </a><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#action-system"> 3-1. Action 기반 멀티플레이 행동 처리 시스템 </a><br>
 <!--
 	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#action-system-problem"> 문제 </a><br>
 	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#action-system-analysis"> 원인 </a><br>
 	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#action-system-solution"> 해결 </a><br>
 	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#action-system-result"> 결과 </a><br>
 -->
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#fastarray-inventory"> Fast Array 기반 인벤토리 시스템 </a><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#fastarray-inventory"> 3-2. Fast Array 기반 인벤토리 시스템 </a><br>
 <!--
 	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#fastarray-inventory-problem"> 문제 </a><br>
 	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#fastarray-inventory-analysis"> 원인 </a><br>
 	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#fastarray-inventory-solution"> 해결 </a><br>
 	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#fastarray-inventory-result"> 결과 </a><br>\
 -->
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#session-sync"> 멀티플레이 세션 종료 동기화 </a><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#session-sync"> 3-3. 멀티플레이 세션 종료 동기화 </a><br>
 <!--
 	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#session-sync-problem"> 문제 </a><br>
 	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#session-sync-analysis"> 원인 </a><br>
@@ -33,7 +33,7 @@
 </table>
 
 <a id="introduction"></a>
-# [Introduction](#index)
+# [1. Introduction](#index)
 
 ### **이름**   
 김윤성   
@@ -52,7 +52,7 @@ Action 기반 처리 파이프라인과 FastArray 기반 인벤토리 시스템�
 <br>
 
 <a id="project-summary"></a>
-#  [Project Summary](#index)
+#  [2. Project Summary](#index)
 
 ### [Action 기반 멀티플레이 행동 처리 시스템](#action-system)
 
@@ -69,10 +69,10 @@ Action 기반 처리 파이프라인과 FastArray 기반 인벤토리 시스템�
 <br>
 
 <a id="projects"></a>
-#  [Projects](#index)
+#  [3. Projects](#index)
 
 <a id="action-system"></a>
-## [Action 기반 멀티플레이 행동 처리 시스템](#index) 
+## [3-1. Action 기반 멀티플레이 행동 처리 시스템](#index) 
 
 <a id="action-system-problem"></a>
 ### [문제](#index)
@@ -88,10 +88,12 @@ Action 기반 처리 파이프라인과 FastArray 기반 인벤토리 시스템�
 <a id="action-system-analysis"></a>
 ### [원인](#index)
 
-[Before 구조 다이어그램]
-[Before 시퀀스 다이어그램]
-
 문제의 원인은 기존 **행동 처리 구조**에 있었습니다.
+
+<p align="center">
+	<img src="images/3.0/ActionSystem/before_structure.png" width="55%">
+	<img src="images/3.0/ActionSystem/before_sequence.png" width="80%">
+</p>
 
 **1\. Character 중심 구조**   
 - 입력 이후의 행동 실행 로직을 <strong>`Character`</strong>가 직접 호출   
@@ -110,7 +112,10 @@ Action 기반 처리 파이프라인과 FastArray 기반 인벤토리 시스템�
 
 **1\. Character 책임 분리**
 
-[After 구조 다이어그램]
+<p align="center">
+	<img src="images/3.0/ActionSystem/after_structure.png" width="75%">
+	<img src="images/3.0/ActionSystem/after_sequence.png" width="100%">
+</p>
 
 <strong>`Character`</strong> 중심 구조를 다음과 같이 역할 기반 구조로 분리했습니다.
 
@@ -127,8 +132,10 @@ Action 기반 처리 파이프라인과 FastArray 기반 인벤토리 시스템�
 
 **2\. 행동 처리 구조 통합**
 
-[After 시퀀스 다이어그램]
-[ActionContext 다이어그램]
+<p align="center">
+	<img src="images/3.0/ActionSystem/action_context.png" width="25%">
+	<img src="images/3.0/ActionSystem/action_pipeline.png" width="100%">
+</p>
 
 행동을 공통 데이터 구조인 <strong>`ActionContext`</strong>로 표현하고, 모든 행동이 동일한 처리 파이프라인을 거치도록 설계했습니다.
 
@@ -172,12 +179,12 @@ Action 기반 구조를 도입한 결과 다음과 같은 효과를 얻을 수 �
 
 **→** 멀티플레이 환경에서 발생하는 **Action 순서 불일치 문제 해결**
 
-
+<br>
 
 <br>
 
 <a id="fastarray-inventory"></a>
-## [Fast Array 기반 인벤토리 시스템](#index) 
+## [3-2. Fast Array 기반 인벤토리 시스템](#index) 
 
 <a id="fastarray-inventory-problem"></a>
 ### [문제](#index)
@@ -197,8 +204,11 @@ Fast Array Replication 기반 인벤토리 구조 설계
 
 <br>
 
+
+<br>
+
 <a id="session-sync"></a>
-## [멀티플레이 세션 종료 동기화](#index) 
+## [3-3. 멀티플레이 세션 종료 동기화](#index) 
 
 <a id="session-sync-problem"></a>
 ### [문제](#index)

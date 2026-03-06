@@ -1,231 +1,217 @@
-# 김윤성의 포트폴리오
-
-<p>
-  <img src="https://img.shields.io/badge/C++-00599C?style=flat&logo=cplusplus&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Unreal%20Engine-0E1128?style=flat&logo=unrealengine&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Unity-222222?style=flat&logo=unity&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Game%20Client%20Programming-blue?style=flat"/>
-</p>
+# Unreal Engine 5 Multiplayer Game Development Portfolio
 
 <table>
   <tr>
     <td>
-      <b><a id="index"></a> 목차</b><br>
-      &nbsp;&nbsp;<a href="#introduction"> 1. Introduction </a><br>
-      &nbsp;&nbsp;<a href="#technical-stacks"> 2. Technical Stacks </a><br>
-      &nbsp;&nbsp;<a href="#projects"> 3. Projects </a><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#project_hal"> 3-1. Project_HAL </a><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#the-first-foreigner"> 3-2. The First Foreigner </a><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#project_x"> 3-3. Project_X </a><br>
+      <a id="index"></a>
+      &nbsp;&nbsp;<a href="#introduction"> Introduction </a><br>
+      &nbsp;&nbsp;<a href="#project-summary"> Project Summary </a><br>
+      &nbsp;&nbsp;<a href="#projects"> Projects </a><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#action-system"> Action 기반 멀티플레이 행동 처리 시스템 </a><br>
+<!--
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#action-system-problem"> 문제 </a><br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#action-system-analysis"> 원인 </a><br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#action-system-solution"> 해결 </a><br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#action-system-result"> 결과 </a><br>
+-->
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#fastarray-inventory"> Fast Array 기반 인벤토리 시스템 </a><br>
+<!--
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#fastarray-inventory-problem"> 문제 </a><br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#fastarray-inventory-analysis"> 원인 </a><br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#fastarray-inventory-solution"> 해결 </a><br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#fastarray-inventory-result"> 결과 </a><br>\
+-->
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#session-sync"> 멀티플레이 세션 종료 동기화 </a><br>
+<!--
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#session-sync-problem"> 문제 </a><br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#session-sync-analysis"> 원인 </a><br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#session-sync-solution"> 해결 </a><br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#session-sync-result"> 결과 </a><br>
+-->
     </td>
   </tr>
 </table>
 
 <a id="introduction"></a>
-# [👋 1. Introduction](#index)
+# [Introduction](#index)
 
-안녕하세요!  
+### **이름**   
+김윤성   
 
-저는 **Unreal Engine 5**와 <strong>C++</strong>을 주로 다루는 **게임 클라이언트 프로그래머**입니다.  
+### **직무**   
+게임 클라이언트 프로그래밍   
 
-<br>
+### **기술 스택**   
+Unreal Engine 5 / C++ / Replication / RPC   
 
-특히 **네트워크 프로그래밍**에 큰 관심이 있으며,
-
-**Replication/RPC**를 활용한 데이터 동기화, **AnimBP** 기반 애니메이션 제어 경험을 보유하고 있습니다.   
-
-<br>
-
-개발 과정에서 세션 처리, 인코딩, 동기화 등 다양한 **실전 이슈**를 해결하며 **안정적인 게임플레이 환경**을 구현했습니다.  
-
-이러한 경험을 바탕으로 제작한 프로젝트를 **Steam**에 출시하여 **2,000회 이상 다운로드**를 기록하기도 했습니다.  
+### 자기소개
+Unreal Engine을 주로 다루며 코드 구조와 확장성을 중요하게 생각하는 게임 클라이언트 프로그래머입니다.   
+Action 기반 처리 파이프라인과 FastArray 기반 인벤토리 시스템을 설계하며 유지보수와 확장을 고려한 게임 시스템을 개발했습니다.   
+또한 Steam에 캐주얼 게임을 출시하며 게임 개발부터 서비스까지의 전반적인 과정을 경험했습니다.
 
 <br>
 
-최근에는 기능 구현을 넘어 **설계와 모듈화**의 중요성을 깨닫고, 모던 C++을 학습하며 구조적 사고를 확장해 나가고 있습니다.  
+<a id="project-summary"></a>
+#  [Project Summary](#index)
 
-앞으로 더 많은 플레이어들에게 **안정적이고 즐거운 경험**을 제공하는 클라이언트 프로그래머로 발전하겠습니다.
+### [Action 기반 멀티플레이 행동 처리 시스템](#action-system)
 
-## 🏷️ 이름
-김윤성 (Kim Youn Sung)   
+- 캐릭터 행동 로직을 Action 기반 구조로 재설계하고 Sequence 기반 처리 방식을 도입하여 멀티플레이 환경에서 행동 처리 정합성을 확보했습니다.
 
-## 💼 직무
-C++ 게임 클라이언트 프로그래밍
-  
-## 🎓 학력   
-2019.02 ~ 2026.02\
-서강대학교 컴퓨터공학과 졸업예정   
+### [Fast Array 기반 인벤토리 시스템](#fastarray-inventory)
 
-2014.02 ~ 2017.02\
-영동일고등학교 졸업   
+- FastArray 기반 인벤토리 구조를 설계하여 변경된 슬롯만 동기화하도록 개선하고 네트워크 트래픽을 감소시켰습니다.
 
-## 🏃 활동   
-2025.02.07 ~ 2025.02.10\
-메이플 대학생 게임 커리어 캠프, 메토링 2기 수료
+### [멀티플레이 세션 종료 동기화](#session-sync)
 
-## 🌐 연락처
-
-<p>
-	<a href="mailto:soundno07@naver.com"><img src="https://img.shields.io/badge/Email-red?style=flat&logo=gmail&logoColor=white"/></a>
-	<a href="https://github.com/pwdab"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white"/></a>
-	<a href="https://www.youtube.com/@%ED%8F%89%EB%8B%A4%EB%B2%94"><img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white"/></a>
-	<a href="https://velog.io/@pwdab/posts"><img src="https://img.shields.io/badge/Velog-20C997?style=flat&logo=velog&logoColor=white"/></a>
-</p>
-
-<br>
-
-<a id="technical-stacks"></a>
-# [💻 2. Technical Stacks](#index)
-
-### <img src="images/logo/unreal_logo.png" width="20" align="absmiddle"/> Unreal Engine 5
-- 3D 멀티플레이 게임 개발 및 출시
-- Replication·RPC 기반 네트워크 동기화
-- AnimBP·AnimInstance·State Machine 기반 애니메이션 제어
-- Delegate·Notify 기반 이벤트 처리
-- UMG 기반 UI 데이터 바인딩 및 동적 UI 구현
-- Online Subsystem 기반 세션 관리
-
-### <img src="https://cdn.sanity.io/images/fuvbjjlp/production/aa5ce86e0add266e09ffa222609af4cc94befc7b-250x282.png" width="20" align="absmiddle"/> Unity 
-- 2D 싱글플레이 게임 개발
-- Sprite·Controller 기반 애니메이션 제어
-- Collider2D 기반 상호작용 처리
-- Canvas 기반 동적 UI 제작
-
-### <img src="images/logo/C++_logo.png" width="20" align="absmiddle"/> C/C++   
-- OpenGL 기반 3D 카메라 Viewing System 구현
-- PintOS에서 User Stack 구조 및 Thread Scheduling 구현
-- Linux 환경에서 프로세스 통신 기반 멀티스레드 동시성 문제 해결
+- 호스트 종료 시 클라이언트가 세션에 잔류하던 문제를 Client RPC 기반 동기화 구조로 해결하여 안정적인 세션 종료 흐름을 구현했습니다.
 
 <br>
 
 <a id="projects"></a>
-#  [🚀 3. Projects](#index)
+#  [Projects](#index)
 
-<a id="project_hal"></a>
-# [3-1. Project_HAL](#index) <img src="https://img.shields.io/badge/Team-6aa84f?style=flat" align="absmiddle"/> <img src="https://img.shields.io/badge/Unity-222222?style=flat&logo=unity&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C%23-239120?style=flat&logo=csharp&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" align="absmiddle"/>
+<a id="action-system"></a>
+## [Action 기반 멀티플레이 행동 처리 시스템](#index) 
 
-<div align="center"><h3><strong><em>공격과 카드 드로우로 펼쳐지는 전투! 빠른 템포 속에서 화려한 액션을 즐겨보세요!</em></strong></h3></div>
+<a id="action-system-problem"></a>
+### [문제](#index)
 
-<p align="center">
-	<img src="images/Project_HAL/Project_HAL.png" alt="Project_HAL" width="75%">
-	<img src="images/Project_HAL/features1.gif" width="32%">
-	<img src="images/Project_HAL/features2.gif" width="32%">
-	<img src="images/Project_HAL/features3.gif" width="32%">
-</p>
+기존 행동 처리 시스템에서는 다음과 같은 문제가 발생했습니다.   
 
-## 📌 프로젝트 소개
-- **프로젝트 유형**: 팀 프로젝트 게임 개발 (프로그래밍 4명)
-- **프로젝트 목적**: 첫 게임 개발 프로젝트로, 게임 개발의 전반적인 과정을 경험하고 이해하는 것을 목표로 함
-- **본인 역할**: 프로그래밍
-- **게임 장르**: 탑뷰 2D 싱글플레이 어드벤처
-- **게임 개요**: 플레이어는 기본 공격과 카드 드로우 기반 스킬로 몬스터를 처치하고 스테이지를 클리어
-- **개발 기간**: 2024.03 ~ 2024.06
-- **개발 상태**: 데모 빌드 배포 완료 (개발 종료)
-- **개발 환경**: Unity 2022.3.21f, Windows 10
-- **주요 기술**: Unity, C#
+**1\. Character의 과도한 책임**   
 
-## 🎯 담당 업무
-- Sprite Atlas 기반 2D 애니메이션 생성 및 Animator Controller **전환** 로직 구현   
-- Collider2D 기반 **캐릭터-오브젝트 상호작용** 처리   
-- 아이템 획득·폐기·이동이 가능한 **인벤토리 시스템** 구현
+**2\. 행동마다 서로 다른 처리 흐름**   
 
-## 🛠 주요 이슈
-- normalizedTime 누적으로 애니메이션 전환 무시 → 전환 대기 로직 추가로 해결
-	
-## 🔗 추가 정보
-- **상세 내용 및 구현 코드**   
-	<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="15" /> [GitHub Repository](https://github.com/pwdab/Project_HAL)에서 확인 가능합니다.
-- **게임 플레이**   
-	<img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg" width="15" align="absmiddle"/> [구글 드라이브](https://drive.google.com/file/d/1hhAQobi0zfsc5SucmJjASzMnFuvB9EYg/view?usp=sharing)에서 Project_HAL_Demo.zip 파일을 다운로드 후 **HALNENG.exe** 파일 실행   
-- **플레이 영상**      
-	<img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="15" align="absmiddle"/> [YouTube](https://youtu.be/5klQiKKPS54)에서 플레이 영상을 시청할 수 있습니다.
+**3\. 멀티플레이 환경에서 행동 처리 순서 불일치**   
+
+<a id="action-system-analysis"></a>
+### [원인](#index)
+
+[Before 구조 다이어그램]
+[Before 시퀀스 다이어그램]
+
+문제의 원인은 기존 **행동 처리 구조**에 있었습니다.
+
+**1\. Character 중심 구조**   
+- 입력 이후의 행동 실행 로직을 <strong>`Character`</strong>가 직접 호출   
+- 입력 처리, 상태 변경, 서버 RPC 호출, 공격 시작까지 <strong>`Character`</strong>가 담당   
+
+**2\. 행동 처리의 표준화 부재**
+- 행동을 공통 개념으로 관리하는 구조가 존재하지 않음
+- 각 행동이 개별 함수와 RPC 흐름으로 구현되어 서로 다른 처리 경로를 가짐
+
+**3\. RPC 기반 즉시 실행 구조**
+- 입력 이벤트 발생 시 서버 RPC를 즉시 호출
+- 네트워크 지연 환경에서 RPC 도착 순서가 달라질 경우 행동 순서가 보장되지 않음
+
+<a id="action-system-solution"></a>
+### [해결](#index)
+
+**1\. Character 책임 분리**
+
+[After 구조 다이어그램]
+
+<strong>`Character`</strong> 중심 구조를 다음과 같이 역할 기반 구조로 분리했습니다.
+
+- **`Character`**
+  - 입력 처리
+- **`WeaponSystemComponent`**
+  - Action 제출
+  - 서버 승인
+  - 상태 업데이트
+- **`ActionHandler`**
+  - Action을 Animation Context로 변환
+- **`AnimDriver`**
+  - 애니메이션 재생
+
+**2\. 행동 처리 구조 통합**
+
+[After 시퀀스 다이어그램]
+[ActionContext 다이어그램]
+
+행동을 공통 데이터 구조인 <strong>`ActionContext`</strong>로 표현하고, 모든 행동이 동일한 처리 파이프라인을 거치도록 설계했습니다.
+
+- 입력을 <strong>`ActionContext`</strong>로 변환하여 제출
+- 행동 종류를 <strong>`ActionType`</strong>으로 구분
+- 서버와 클라이언트에서 동일한 처리 구조 유지
+
+**3\. Sequence 기반 순서 제어**
+
+멀티플레이 환경에서 행동 처리 순서를 안정적으로 유지하기 위해 <strong>`Sequence ID`</strong>를 도입했습니다.
+
+- <strong>`ClientSequence`</strong>
+  - 클라이언트 입력 순서 관리
+- <strong>`ServerSequence`</strong>
+  - 서버 커밋 순서 관리
+
+<a id="action-system-result"></a>
+### [결과](#index)
+
+Action 기반 구조를 도입한 결과 다음과 같은 효과를 얻을 수 있었습니다.
+
+**1\. 구조 단순화**
+
+- 모든 행동 처리를 **Action 파이프라인**으로 통합
+- 행동 처리 흐름을 하나의 구조로 관리
+  
+**→** 코드 구조 단순화 및 **가독성, 유지보수성 개선**
+
+
+**2\. 시스템 확장성 개선**
+
+- 행동을 공통 Action 구조로 관리
+- 새로운 행동 추가 시 최소한의 수정만 필요
+
+**→** **기존 코드 수정 없이 행동 확장 가능**
+
+**3\. 멀티플레이 정합성 확보**
+
+- `Sequence ID` 기반 순서 제어 구조 도입
+- 네트워크 지연 환경에서도 행동 순서 유지
+
+**→** 멀티플레이 환경에서 발생하는 **Action 순서 불일치 문제 해결**
+
+
 
 <br>
 
-<a id="the-first-foreigner"></a>
-# [3-2. The First Foreigner](#index) <img src="https://img.shields.io/badge/Team-6aa84f?style=flat" align="absmiddle"/> <img src="https://img.shields.io/badge/Unreal%20Engine-0E1128?style=flat&logo=unrealengine&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C++-00599C?style=flat&logo=cplusplus&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/Steam-000000?style=flat&logo=steam&logoColor=white" align="absmiddle"/>
+<a id="fastarray-inventory"></a>
+## [Fast Array 기반 인벤토리 시스템](#index) 
 
-<div align="center"><h3><strong><em>제한된 시간, 끊어진 언어, 오해와 설명 속에서 외국인을 마주한 듯한 혼돈의 소통을 즐겨보세요!</em></strong></h3></div>
-
-<p align="center">
-	<img src="images/The First Foreigner/The First Foreigner.png" alt="The First Foreigner" width="75%">>
-	<img src="images/The First Foreigner/features1.gif" width="32%">
-	<img src="images/The First Foreigner/features2.gif" width="32%">
-	<img src="images/The First Foreigner/features3.gif" width="32%">
-</p>
-
-## 📌 프로젝트 소개
-- **프로젝트 유형**: 팀 프로젝트 게임 개발 (기획·레벨 디자인 1명, 프로그래밍 1명)
-- **프로젝트 목적**: 네트워크 게임의 전반적인 작동 원리를 학습하고, 게임 출시를 통해 피드백을 받아보는 것을 목표로 함
-- **본인 역할**: 프로그래밍
-- **게임 장르**: 3D 멀티플레이 캐주얼
-- **게임 개요**: 두 명의 플레이어가 번갈아 제시어를 행동이나 사물로 표현하고 상대가 이를 추리해 맞춤
-- **개발 기간**: 2024.09 ~ 2024.12, 2025.05 ~ 2025.06
-- **개발 상태**: Steam 게시 완료 (개발 종료)
-- **개발 환경**: Unreal 5.2.1, Windows 10
-- **주요 기술**: Unreal Engine 5, C++
-
-## 🎯 담당 업무
-- Unreal Gameplay Framework 기반 **게임 플레이 로직** 구현   
-- Replication·RPC 기반 **데이터 동기화 및 명령 처리**   
-- AnimBP·AnimInstance·State Machine 기반 **애니메이션 제어**
-- Widget Blueprint 기반 **동적 UI** 제작 및 **데이터 연동**
-- Online Subsystem 기반 **세션 관리**
-
-## 🛠 주요 이슈 
-- 클라이언트 간 캐릭터 시선 불일치 → 서버 RPC와 NetMulticast 동기화로 해결
-- 클라이언트 세션 종료 오류 → 호스트 종료 전 Client RPC 호출로 클라이언트 세션 정상 종료
-- Steam 닉네임 깨짐 → Base64 인코딩·복호화 적용 후 정상 출력
-
-## 🔗 추가 정보
-- **상세 내용 및 구현 코드**   
-	<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="15" /> [GitHub Repository](https://github.com/pwdab/The-First-Foreigner)에서 확인 가능합니다.
-- **게임 플레이**   
-	<img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" width="15" align="absmiddle"/> [Steam](https://store.steampowered.com/app/3634090/The_First_Foreigner/)에서 게임 다운로드 후 실행
-- **플레이 영상**   
-	<img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="15" align="absmiddle"/> [YouTube](https://www.youtube.com/watch?v=AIy8zwr5r8M)에서 플레이 영상을 시청할 수 있습니다.
+<a id="fastarray-inventory-problem"></a>
+### [문제](#index)
+멀티플레이 환경에서 인벤토리 데이터를 비효율적으로 동기화하고 있었습니다.
+<a id="fastarray-inventory-analysis"></a>
+### [원인](#index)
+인벤토리 전체 데이터를 전송하면서 불필요한 네트워크 트래픽이 발생했습니다.
+<a id="fastarray-inventory-solution"></a>
+### [해결](#index)
+Fast Array Replication 기반 인벤토리 구조 설계
+- FastArraySerializer 사용
+- 변경된 슬롯만 동기화
+<a id="fastarray-inventory-result"></a>
+### [결과](#index)
+- 네트워크 트래픽 감소
+- 인벤토리 동기화 효율 개선
 
 <br>
 
-<a id="project_x"></a>
-# [3-3. Project_X](#index) <img src="https://img.shields.io/badge/Solo-3c78d8?style=flat" align="absmiddle"/> <img src="https://img.shields.io/badge/Unreal%20Engine-0E1128?style=flat&logo=unrealengine&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/C++-00599C?style=flat&logo=cplusplus&logoColor=white" align="absmiddle"/> <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" align="absmiddle"/>
+<a id="session-sync"></a>
+## [멀티플레이 세션 종료 동기화](#index) 
 
-<div align="center"><h3><strong><em>구현을 넘어 설계와 구조로, 나만의 TPS 멀티플레이 템플릿을 만들어 갑니다</em></strong></h3></div>
-
-<p align="center">
-	<img src="images/Project_X/Project_X.png" alt="Project_X" width="75%">
-	<img src="images/Project_X/features1.gif" width="40%">
-	<img src="images/Project_X/features2.gif" width="35%">
-	<img src="images/Project_X/features3.gif" width="20%">
-</p>
-
-
-## 📌 프로젝트 소개
-- **프로젝트 유형**: 개인 프로젝트 게임 개발 (프로그래밍 1명)
-- **프로젝트 목적**: 단순 기능 구현보다 깔끔하고 가독성 좋은 코드, 설계와 구조화에 집중하는 것을 목표로 함
-- **본인 역할**: 프로그래밍
-- **게임 장르**: 3D 멀티플레이 TPS
-- **게임 개요**: TPS 멀티플레이 게임의 공통 시스템을 설계·구현하며, C++ 기반 설계·코드 품질·모듈화·확장성에 집중
-- **개발 기간**: 2025.04.11 ~ 진행 중
-- **개발 상태**: 개발 중
-- **개발 환경**: Unreal 5.4.4, Windows 10
-- **주요 기술**: Unreal Engine 5, C++
-
-## 🎯 담당 업무
-- 프로젝트를 Client·Server·Common 구조로 분리해 **모듈화**·**유지보수성**·**확장성** 강화
-- **단일 책임 원칙** 기반 클래스 설계 및 **Actor Component** 모듈화로 **재사용성** 확보
-- 목적에 따라 State Machine **분리 설계** 및 최종 **Pose 블렌딩** 파이프라인 구현   
-- **Aim Offset** 적용으로 컨트롤러 조준 방향과 캐릭터 상체 회전 일치   
-
-## 🛠 주요 이슈 
-- BeginAim()이 한 번만 호출되어 AimProgress 누적 불가 → TimelineComponent·FCurve로 프레임 낭비 없이 제어
-- 화살이 캐릭터 정면으로 발사되어 조준 방향과 불일치 → 조준 방향을 서버에 전달해 정확한 화살 발사 구현
-
-## 🔗 추가 정보
-- **구현 코드**   
-	<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="15"/> [GitHub Repository](https://github.com/pwdab/Project_X)에서 확인 가능합니다.
-- **개발 일지**   
-	<img src="https://pbs.twimg.com/profile_images/1228368893321736193/Ov0og7E8_400x400.jpg" width="15"/> [Velog](https://velog.io/@pwdab/series/Project-X)에서 확인 가능합니다.
+<a id="session-sync-problem"></a>
+### [문제](#index)
+호스트가 세션을 종료할 경우 클라이언트가 정상적으로 종료되지 않는 문제가 발생했습니다.
+<a id="session-sync-analysis"></a>
+### [원인](#index)
+세션 종료 흐름이 클라이언트에 전파되지 않는 구조였습니다.
+<a id="session-sync-solution"></a>
+### [해결](#index)
+호스트가 종료 전에 Client RPC를 통해 종료 신호를 모든 클라이언트에 전파하도록 구조 개선
+<a id="session-sync-result"></a>
+### [결과](#index)
+모든 클라이언트가 정상적으로 세션을 종료하도록 개선
 
 <br>
 
